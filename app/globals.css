@@ -2,22 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Brand palette (raw) */
+    --brand-olive: #6b7f3f;
+    --brand-gold: #d4923a;
+    --brand-cream: #faf8f3;
+    --brand-charcoal: #2a2a2a;
+
+    /* Semantic surface tokens */
+    --background: var(--brand-cream);
+    --foreground: var(--brand-charcoal);
+
+    /* shadcn/ui tokens (HSL, no hsl() wrapper) */
+    --card: 43 40% 97%;
+    --card-foreground: 0 0% 16%;
+    --popover: 43 40% 97%;
+    --popover-foreground: 0 0% 16%;
+    --primary: 79 34% 37%;
+    --primary-foreground: 43 40% 97%;
+    --secondary: 43 40% 92%;
+    --secondary-foreground: 0 0% 16%;
+    --muted: 43 30% 90%;
+    --muted-foreground: 0 0% 38%;
+    --accent: 34 64% 53%;
+    --accent-foreground: 0 0% 16%;
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 43 40% 97%;
+    --border: 43 20% 85%;
+    --input: 43 20% 85%;
+    --ring: 79 34% 37%;
+    --radius: 0.5rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  }
 }
 
 @layer utilities {
