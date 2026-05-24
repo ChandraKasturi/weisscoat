@@ -1,24 +1,18 @@
+import Header from "@/components/sections/Header";
+import Footer from "@/components/sections/Footer";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background text-foreground">
-      <div className="container py-24">
-        <p className="font-display text-sm uppercase tracking-[0.2em] text-primary">
-          Weisscoat
-        </p>
-        <h1 className="mt-4 font-display text-5xl font-semibold tracking-tight">
-          Foundation ready.
-        </h1>
-        <p className="mt-4 max-w-xl text-base text-muted-foreground">
-          Brand tokens, fonts, and component scaffolding are wired up. Sections
-          can now be assembled in <code>components/sections</code>.
-        </p>
-        <div className="mt-8 flex items-center gap-3">
-          <span className="h-10 w-10 rounded-md bg-brand-olive" />
-          <span className="h-10 w-10 rounded-md bg-brand-gold" />
-          <span className="h-10 w-10 rounded-md border border-border bg-brand-cream" />
-          <span className="h-10 w-10 rounded-md bg-brand-charcoal" />
+    <>
+      <Header />
+      <main className="min-h-[60vh]">
+        <div className="mx-auto flex min-h-[60vh] max-w-[1280px] items-center justify-center px-6 md:px-12">
+          <p className="text-sm text-brand-charcoal/60">
+            Sections coming next.
+          </p>
         </div>
-      </div>
-    </main>
+      </main>
+      <Footer />
+    </>
   );
 }
