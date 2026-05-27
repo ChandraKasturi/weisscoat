@@ -4,35 +4,51 @@
 
 @layer base {
   :root {
-    /* Brand palette (raw) */
-    --brand-olive: #6b7f3f;
-    --brand-gold: #d4923a;
-    --brand-cream: #faf8f3;
-    --brand-charcoal: #2a2a2a;
+    /* === Brand palette (extracted from Figma file AzjfFFUaUEgGLHXT32vH2a) === */
+    --brand-headline: #2b412a;          /* deep olive — headlines */
+    --brand-body: rgba(7, 0, 59, 0.75); /* bluish charcoal — body */
+    --brand-body-strong: #07003b;
+    --brand-sage: #5b6a5a;              /* button + nav accents */
+    --brand-mint-start: #d1efcf;        /* hero gradient start */
+    --brand-mint-end: #ebfdea;          /* hero gradient end */
+    --brand-mint-pill: #b4e9b7;         /* eyebrow pill */
+    --brand-cream: #f6fbe9;             /* Green/95 — sub-section bg */
+    --brand-cream-2: #e5f5bd;           /* Green/85 — accents */
 
-    /* Semantic surface tokens */
-    --background: var(--brand-cream);
-    --foreground: var(--brand-charcoal);
+    /* Floating-card / blue accent palette */
+    --accent-blue-dark: #1b3c74;        /* 84k+ heading */
+    --accent-blue-soft: #77829d;        /* captions */
+    --accent-blue-deep: #0b1c30;        /* pill text */
+    --accent-blue-tint: rgba(42, 167, 255, 0.16); /* blue glow shadow */
 
-    /* shadcn/ui tokens (HSL, no hsl() wrapper) */
-    --card: 43 40% 97%;
-    --card-foreground: 0 0% 16%;
-    --popover: 43 40% 97%;
-    --popover-foreground: 0 0% 16%;
-    --primary: 79 34% 37%;
-    --primary-foreground: 43 40% 97%;
-    --secondary: 43 40% 92%;
-    --secondary-foreground: 0 0% 16%;
-    --muted: 43 30% 90%;
-    --muted-foreground: 0 0% 38%;
-    --accent: 34 64% 53%;
-    --accent-foreground: 0 0% 16%;
+    --surface-white: #ffffff;
+    --surface-card: rgba(246, 249, 255, 0.81); /* floating cards */
+
+    --border-soft: #c6c6cd;
+
+    /* Semantic shortcuts */
+    --background: #ffffff;
+    --foreground: var(--brand-headline);
+
+    /* shadcn/ui legacy tokens (kept so any shadcn comps still render) */
+    --card: 0 0% 100%;
+    --card-foreground: 119 21% 21%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 119 21% 21%;
+    --primary: 119 21% 21%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 95 56% 95%;
+    --secondary-foreground: 119 21% 21%;
+    --muted: 95 30% 95%;
+    --muted-foreground: 222 14% 54%;
+    --accent: 95 56% 80%;
+    --accent-foreground: 119 21% 21%;
     --destructive: 0 70% 45%;
-    --destructive-foreground: 43 40% 97%;
-    --border: 43 20% 85%;
-    --input: 43 20% 85%;
-    --ring: 79 34% 37%;
-    --radius: 0.5rem;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 119 21% 21%;
+    --radius: 0.75rem;
   }
 }
 
@@ -42,21 +58,20 @@
   }
   body {
     background-color: var(--background);
-    color: var(--foreground);
+    color: var(--brand-body);
+    font-family: "Satoshi", var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
   }
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    font-family: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Satoshi", var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+    color: var(--brand-headline);
   }
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+  .text-balance { text-wrap: balance; }
+  .font-satoshi { font-family: "Satoshi", ui-sans-serif, system-ui, sans-serif; }
+  .font-poppins { font-family: var(--font-poppins), ui-sans-serif, system-ui, sans-serif; }
+  .font-inter { font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif; }
 }
