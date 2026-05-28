@@ -41,7 +41,7 @@ export default function Hero() {
             <img
               alt=""
               src="/figma/icons/hero-ring.png"
-              className="absolute block left-[40px] size-[480px] top-[-60px] object-contain opacity-90"
+              className="absolute block left-[100px] size-[480px] top-[-60px] object-contain opacity-90"
               data-node-id="5:14"
             />
             <img

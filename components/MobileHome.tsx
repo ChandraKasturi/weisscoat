@@ -103,7 +103,7 @@ function Hero() {
           <img
             alt=""
             src="/figma/icons/hero-ring.png"
-            className="absolute -top-6 left-1/2 -translate-x-1/2 h-72 w-72 object-contain opacity-90"
+            className="absolute -top-6 left-[58%] -translate-x-1/2 h-72 w-72 object-contain opacity-90"
           />
           <img
             alt=""
