@@ -9,12 +9,11 @@ export default function Testimonials() {
       </div>
       <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold h-[108px] leading-[36px] not-italic relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] text-center tracking-[-0.3px] w-[1100px]" data-node-id="14:54">{`"Before Weisscoat, I spent too much time gathering basic history and typing notes. Now I start every consultation with structured context and can focus more on the patient."`}</p>
       <div className="bg-[var(--neutral\/white,white)] content-stretch flex gap-[32px] h-[200px] items-center overflow-clip px-[40px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shadow-[0px_4px_24px_0px_rgba(0,0,0,0.06)] shrink-0" data-node-id="14:55">
-        <img
-          alt=""
-          src="/figma/icons/testimonial-rao.png"
-          className="object-cover overflow-clip relative rounded-[var(--radius\/lg,16px)] shrink-0 h-[160px] w-[200px]"
-          data-node-id="14:58"
-        />
+        <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[96px]" data-node-id="14:58">
+          <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[64px] left-[20px] not-italic text-[56px] text-black top-[16px] whitespace-nowrap" data-node-id="14:57">
+            👩‍⚕️
+          </p>
+        </div>
         <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-start not-italic overflow-clip relative shrink-0 w-[900px]" data-node-id="14:59">
           <p className="font-['Inter:Bold'] font-bold leading-[40px] relative shrink-0 text-[48px] text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap" data-node-id="14:60">{`"`}</p>
           <p className="font-['Inter:Regular'] font-normal h-[56px] leading-[28px] relative shrink-0 text-[18px] text-[color:var(--text\/primary,#1a201c)] w-[900px]" data-node-id="14:61">

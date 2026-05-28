@@ -16,7 +16,11 @@ export default function FourLayers() {
       <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:7" data-name="Frame">
         <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:8" data-name="Frame">
           <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:9" data-name="AI Pre-Screening">
-            <img alt="" src="/figma/icons/layer-prescreen.png" className="object-contain shrink-0 size-[64px]" data-node-id="9:10" />
+            <div className="bg-[var(--accent\/blue,#4682dc)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:10" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:11">
+                🔍
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:12">
               AI Pre-Screening
             </p>
@@ -28,7 +32,11 @@ export default function FourLayers() {
             </p>
           </div>
           <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:15" data-name="Flexible Online Learning">
-            <img alt="" src="/figma/icons/layer-learning.png" className="object-contain shrink-0 size-[64px]" data-node-id="9:16" />
+            <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:16" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:17">
+                🎓
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:18">
               Flexible Online Learning
             </p>
@@ -42,7 +50,11 @@ export default function FourLayers() {
         </div>
         <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:21" data-name="Frame">
           <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:22" data-name="Practical & Career-Focused">
-            <img alt="" src="/figma/icons/layer-career.png" className="object-contain shrink-0 size-[64px]" data-node-id="9:23" />
+            <div className="bg-[var(--brand\/primary,#5b8c5a)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:23" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:24">
+                💼
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:25">{`Practical & Career-Focused`}</p>
             <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[96px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[556px]" data-node-id="9:26">
               After the visit, the doctor records a quick voice summary clearly explaining the diagnosis, treatment rationale, prescription instructions, and care advice.
@@ -52,7 +64,11 @@ export default function FourLayers() {
             </p>
           </div>
           <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:28" data-name="Trusted Medical Content">
-            <img alt="" src="/figma/icons/layer-trusted.png" className="object-contain shrink-0 size-[64px]" data-node-id="9:29" />
+            <div className="bg-[var(--accent\/yellow,#f5c850)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:29" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:30">
+                ✅
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:31">
               Trusted Medical Content
             </p>

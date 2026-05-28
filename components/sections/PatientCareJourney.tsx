@@ -15,7 +15,11 @@ export default function PatientCareJourney() {
       <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="8:7" data-name="Frame">
         <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shadow-[0px_4px_16px_0px_rgba(0,0,0,0.04)] shrink-0 w-[390px]" data-node-id="8:8" data-name="Pre Screening & Data Gathering">
           <div className="content-stretch flex h-[56px] items-center justify-between overflow-clip relative shrink-0 w-[334px]" data-node-id="8:9" data-name="Frame">
-            <img alt="" src="/figma/icons/journey-prescreen.png" className="object-contain shrink-0 h-[100px] w-[160px]" data-node-id="8:10" />
+            <div className="bg-[var(--accent\/blue,#4682dc)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[56px]" data-node-id="8:10" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[26px] text-black top-[13px] whitespace-nowrap" data-node-id="8:11">
+                👥
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[36px] not-italic relative shrink-0 text-[32px] text-[color:var(--brand\/primary-light,#a6c8a5)] whitespace-nowrap" data-node-id="8:12">
               01
             </p>
@@ -25,7 +29,11 @@ export default function PatientCareJourney() {
         </div>
         <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shadow-[0px_4px_16px_0px_rgba(0,0,0,0.04)] shrink-0 w-[390px]" data-node-id="8:15" data-name="Voice-Captured Consultation">
           <div className="content-stretch flex h-[56px] items-center justify-between overflow-clip relative shrink-0 w-[334px]" data-node-id="8:16" data-name="Frame">
-            <img alt="" src="/figma/icons/journey-voice.png" className="object-contain shrink-0 h-[100px] w-[160px]" data-node-id="8:17" />
+            <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[56px]" data-node-id="8:17" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[26px] text-black top-[13px] whitespace-nowrap" data-node-id="8:18">
+                🎤
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[36px] not-italic relative shrink-0 text-[32px] text-[color:var(--brand\/primary-light,#a6c8a5)] whitespace-nowrap" data-node-id="8:19">
               02
             </p>
@@ -39,7 +47,11 @@ export default function PatientCareJourney() {
         </div>
         <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shadow-[0px_4px_16px_0px_rgba(0,0,0,0.04)] shrink-0 w-[390px]" data-node-id="8:22" data-name="Automated Post-Care Tether">
           <div className="content-stretch flex h-[56px] items-center justify-between overflow-clip relative shrink-0 w-[334px]" data-node-id="8:23" data-name="Frame">
-            <img alt="" src="/figma/icons/journey-postcare.png" className="object-contain shrink-0 h-[100px] w-[160px]" data-node-id="8:24" />
+            <div className="bg-[var(--accent\/yellow,#f5c850)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[56px]" data-node-id="8:24" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[26px] text-black top-[13px] whitespace-nowrap" data-node-id="8:25">
+                📊
+              </p>
+            </div>
             <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[36px] not-italic relative shrink-0 text-[32px] text-[color:var(--brand\/primary-light,#a6c8a5)] whitespace-nowrap" data-node-id="8:26">
               03
             </p>

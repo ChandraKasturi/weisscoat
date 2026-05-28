@@ -12,7 +12,11 @@ export default function ProblemGrid() {
       </div>
       <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="6:6" data-name="Problem Cards Grid">
         <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[290px]" data-node-id="6:7" data-name="Repetitive Patient Intake">
-          <img alt="" src="/figma/icons/problem-intake.png" className="object-contain shrink-0 size-[88px]" data-node-id="6:8" />
+          <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[48px]" data-node-id="6:8" data-name="Frame">
+            <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[13px] not-italic text-[22px] text-black top-[9px] whitespace-nowrap" data-node-id="6:9">
+              💬
+            </p>
+          </div>
           <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[26px] not-italic relative shrink-0 text-[20px] text-[color:var(--text\/primary,#1a201c)] w-[234px]" data-node-id="6:10">
             Repetitive Patient Intake
           </p>
@@ -21,7 +25,11 @@ export default function ProblemGrid() {
           </p>
         </div>
         <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[290px]" data-node-id="6:12" data-name="Documentation Burden">
-          <img alt="" src="/figma/icons/problem-docs.png" className="object-contain shrink-0 size-[88px]" data-node-id="6:13" />
+          <div className="bg-[var(--accent\/blue,#4682dc)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[48px]" data-node-id="6:13" data-name="Frame">
+            <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[13px] not-italic text-[22px] text-black top-[9px] whitespace-nowrap" data-node-id="6:14">
+              📝
+            </p>
+          </div>
           <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[26px] not-italic relative shrink-0 text-[20px] text-[color:var(--text\/primary,#1a201c)] w-[234px]" data-node-id="6:15">
             Documentation Burden
           </p>
@@ -30,7 +38,11 @@ export default function ProblemGrid() {
           </p>
         </div>
         <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[290px]" data-node-id="6:17" data-name="Weak Post-Care">
-          <img alt="" src="/figma/icons/problem-postcare.png" className="object-contain shrink-0 size-[88px]" data-node-id="6:18" />
+          <div className="bg-[var(--accent\/red,#dc5a5a)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[48px]" data-node-id="6:18" data-name="Frame">
+            <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[13px] not-italic text-[22px] text-black top-[9px] whitespace-nowrap" data-node-id="6:19">
+              ⚠️
+            </p>
+          </div>
           <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[26px] not-italic relative shrink-0 text-[20px] text-[color:var(--text\/primary,#1a201c)] w-[234px]" data-node-id="6:20">
             Weak Post-Care
           </p>
@@ -39,7 +51,11 @@ export default function ProblemGrid() {
           </p>
         </div>
         <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[20px] items-start overflow-clip px-[28px] py-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[290px]" data-node-id="6:22" data-name="Lost Clinical Wisdom">
-          <img alt="" src="/figma/icons/problem-wisdom.png" className="object-contain shrink-0 size-[88px]" data-node-id="6:23" />
+          <div className="bg-[var(--accent\/yellow,#f5c850)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[48px]" data-node-id="6:23" data-name="Frame">
+            <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[13px] not-italic text-[22px] text-black top-[9px] whitespace-nowrap" data-node-id="6:24">
+              💡
+            </p>
+          </div>
           <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[26px] not-italic relative shrink-0 text-[20px] text-[color:var(--text\/primary,#1a201c)] w-[234px]" data-node-id="6:25">
             Lost Clinical Wisdom
           </p>
