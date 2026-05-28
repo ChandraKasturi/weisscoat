@@ -151,13 +151,7 @@ function Persona() {
           Weisscoat creates a digital assistant modeled around each doctor&apos;s specific clinical persona. It doesn&apos;t just record; it understands how you practice medicine.
         </p>
       </div>
-      <div
-        className="h-64 rounded-3xl relative overflow-hidden flex items-center justify-center"
-        style={{ background: "linear-gradient(139deg, #5c8c59 0%, #8cba8a 71%)" }}
-      >
-        <span className="text-[100px]">🤖</span>
-        <p className="absolute bottom-5 font-semibold text-white text-sm">AI ⇄ Doctor</p>
-      </div>
+      <img alt="" src="/figma/icons/persona-robot.png" className="h-72 w-full rounded-3xl object-cover" />
       <div className="flex flex-col gap-3">
         <h3 className="font-bold text-[22px] leading-[28px] tracking-[-0.4px]">
           Weisscoat creates a digital clone for every doctor.
@@ -168,12 +162,12 @@ function Persona() {
       </div>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
-          <div className="size-10 rounded-xl bg-[#d4e6d0] flex items-center justify-center text-lg">🎯</div>
+          <img alt="" src="/figma/icons/persona-clinic.png" className="size-14 object-contain" />
           <p className="font-semibold text-[16px]">Persona Matching</p>
           <p className="text-[13px] leading-[20px] text-[#555f58]">Learns your specific diagnostic vocabulary and note-taking style.</p>
         </div>
         <div className="flex flex-col gap-2">
-          <div className="size-10 rounded-xl bg-[#d4e6d0] flex items-center justify-center text-lg">🧠</div>
+          <img alt="" src="/figma/icons/persona-stethoscope.png" className="size-14 object-contain" />
           <p className="font-semibold text-[16px]">Contextual Intelligence</p>
           <p className="text-[13px] leading-[20px] text-[#555f58]">Understands medical nuances beyond simple speech-to-text conversion.</p>
         </div>

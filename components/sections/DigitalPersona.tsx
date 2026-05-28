@@ -1,6 +1,3 @@
-const imgEllipse = "https://www.figma.com/api/mcp/asset/d29ef6f9-5878-4aaf-96ee-bf2653f5fa2e";
-const imgEllipse1 = "https://www.figma.com/api/mcp/asset/93e70fc3-0684-4db1-b092-eedae5793607";
-
 export default function DigitalPersona() {
   return (
     <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[48px] items-center p-[80px] relative size-full" data-node-id="7:2" data-name="Digital Persona Section">
@@ -17,20 +14,12 @@ export default function DigitalPersona() {
         </div>
       </div>
       <div className="content-stretch flex gap-[48px] items-center overflow-clip relative shrink-0" data-node-id="7:7" data-name="Frame">
-        <div className="h-[480px] overflow-clip relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-[560px]" data-node-id="7:8" style={{ backgroundImage: "linear-gradient(139.39870535499554deg, rgb(92, 140, 89) 0%, rgb(140, 186, 138) 71.429%)" }} data-name="Digital Clone Visual">
-          <div className="absolute left-[360px] size-[280px] top-[-60px]" data-node-id="7:9" data-name="Ellipse">
-            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
-          </div>
-          <div className="absolute left-[-40px] size-[180px] top-[340px]" data-node-id="7:10" data-name="Ellipse">
-            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
-          </div>
-          <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[160px] left-[210px] not-italic text-[140px] text-black top-[160px] whitespace-nowrap" data-node-id="7:11">
-            🤖
-          </p>
-          <p className="[word-break:break-word] absolute font-['Inter:Semi_Bold'] font-semibold leading-[22px] left-[220px] not-italic text-[16px] text-[color:var(--text\/inverse,white)] top-[380px] whitespace-nowrap" data-node-id="7:12">
-            AI ⇄ Doctor
-          </p>
-        </div>
+        <img
+          alt=""
+          src="/figma/icons/persona-robot.png"
+          className="h-[480px] object-cover overflow-clip relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-[560px]"
+          data-node-id="7:8"
+        />
         <div className="content-stretch flex flex-col gap-[32px] items-start overflow-clip relative shrink-0 w-[540px]" data-node-id="7:13" data-name="Frame">
           <div className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[0] not-italic relative shrink-0 text-[32px] text-[color:var(--text\/primary,#1a201c)] tracking-[-0.5px] w-[540px]" data-node-id="7:14">
             <p className="leading-[40px] mb-0">Weisscoat creates a digital</p>
@@ -39,11 +28,7 @@ export default function DigitalPersona() {
           <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[144px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[540px]" data-node-id="7:15">{`Instead of relying on a generic, one-size-fits-all medical AI model, Weisscoat architectically builds personalized AI agents modeled around each individual doctor's unique clinical persona. The platform learns how a specific doctor asks questions, reviews symptoms, interprets patient context, records reasoning, and guides post-care.`}</p>
           <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="7:16" data-name="Frame">
             <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip relative shrink-0 w-[258px]" data-node-id="7:17" data-name="Frame">
-              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[40px]" data-node-id="7:18" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[24px] left-[10px] not-italic text-[20px] text-black top-[8px] whitespace-nowrap" data-node-id="7:19">
-                  🎯
-                </p>
-              </div>
+              <img alt="" src="/figma/icons/persona-clinic.png" className="object-contain shrink-0 size-[56px]" data-node-id="7:18" />
               <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="7:20">
                 Persona Matching
               </p>
@@ -52,11 +37,7 @@ export default function DigitalPersona() {
               </p>
             </div>
             <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip relative shrink-0 w-[258px]" data-node-id="7:22" data-name="Frame">
-              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[40px]" data-node-id="7:23" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[24px] left-[10px] not-italic text-[20px] text-black top-[8px] whitespace-nowrap" data-node-id="7:24">
-                  🧠
-                </p>
-              </div>
+              <img alt="" src="/figma/icons/persona-stethoscope.png" className="object-contain shrink-0 size-[56px]" data-node-id="7:23" />
               <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="7:25">
                 Contextual Intelligence
               </p>
