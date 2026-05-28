@@ -261,7 +261,7 @@ function FourLayers() {
 
 function Step({ num, color, title, body, children }: { num: string; color: string; title: string; body: string; children?: React.ReactNode }) {
   return (
-    <div className="flex gap-3 items-start">
+    <div className="flex gap-3 items-center">
       <div
         className="size-11 rounded-full flex items-center justify-center text-white font-bold text-base shrink-0"
         style={{ backgroundColor: color }}

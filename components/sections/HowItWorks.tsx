@@ -12,7 +12,7 @@ function Step({
   children?: React.ReactNode;
 }) {
   return (
-    <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0">
+    <div className="content-stretch flex gap-[24px] items-center overflow-clip relative shrink-0">
       <div className={`${bg} overflow-clip relative rounded-[var(--radius\\/full,999px)] shrink-0 size-[64px]`}>
         <p className="[word-break:break-word] absolute font-['Inter:Bold'] font-bold leading-[26px] left-[18px] not-italic text-[20px] text-[color:var(--text\/inverse,white)] top-[19px] whitespace-nowrap">
           {num}
