@@ -1,54 +1,23 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-
-const ease = "easeOut" as const;
-
 export default function CTA() {
   return (
-    <section className="w-full bg-white px-6 pt-12 pb-20 md:px-12 md:pt-16 md:pb-28">
-      <div className="mx-auto max-w-[1280px]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.7, ease }}
-          className="relative overflow-hidden rounded-[28px] bg-brand-sage px-8 py-16 text-center md:px-12 md:py-20"
-        >
-          {/* subtle decorative glow */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -right-24 -top-24 h-[300px] w-[300px] rounded-full bg-brand-mint-pill/20 blur-3xl"
-          />
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -bottom-20 -left-16 h-[260px] w-[260px] rounded-full bg-white/10 blur-3xl"
-          />
-
-          <p className="relative font-display text-[14px] font-medium uppercase tracking-[0.18em] text-white/80">
-            Designed for Impactful Healthcare AI
+    <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col items-center px-[80px] py-[64px] relative size-full" data-node-id="16:2" data-name="CTA Section">
+      <div className="[word-break:break-word] bg-gradient-to-r content-stretch flex flex-col from-[#d9e5d4] gap-[24px] items-center not-italic overflow-clip p-[64px] relative rounded-[var(--radius\/2xl,32px)] shrink-0 to-[#e8f0e5] w-[1280px]" data-node-id="16:3" data-name="CTA Card">
+        <p className="font-['Inter:Bold'] font-bold leading-[48px] relative shrink-0 text-[40px] text-[color:var(--text\/primary,#1a201c)] text-center tracking-[-0.8px] whitespace-nowrap" data-node-id="16:4">
+          Ready to build an intelligent clinic?
+        </p>
+        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] text-center w-[680px]" data-node-id="16:5">
+          <p className="leading-[28px] mb-0">Talk to the Weisscoat team and discover how personalized AI agents can</p>
+          <p className="leading-[28px]">transform your clinic workflow.</p>
+        </div>
+        <div className="bg-[var(--brand\/primary,#5b8c5a)] content-stretch flex gap-[12px] items-center leading-[20px] overflow-clip px-[32px] py-[18px] relative rounded-[var(--radius\/full,999px)] shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="16:6">
+          <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0" data-node-id="16:7">
+            Take My Health Assessment
           </p>
-          <h2 className="relative mt-3 font-display text-[34px] font-bold leading-[1.15] tracking-[-0.01em] text-white md:text-[44px]">
-            Ready to build an intelligent clinic?
-          </h2>
-          <p className="relative mx-auto mt-5 max-w-[640px] font-display text-[16px] leading-[1.7] text-white/85 md:text-[17px]">
-            Talk to the Weisscoat team and see how personalized AI agents can transform your clinic&apos;s
-            workflow, throughput, and clinical intelligence asset.
+          <p className="font-['Inter:Bold'] font-bold relative shrink-0" data-node-id="16:8">
+            →
           </p>
-
-          <motion.button
-            type="button"
-            whileHover={{ scale: 1.03 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2, ease }}
-            className="relative mt-9 inline-flex items-center gap-2 rounded-[12px] bg-white px-8 py-4 font-poppins text-[15.5px] font-semibold text-brand-headline shadow-button-blue transition-colors duration-200 hover:bg-brand-cream"
-          >
-            Book a Demo
-            <ArrowRight size={18} />
-          </motion.button>
-        </motion.div>
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

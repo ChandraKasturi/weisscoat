@@ -1,5 +1,5 @@
-import Header from "@/components/sections/Header";
-import Footer from "@/components/sections/Footer";
+import TopBar from "@/components/sections/TopBar";
+import NavigationBar from "@/components/sections/NavigationBar";
 import Hero from "@/components/sections/Hero";
 import ProblemGrid from "@/components/sections/ProblemGrid";
 import DigitalPersona from "@/components/sections/DigitalPersona";
@@ -14,13 +14,14 @@ import Security from "@/components/sections/Security";
 import Testimonials from "@/components/sections/Testimonials";
 import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
-import KeepInTouch from "@/components/sections/KeepInTouch";
+import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Header />
-      <main className="min-h-screen">
+    <div className="w-full overflow-x-auto bg-white">
+      <div className="mx-auto w-[1440px]">
+        <TopBar />
+        <NavigationBar />
         <Hero />
         <ProblemGrid />
         <DigitalPersona />
@@ -35,9 +36,8 @@ export default function Home() {
         <Testimonials />
         <FAQ />
         <CTA />
-        <KeepInTouch />
-      </main>
-      <Footer />
-    </>
+        <Footer />
+      </div>
+    </div>
   );
 }

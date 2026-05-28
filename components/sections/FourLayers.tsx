@@ -1,93 +1,86 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { Layers, BrainCircuit, ShieldCheck, ArrowUpRightFromSquare, type LucideIcon } from "lucide-react";
-
-const ease = "easeOut" as const;
-
-type Layer = {
-  Icon: LucideIcon;
-  tag: string;
-  title: string;
-  body: string;
-};
-
-const layers: Layer[] = [
-  {
-    Icon: Layers,
-    tag: "Layer 1",
-    title: "Persona Foundation",
-    body: "Each doctor's questioning style, diagnostic logic, and clinical vocabulary is captured as a structured persona.",
-  },
-  {
-    Icon: BrainCircuit,
-    tag: "Layer 2",
-    title: "Reasoning Engine",
-    body: "AI agents combine the persona with current patient context to generate doctor-style clinical notes and care plans.",
-  },
-  {
-    Icon: ArrowUpRightFromSquare,
-    tag: "Layer 3",
-    title: "Continuous Care Tether",
-    body: "Automated post-care monitoring keeps patients connected via WhatsApp, SMS, and app notifications.",
-  },
-  {
-    Icon: ShieldCheck,
-    tag: "Layer 4",
-    title: "Clinical Intelligence Asset",
-    body: "Every case enriches a searchable, auditable knowledge layer that doctors can query for similar past patients.",
-  },
-];
-
 export default function FourLayers() {
   return (
-    <section className="w-full bg-brand-cream px-6 py-24 md:px-12 md:py-28">
-      <div className="mx-auto max-w-[1280px]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, ease }}
-          className="mx-auto max-w-[920px] text-center"
-        >
-          <p className="font-display text-[14px] font-medium uppercase tracking-[0.18em] text-brand-sage">
-            The Architecture
-          </p>
-          <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.2] tracking-[-0.01em] text-brand-headline md:text-[44px]">
-            Four Layers of Intelligence
-          </h2>
-          <p className="mx-auto mt-5 max-w-[820px] font-display text-[16px] leading-[1.7] text-brand-body">
-            Weisscoat is built as four composable intelligence layers — together they transform every consultation
-            into a structured, durable, doctor-specific clinical asset.
-          </p>
-        </motion.div>
-
-        <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-2">
-          {layers.map(({ Icon, tag, title, body }, index) => (
-            <motion.article
-              key={title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.5, delay: index * 0.08, ease }}
-              className="rounded-[20px] bg-white p-7 shadow-card-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-12px_rgba(43,65,42,0.18)]"
-            >
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-[12px] bg-brand-mint-pill/40 text-brand-headline">
-                  <Icon size={20} strokeWidth={1.8} />
-                </span>
-                <span className="rounded-full bg-brand-cream-2 px-3 py-1 font-display text-[11px] font-semibold uppercase tracking-[0.14em] text-brand-headline">
-                  {tag}
-                </span>
-              </div>
-              <h3 className="mt-5 font-display text-[20px] font-semibold leading-[1.3] text-brand-headline">
-                {title}
-              </h3>
-              <p className="mt-3 font-display text-[14.5px] leading-[1.7] text-brand-body">{body}</p>
-            </motion.article>
-          ))}
+    <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[48px] items-center p-[80px] relative size-full" data-node-id="9:2" data-name="Four Layers of Intelligence Section">
+      <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center not-italic overflow-clip relative shrink-0" data-node-id="9:3" data-name="Frame">
+        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[16px] relative shrink-0 text-[12px] text-[color:var(--brand\/primary,#5b8c5a)] tracking-[1.5px] whitespace-nowrap" data-node-id="9:4">
+          FOUR LAYERS OF INTELLIGENCE
+        </p>
+        <p className="font-['Inter:Bold'] font-bold leading-[48px] relative shrink-0 text-[40px] text-[color:var(--text\/primary,#1a201c)] text-center tracking-[-0.8px] whitespace-nowrap" data-node-id="9:5">
+          Four Layers of Intelligence
+        </p>
+        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#555f58)] text-center w-[720px]" data-node-id="9:6">
+          <p className="leading-[26px] mb-0">Doctors are losing time to data, forms, and follow-ups. Most clinical visits begin with</p>
+          <p className="leading-[26px]">repeated questions, scattered records, manual typing, and rushed conversations.</p>
         </div>
       </div>
-    </section>
+      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:7" data-name="Frame">
+        <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:8" data-name="Frame">
+          <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:9" data-name="AI Pre-Screening">
+            <div className="bg-[var(--accent\/blue,#4682dc)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:10" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:11">
+                🔍
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:12">
+              AI Pre-Screening
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[96px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[556px]" data-node-id="9:13">
+              Before the appointment, the patient interacts with an AI assistant that collects condition specific symptoms, history, vitals, and previous lab information.
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold h-[44px] leading-[22px] not-italic relative shrink-0 text-[14px] text-[color:var(--brand\/primary,#5b8c5a)] w-[556px]" data-node-id="9:14">
+              The doctor receives a clear summary before the consultation.
+            </p>
+          </div>
+          <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:15" data-name="Flexible Online Learning">
+            <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:16" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:17">
+                🎓
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:18">
+              Flexible Online Learning
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[96px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[556px]" data-node-id="9:19">
+              During the consultation, the doctor reviews the AI-prepared summary, validates data, conducts the physical exam, and focuses entirely on diagnosis.
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold h-[44px] leading-[22px] not-italic relative shrink-0 text-[14px] text-[color:var(--brand\/primary,#5b8c5a)] w-[556px]" data-node-id="9:20">
+              More focused consultation, zero repetitive questioning.
+            </p>
+          </div>
+        </div>
+        <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="9:21" data-name="Frame">
+          <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:22" data-name="Practical & Career-Focused">
+            <div className="bg-[var(--brand\/primary,#5b8c5a)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:23" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:24">
+                💼
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:25">{`Practical & Career-Focused`}</p>
+            <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[96px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[556px]" data-node-id="9:26">
+              After the visit, the doctor records a quick voice summary clearly explaining the diagnosis, treatment rationale, prescription instructions, and care advice.
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold h-[44px] leading-[22px] not-italic relative shrink-0 text-[14px] text-[color:var(--brand\/primary,#5b8c5a)] w-[556px]" data-node-id="9:27">
+              Weisscoat turns spoken reasoning into structured clinical notes and workflows.
+            </p>
+          </div>
+          <div className="bg-[var(--neutral\/bg-light,#f5f7f3)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[16px] items-start overflow-clip p-[32px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]" data-node-id="9:28" data-name="Trusted Medical Content">
+            <div className="bg-[var(--accent\/yellow,#f5c850)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[52px]" data-node-id="9:29" data-name="Frame">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[30px] left-[14px] not-italic text-[24px] text-black top-[11px] whitespace-nowrap" data-node-id="9:30">
+                ✅
+              </p>
+            </div>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[28px] not-italic relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="9:31">
+              Trusted Medical Content
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[96px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[556px]" data-node-id="9:32">
+              The platform coordinates automated medication reminders, care instructions, follow-up nudges, and risk alerts through standard patient messaging apps.
+            </p>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold h-[44px] leading-[22px] not-italic relative shrink-0 text-[14px] text-[color:var(--brand\/primary,#5b8c5a)] w-[556px]" data-node-id="9:33">
+              Patients stay connected after visits, while doctors build a searchable case repository.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }

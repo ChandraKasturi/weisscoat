@@ -1,177 +1,75 @@
-"use client";
-
-import Image from "next/image";
-import { motion } from "framer-motion";
-
-const ease = "easeOut" as const;
+const imgEllipse = "https://www.figma.com/api/mcp/asset/416d56db-20df-4c03-9959-5e3de64037ff";
+const imgEllipse1 = "https://www.figma.com/api/mcp/asset/409f57d1-28e2-49b7-9abc-bd170654e987";
+const imgFrame = "https://www.figma.com/api/mcp/asset/95bb8367-c6cd-4eb0-b93f-a8e5686f8cc8";
 
 export default function Hero() {
   return (
-    <section id="home" className="w-full bg-white px-4 pt-6 md:px-8 md:pt-8">
-      <div className="mx-auto max-w-[1556px]">
-        <div className="relative overflow-hidden rounded-[40px] bg-white">
-          {/* Mint gradient overlay @ 40% */}
-          <div className="absolute inset-0 rounded-[40px] bg-hero-mint opacity-40" />
-
-          <div className="relative grid grid-cols-1 items-center gap-8 px-6 py-10 md:grid-cols-[1.05fr_1fr] md:gap-4 md:px-10 md:py-14 lg:py-16">
-            {/* === Left content === */}
-            <div className="relative z-10 max-w-[645px]">
-              {/* Eyebrow pill */}
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, ease }}
-                className="inline-flex items-center gap-1.5 rounded-[12px] border border-[#C6C6CD] bg-brand-mint-pill px-[13px] py-[5px]"
-              >
-                <Image
-                  src="/figma/hero-pill-sparkle.png"
-                  alt=""
-                  width={14}
-                  height={14}
-                  className="h-[14px] w-[14px]"
-                />
-                <span className="font-inter text-[12px] font-medium leading-4 text-accent-blue-deep">
-                  Clinical Intelligence, Personalized.
-                </span>
-              </motion.div>
-
-              {/* Headline (mixed weights) */}
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease }}
-                className="mt-7 font-display text-[40px] font-light leading-[1.05] tracking-[-0.01em] text-brand-headline sm:text-[48px] md:text-[56px] lg:text-[60px]"
-              >
-                Personalized <span className="font-bold">AI Agents</span>{" "}
-                <span className="font-light">for Smarter Clinical Care</span>
-              </motion.h1>
-
-              {/* Body */}
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.25, ease }}
-                className="mt-6 max-w-[623px] font-display text-[16px] leading-[1.7] text-brand-body md:text-[18px]"
-              >
-                Weisscoat helps doctors build AI-powered clinical assistants
-                trained around their unique consultation style, transforming
-                every consultation into a structured clinical intelligence
-                system.
-              </motion.p>
-
-              {/* CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4, ease }}
-                className="mt-9"
-              >
-                <button
-                  type="button"
-                  className="inline-flex items-center justify-center rounded-[10px] bg-brand-sage px-8 py-5 font-poppins text-[17px] font-medium text-white shadow-button-blue transition-transform duration-200 hover:scale-[1.02]"
-                >
-                  Book a Demo
-                </button>
-              </motion.div>
+    <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col items-start pb-[80px] pt-[32px] px-[80px] relative size-full" data-node-id="5:2" data-name="Hero Section">
+      <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-end overflow-clip pl-[64px] pt-[64px] relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-full" data-node-id="5:3" data-name="Hero Card">
+        <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip pb-[64px] relative shrink-0" data-node-id="5:4" data-name="Hero Left Content">
+          <div className="bg-[var(--neutral\/white,white)] content-stretch flex gap-[8px] items-center overflow-clip px-[16px] py-[8px] relative rounded-[var(--radius\/full,999px)] shrink-0" data-node-id="5:5" data-name="Frame">
+            <div className="relative shrink-0 size-[8px]" data-node-id="5:6" data-name="Ellipse">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
             </div>
-
-            {/* === Right visual === */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.8, delay: 0.15, ease }}
-              className="relative mx-auto h-[420px] w-full max-w-[560px] md:h-[540px] lg:h-[600px]"
-            >
-              {/* Decorative ellipses */}
-              <div
-                aria-hidden
-                className="absolute -left-4 top-2 h-[180px] w-[180px] rounded-full bg-[#C7E9C5]/60 blur-[2px] md:h-[222px] md:w-[222px]"
-              />
-              <div
-                aria-hidden
-                className="absolute bottom-4 right-0 h-[160px] w-[160px] rounded-full bg-[#C7E9C5]/50 blur-[2px] md:h-[222px] md:w-[222px]"
-              />
-              <div
-                aria-hidden
-                className="absolute inset-x-4 bottom-0 mx-auto h-[80%] w-[85%] rounded-full bg-gradient-to-b from-[#B7E0B5] to-[#94C892] opacity-90"
-              />
-
-              {/* Doctor portrait */}
-              <Image
-                src="/figma/hero-doctor.png"
-                alt="Doctor"
-                fill
-                priority
-                sizes="(max-width: 768px) 90vw, 560px"
-                className="relative z-10 object-contain object-bottom"
-              />
-
-              {/* Floating: Regular Checkup */}
-              <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.6, ease }}
-                className="absolute left-2 top-[55%] z-20 md:left-0"
-              >
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="flex items-center gap-3 rounded-[30px] px-5 py-4 shadow-blue-glow backdrop-blur-[12px]"
-                  style={{
-                    backgroundColor: "rgba(246, 249, 255, 0.81)",
-                  }}
-                >
-                  <Image
-                    src="/figma/hero-medal-v2.png"
-                    alt=""
-                    width={70}
-                    height={80}
-                    className="h-[70px] w-[62px] shrink-0 object-contain"
-                  />
-                  <p className="font-poppins text-[15px] font-medium leading-[1.2] text-[rgba(7,0,59,0.8)] md:text-[18px]">
-                    Regular
-                    <br />
-                    Checkup
-                  </p>
-                </motion.div>
-              </motion.div>
-
-              {/* Floating: 84k+ Happy Patients */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.75, ease }}
-                className="absolute -right-2 bottom-8 z-20 md:right-0"
-              >
-                <motion.div
-                  animate={{ y: [0, -6, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                  className="flex items-center gap-3 rounded-[30px] px-5 py-3 shadow-blue-glow backdrop-blur-[12px]"
-                  style={{
-                    backgroundColor: "rgba(246, 249, 255, 0.81)",
-                  }}
-                >
-                  <Image
-                    src="/figma/hero-smile-v2.png"
-                    alt=""
-                    width={44}
-                    height={44}
-                    className="h-11 w-11 shrink-0"
-                  />
-                  <div>
-                    <p className="font-poppins text-[22px] font-semibold leading-[1.1] text-accent-blue-dark md:text-[24px]">
-                      84k+
-                    </p>
-                    <p className="font-poppins text-[15px] leading-[1.2] text-accent-blue-soft md:text-[17px]">
-                      Happy Patients
-                    </p>
-                  </div>
-                </motion.div>
-              </motion.div>
-            </motion.div>
+            <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[13px] text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap" data-node-id="5:7">
+              Clinical Intelligence, Personalized.
+            </p>
+          </div>
+          <div className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[0] not-italic relative shrink-0 text-[56px] text-[color:var(--text\/primary,#1a201c)] tracking-[-1.5px] w-[560px]" data-node-id="5:8">
+            <p className="leading-[64px] mb-0">Personalized AI Agents</p>
+            <p className="leading-[64px]">for Smarter Clinical Care</p>
+          </div>
+          <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[84px] leading-[28px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] w-[540px]" data-node-id="5:9">
+            Weisscoat helps doctors build AI-powered clinical assistants trained around their unique consultation style, transforming every consultation into a structured clinical intelligence system.
+          </p>
+          <div className="[word-break:break-word] bg-[var(--brand\/primary,#5b8c5a)] content-stretch flex gap-[12px] items-center leading-[20px] not-italic overflow-clip px-[32px] py-[18px] relative rounded-[var(--radius\/full,999px)] shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="5:10" data-name="Frame">
+            <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0" data-node-id="5:11">
+              Book a Demo
+            </p>
+            <p className="font-['Inter:Bold'] font-bold relative shrink-0" data-node-id="5:12">
+              →
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-row items-end self-stretch">
+          <div className="h-full overflow-clip relative shrink-0 w-[560px]" data-node-id="5:13" data-name="Hero Right">
+            <div className="absolute left-[80px] size-[440px] top-[40px]" data-node-id="5:14" data-name="Ellipse">
+              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
+            </div>
+            <div className="absolute bg-gradient-to-b from-[rgba(92,140,89,0.4)] h-[440px] left-[110px] overflow-clip to-[rgba(166,199,166,0.9)] top-[40px] w-[380px]" data-node-id="5:15" data-name="Doctor Image">
+              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[240px] left-[90px] not-italic text-[200px] text-black top-[100px] whitespace-nowrap" data-node-id="5:16">
+                👨‍⚕️
+              </p>
+            </div>
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[20px] overflow-clip pl-[16px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[100px]" data-node-id="5:17" data-name="Badge - Regular Checkup">
+              <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]" data-node-id="5:18" data-name="Frame">
+                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[22px] left-[9px] not-italic text-[18px] text-[color:var(--text\/inverse,white)] top-[7px] whitespace-nowrap" data-node-id="5:19">
+                  ⏱
+                </p>
+              </div>
+              <div className="[word-break:break-word] content-stretch flex flex-col font-['Inter:Semi_Bold'] font-semibold items-start leading-[18px] not-italic overflow-clip relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:20" data-name="Frame">
+                <p className="relative shrink-0" data-node-id="5:21">
+                  Regular
+                </p>
+                <p className="relative shrink-0" data-node-id="5:22">
+                  Checkup
+                </p>
+              </div>
+            </div>
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[8px] items-center left-[380px] overflow-clip px-[20px] py-[16px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[380px]" data-node-id="5:23" data-name="Badge - 84k Patients">
+              <div className="h-[28px] relative shrink-0 w-[88px]" data-node-id="5:24" data-name="Frame">
+                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+              </div>
+              <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[28px] not-italic relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:29">
+                84k+
+              </p>
+              <p className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#555f58)] whitespace-nowrap" data-node-id="5:30">
+                Happy Patients
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 }

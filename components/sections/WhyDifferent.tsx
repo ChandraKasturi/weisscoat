@@ -1,97 +1,77 @@
-"use client";
-
-import { motion } from "framer-motion";
-import {
-  Fingerprint,
-  HeartHandshake,
-  Boxes,
-  ShieldCheck,
-  Workflow,
-  Search,
-  type LucideIcon,
-} from "lucide-react";
-
-const ease = "easeOut" as const;
-
-type Diff = {
-  Icon: LucideIcon;
-  title: string;
-  body: string;
-};
-
-const items: Diff[] = [
-  {
-    Icon: Fingerprint,
-    title: "Personalized Persona",
-    body: "Not a generic medical model — each doctor's diagnostic logic, vocabulary, and style is captured into a unique AI persona.",
-  },
-  {
-    Icon: HeartHandshake,
-    title: "Continuous Care Tether",
-    body: "Care doesn't end at the consult. Automated, doctor-style check-ins follow every patient post-visit.",
-  },
-  {
-    Icon: Boxes,
-    title: "Composable Architecture",
-    body: "Four intelligence layers, each useful on its own — adopt at the pace your clinic can absorb.",
-  },
-  {
-    Icon: ShieldCheck,
-    title: "Doctor-In-The-Loop",
-    body: "The doctor stays the decision maker. AI surfaces structure; humans retain authority over every clinical call.",
-  },
-  {
-    Icon: Workflow,
-    title: "Built For Clinical Workflow",
-    body: "Voice-first, low-friction, sub-30-second summaries — designed for real OPD throughput, not lab demos.",
-  },
-  {
-    Icon: Search,
-    title: "Queryable Wisdom",
-    body: "Every decision becomes a searchable case. Doctors can pull similar past patients in seconds.",
-  },
-];
+function Row({
+  leftTitle,
+  leftBody,
+  rightTitle,
+  rightBody,
+}: {
+  leftTitle: string;
+  leftBody: string;
+  rightTitle: string;
+  rightBody: string;
+}) {
+  return (
+    <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0">
+      <div className="bg-[var(--neutral\/white,white)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[12px] items-start overflow-clip px-[32px] py-[28px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]">
+        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[16px] relative shrink-0 text-[11px] text-[color:var(--text\/secondary,#555f58)] tracking-[1.5px] whitespace-nowrap">
+          STANDARD APPROACH
+        </p>
+        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[28px] relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
+          {leftTitle}
+        </p>
+        <p className="font-['Inter:Regular'] font-normal h-[66px] leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[556px]">
+          {leftBody}
+        </p>
+      </div>
+      <div className="bg-[var(--brand\/sage,#d4e6d0)] border-2 border-[var(--brand\/primary,#5b8c5a)] border-solid content-stretch flex flex-col gap-[12px] items-start overflow-clip px-[32px] py-[28px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]">
+        <div className="content-stretch flex gap-[8px] items-center leading-[16px] overflow-clip relative shrink-0 text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap">
+          <p className="font-['Inter:Bold'] font-bold relative shrink-0 text-[12px]">✓</p>
+          <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0 text-[11px] tracking-[1.5px]">
+            WEISSCOAT INTELLIGENCE
+          </p>
+        </div>
+        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[28px] relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
+          {rightTitle}
+        </p>
+        <p className="font-['Inter:Regular'] font-normal h-[66px] leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[556px]">
+          {rightBody}
+        </p>
+      </div>
+    </div>
+  );
+}
 
 export default function WhyDifferent() {
   return (
-    <section className="w-full bg-white px-6 py-24 md:px-12 md:py-28">
-      <div className="mx-auto max-w-[1280px]">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-10%" }}
-          transition={{ duration: 0.6, ease }}
-          className="mx-auto max-w-[920px] text-center"
-        >
-          <p className="font-display text-[14px] font-medium uppercase tracking-[0.18em] text-brand-sage">
-            What sets us apart
-          </p>
-          <h2 className="mt-3 font-display text-[36px] font-bold leading-[1.2] tracking-[-0.01em] text-brand-headline md:text-[44px]">
-            Why Weisscoat is Radically Different
-          </h2>
-        </motion.div>
-
-        <div className="mt-14 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {items.map(({ Icon, title, body }, index) => (
-            <motion.article
-              key={title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-10%" }}
-              transition={{ duration: 0.5, delay: index * 0.06, ease }}
-              className="rounded-[20px] border border-[#E5E7EB] bg-white p-6 shadow-card-soft transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_18px_40px_-12px_rgba(43,65,42,0.18)]"
-            >
-              <span className="flex h-12 w-12 items-center justify-center rounded-[14px] bg-brand-mint-pill/40 text-brand-headline">
-                <Icon size={22} strokeWidth={1.8} />
-              </span>
-              <h3 className="mt-5 font-display text-[18px] font-semibold leading-[1.3] text-brand-headline">
-                {title}
-              </h3>
-              <p className="mt-3 font-display text-[14.5px] leading-[1.65] text-brand-body">{body}</p>
-            </motion.article>
-          ))}
+    <div className="[word-break:break-word] bg-[var(--neutral\/bg-light,#f5f7f3)] content-stretch flex flex-col gap-[48px] items-center not-italic p-[80px] relative size-full" data-node-id="13:47" data-name="Why Weisscoat Different">
+      <div className="content-stretch flex flex-col gap-[16px] items-center overflow-clip relative shrink-0 text-center">
+        <p className="font-['Inter:Bold'] font-bold leading-[44px] relative shrink-0 text-[36px] text-[color:var(--text\/primary,#1a201c)] tracking-[-0.8px] whitespace-nowrap">
+          Why Weisscoat is Radically Different
+        </p>
+        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#555f58)] w-[720px]">
+          <p className="leading-[26px] mb-0">{`Beyond simple automation, we've built a clinical intelligence layer that adapts`}</p>
+          <p className="leading-[26px]">to you, not the other way around.</p>
         </div>
       </div>
-    </section>
+      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0">
+        <Row
+          leftTitle="Generalized Models"
+          leftBody="Provide broad, generalized answers from public medical data sets that lack clinical nuance."
+          rightTitle="Personalized Persona"
+          rightBody="Learns your specific style, prescription logic, and clinical vocabulary for notes that sound like you."
+        />
+        <Row
+          leftTitle="Manual Workflows"
+          leftBody="One-size-fits-all workflows that disrupt clinic operations and require heavy manual prompt engineering."
+          rightTitle="Ambient Integration"
+          rightBody="Aligns seamlessly to your established routine via voice capture; simply speak naturally to input data."
+        />
+        <Row
+          leftTitle="Isolated Consults"
+          leftBody="Intelligence disconnects the moment the patient leaves the clinic door, leading to documentation gaps."
+          rightTitle="Continuous Care Tether"
+          rightBody="Acts as a continuous safety tether monitoring post-care outcomes and generating patient-friendly summaries."
+        />
+      </div>
+    </div>
   );
 }
