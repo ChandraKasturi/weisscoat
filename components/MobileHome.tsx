@@ -95,6 +95,7 @@ function Hero() {
           Book a Demo <span className="font-bold">→</span>
         </button>
         <div className="relative mt-2 h-80 rounded-2xl overflow-hidden">
+          <img alt="" src="/figma/icons/hero-ring.png" className="absolute left-1/2 bottom-2 -translate-x-1/2 h-72 w-72 object-contain" />
           <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-contain object-bottom" />
           <div className="absolute top-3 left-3 bg-white rounded-full pl-2 pr-3 py-1.5 flex items-center gap-2 shadow-md">
             <div className="size-7 bg-[#f5a050] rounded-full flex items-center justify-center text-white text-sm">⏱</div>
