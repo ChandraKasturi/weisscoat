@@ -98,12 +98,12 @@ function Hero() {
           Book a Demo <span className="font-bold">→</span>
         </button>
         <div className="relative mt-2 h-80 overflow-visible">
-          <div className="absolute left-3 top-14 size-32 rounded-full border-2 border-[#a6c8a5]/40" />
-          <div className="absolute right-2 top-16 size-44 rounded-full border-[3px] border-transparent border-r-[#5b6a5a]/50" />
+          <div className="absolute left-2 top-20 size-24 rounded-full border-[1.5px] border-[#a6c8a5]/25" />
+          <div className="absolute right-1 top-14 size-40 rounded-full border-[1.5px] border-transparent border-r-[#5b6a5a]/35" />
           <img
             alt=""
             src="/figma/icons/hero-ring.png"
-            className="absolute top-3 left-1/2 -translate-x-1/2 h-56 w-56 object-contain opacity-70"
+            className="absolute -top-6 left-1/2 -translate-x-1/2 h-72 w-72 object-contain opacity-90"
           />
           <img
             alt=""

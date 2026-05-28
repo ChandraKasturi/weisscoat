@@ -36,18 +36,18 @@ export default function Hero() {
         </div>
         <div className="flex flex-row items-end self-stretch">
           <div className="h-full overflow-visible relative shrink-0 w-[560px]" data-node-id="5:13" data-name="Hero Right">
-            <div className="absolute left-[20px] top-[140px] size-[180px] rounded-full border-2 border-[#a6c8a5]/40" />
-            <div className="absolute left-[340px] top-[100px] size-[260px] rounded-full border-[3px] border-transparent border-r-[#5b6a5a]/50" />
+            <div className="absolute left-[10px] top-[180px] size-[140px] rounded-full border-[1.5px] border-[#a6c8a5]/25" />
+            <div className="absolute left-[380px] top-[120px] size-[240px] rounded-full border-[1.5px] border-transparent border-r-[#5b6a5a]/35" />
             <img
               alt=""
               src="/figma/icons/hero-ring.png"
-              className="absolute block left-[120px] size-[360px] top-[60px] object-contain opacity-70"
+              className="absolute block left-[40px] size-[480px] top-[-60px] object-contain opacity-90"
               data-node-id="5:14"
             />
             <img
               alt=""
               src="/figma/icons/hero-doctor.png"
-              className="absolute h-[460px] left-[100px] object-contain object-bottom top-[20px] w-[400px] z-10"
+              className="absolute h-[460px] left-[80px] object-contain object-bottom top-[20px] w-[400px] z-10"
               data-node-id="5:15"
             />
             <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[-20px] overflow-clip pl-[12px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[400px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
