@@ -77,7 +77,10 @@ function Nav() {
 function Hero() {
   return (
     <section className="bg-white px-5 py-8">
-      <div className="bg-[#d4e6d0] rounded-3xl p-7 flex flex-col gap-5">
+      <div
+        className="rounded-3xl p-7 flex flex-col gap-5"
+        style={{ background: "linear-gradient(135deg, #eaf5ec 0%, #f5fbf6 55%, #ffffff 100%)" }}
+      >
         <div className="bg-white rounded-full px-4 py-1.5 self-start flex items-center gap-2">
           <span className="block size-2 rounded-full bg-[#5b8c5a]" />
           <p className="text-xs font-semibold text-[#5b8c5a]">Clinical Intelligence, Personalized.</p>
@@ -94,14 +97,24 @@ function Hero() {
         >
           Book a Demo <span className="font-bold">→</span>
         </button>
-        <div className="relative mt-2 h-80 rounded-2xl overflow-hidden">
-          <img alt="" src="/figma/icons/hero-ring.png" className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-64 object-contain" />
-          <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-contain object-bottom z-10" />
-          <div className="absolute bottom-4 left-3 bg-white rounded-full pl-2 pr-4 py-2 flex items-center gap-2 shadow-md z-20">
+        <div className="relative mt-2 h-80 overflow-visible">
+          <div className="absolute left-3 top-14 size-32 rounded-full border-2 border-[#a6c8a5]/40" />
+          <div className="absolute right-2 top-16 size-44 rounded-full border-[3px] border-transparent border-r-[#5b6a5a]/50" />
+          <img
+            alt=""
+            src="/figma/icons/hero-ring.png"
+            className="absolute top-3 left-1/2 -translate-x-1/2 h-56 w-56 object-contain opacity-70"
+          />
+          <img
+            alt=""
+            src="/figma/icons/hero-doctor.png"
+            className="absolute inset-0 h-full w-full object-contain object-bottom z-10"
+          />
+          <div className="absolute bottom-4 -left-2 bg-white rounded-full pl-2 pr-4 py-2 flex items-center gap-2 shadow-md z-20">
             <div className="size-7 bg-[#d4e6d0] rounded-full flex items-center justify-center text-[#5b8c5a] text-sm">⏱</div>
             <p className="text-xs font-semibold leading-[14px]">Regular<br />Checkup</p>
           </div>
-          <div className="absolute bottom-4 right-3 bg-white rounded-xl px-3 py-2 flex items-center gap-2 shadow-md z-20">
+          <div className="absolute bottom-4 -right-4 bg-white rounded-xl px-3 py-2 flex items-center gap-2 shadow-md z-20">
             <span className="text-xl leading-none">🙂</span>
             <div className="flex flex-col">
               <p className="text-base font-bold leading-tight">84k+</p>

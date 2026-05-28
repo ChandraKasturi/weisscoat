@@ -1,10 +1,14 @@
 const imgEllipse = "https://www.figma.com/api/mcp/asset/416d56db-20df-4c03-9959-5e3de64037ff";
-const imgFrame = "https://www.figma.com/api/mcp/asset/95bb8367-c6cd-4eb0-b93f-a8e5686f8cc8";
 
 export default function Hero() {
   return (
     <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col items-start pb-[80px] pt-[32px] px-[80px] relative size-full" data-node-id="5:2" data-name="Hero Section">
-      <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-end overflow-clip pl-[64px] pt-[64px] relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-full" data-node-id="5:3" data-name="Hero Card">
+      <div
+        className="content-stretch flex items-end overflow-clip pl-[64px] pt-[64px] relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-full"
+        style={{ background: "linear-gradient(135deg, #eaf5ec 0%, #f5fbf6 55%, #ffffff 100%)" }}
+        data-node-id="5:3"
+        data-name="Hero Card"
+      >
         <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip pb-[64px] relative shrink-0" data-node-id="5:4" data-name="Hero Left Content">
           <div className="bg-[var(--neutral\/white,white)] content-stretch flex gap-[8px] items-center overflow-clip px-[16px] py-[8px] relative rounded-[var(--radius\/full,999px)] shrink-0" data-node-id="5:5" data-name="Frame">
             <div className="relative shrink-0 size-[8px]" data-node-id="5:6" data-name="Ellipse">
@@ -31,22 +35,24 @@ export default function Hero() {
           </div>
         </div>
         <div className="flex flex-row items-end self-stretch">
-          <div className="h-full overflow-clip relative shrink-0 w-[560px]" data-node-id="5:13" data-name="Hero Right">
+          <div className="h-full overflow-visible relative shrink-0 w-[560px]" data-node-id="5:13" data-name="Hero Right">
+            <div className="absolute left-[20px] top-[140px] size-[180px] rounded-full border-2 border-[#a6c8a5]/40" />
+            <div className="absolute left-[340px] top-[100px] size-[260px] rounded-full border-[3px] border-transparent border-r-[#5b6a5a]/50" />
             <img
               alt=""
               src="/figma/icons/hero-ring.png"
-              className="absolute block left-[80px] size-[440px] top-[40px] object-contain"
+              className="absolute block left-[120px] size-[360px] top-[60px] object-contain opacity-70"
               data-node-id="5:14"
             />
             <img
               alt=""
               src="/figma/icons/hero-doctor.png"
-              className="absolute h-[460px] left-[100px] object-contain object-bottom top-[20px] w-[400px]"
+              className="absolute h-[460px] left-[100px] object-contain object-bottom top-[20px] w-[400px] z-10"
               data-node-id="5:15"
             />
-            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[20px] overflow-clip pl-[16px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[100px]" data-node-id="5:17" data-name="Badge - Regular Checkup">
-              <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]" data-node-id="5:18" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[22px] left-[9px] not-italic text-[18px] text-[color:var(--text\/inverse,white)] top-[7px] whitespace-nowrap" data-node-id="5:19">
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[-20px] overflow-clip pl-[12px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[400px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
+              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]" data-node-id="5:18" data-name="Frame">
+                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[22px] left-[9px] not-italic text-[18px] text-[color:var(--brand\/primary,#5b8c5a)] top-[7px] whitespace-nowrap" data-node-id="5:19">
                   ⏱
                 </p>
               </div>
@@ -59,16 +65,16 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[8px] items-center left-[380px] overflow-clip px-[20px] py-[16px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[380px]" data-node-id="5:23" data-name="Badge - 84k Patients">
-              <div className="h-[28px] relative shrink-0 w-[88px]" data-node-id="5:24" data-name="Frame">
-                <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgFrame} />
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[420px] overflow-clip px-[20px] py-[14px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[440px] z-20" data-node-id="5:23" data-name="Badge - 84k Patients">
+              <p className="relative shrink-0 text-[32px] leading-none">🙂</p>
+              <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0">
+                <p className="font-['Inter:Bold'] font-bold leading-[28px] relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:29">
+                  84k+
+                </p>
+                <p className="font-['Inter:Medium'] font-medium leading-[16px] relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#555f58)] whitespace-nowrap" data-node-id="5:30">
+                  Happy Patients
+                </p>
               </div>
-              <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[28px] not-italic relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:29">
-                84k+
-              </p>
-              <p className="[word-break:break-word] font-['Inter:Medium'] font-medium leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#555f58)] whitespace-nowrap" data-node-id="5:30">
-                Happy Patients
-              </p>
             </div>
           </div>
         </div>
