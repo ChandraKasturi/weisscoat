@@ -95,15 +95,18 @@ function Hero() {
           Book a Demo <span className="font-bold">→</span>
         </button>
         <div className="relative mt-2 h-80 rounded-2xl overflow-hidden">
-          <img alt="" src="/figma/icons/hero-ring.png" className="absolute inset-0 m-auto h-72 w-72 object-contain" />
-          <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-contain object-bottom" />
-          <div className="absolute top-3 left-3 bg-white rounded-full pl-2 pr-3 py-1.5 flex items-center gap-2 shadow-md">
-            <div className="size-7 bg-[#f5a050] rounded-full flex items-center justify-center text-white text-sm">⏱</div>
+          <img alt="" src="/figma/icons/hero-ring.png" className="absolute top-0 left-1/2 -translate-x-1/2 h-64 w-64 object-contain" />
+          <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-contain object-bottom z-10" />
+          <div className="absolute bottom-4 left-3 bg-white rounded-full pl-2 pr-4 py-2 flex items-center gap-2 shadow-md z-20">
+            <div className="size-7 bg-[#d4e6d0] rounded-full flex items-center justify-center text-[#5b8c5a] text-sm">⏱</div>
             <p className="text-xs font-semibold leading-[14px]">Regular<br />Checkup</p>
           </div>
-          <div className="absolute bottom-3 right-3 bg-white rounded-xl px-3 py-2 flex flex-col items-center shadow-md">
-            <p className="text-lg font-bold leading-tight">84k+</p>
-            <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>
+          <div className="absolute bottom-4 right-3 bg-white rounded-xl px-3 py-2 flex items-center gap-2 shadow-md z-20">
+            <span className="text-xl leading-none">🙂</span>
+            <div className="flex flex-col">
+              <p className="text-base font-bold leading-tight">84k+</p>
+              <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>
+            </div>
           </div>
         </div>
       </div>
