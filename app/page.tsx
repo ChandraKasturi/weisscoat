@@ -1,3 +1,4 @@
+import ScaledFrame from "@/components/ScaledFrame";
 import TopBar from "@/components/sections/TopBar";
 import NavigationBar from "@/components/sections/NavigationBar";
 import Hero from "@/components/sections/Hero";
@@ -18,26 +19,24 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <div className="w-full overflow-x-auto bg-white">
-      <div className="mx-auto w-[1440px]">
-        <TopBar />
-        <NavigationBar />
-        <Hero />
-        <ProblemGrid />
-        <DigitalPersona />
-        <PatientCareJourney />
-        <FourLayers />
-        <HowItWorks />
-        <StakeholderMatrix />
-        <UnifiedPlatform />
-        <OurStory />
-        <WhyDifferent />
-        <Security />
-        <Testimonials />
-        <FAQ />
-        <CTA />
-        <Footer />
-      </div>
-    </div>
+    <ScaledFrame>
+      <TopBar />
+      <NavigationBar />
+      <Hero />
+      <ProblemGrid />
+      <DigitalPersona />
+      <PatientCareJourney />
+      <FourLayers />
+      <HowItWorks />
+      <StakeholderMatrix />
+      <UnifiedPlatform />
+      <OurStory />
+      <WhyDifferent />
+      <Security />
+      <Testimonials />
+      <FAQ />
+      <CTA />
+      <Footer />
+    </ScaledFrame>
   );
 }
