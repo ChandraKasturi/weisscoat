@@ -1,28 +1,64 @@
+function ConditionPill({
+  icon,
+  label,
+  color,
+  body,
+}: {
+  icon: string;
+  label: string;
+  color: string;
+  body: string;
+}) {
+  return (
+    <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex flex-col gap-[6px] items-start overflow-clip px-[16px] py-[12px] relative rounded-[var(--radius\/md,12px)] shrink-0 w-[270px]">
+      <div className="content-stretch flex gap-[6px] items-center overflow-clip relative shrink-0">
+        <p className="font-['Inter:Regular'] font-normal leading-[18px] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
+          {icon}
+        </p>
+        <p
+          className="font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[13px] whitespace-nowrap"
+          style={{ color }}
+        >
+          {label}
+        </p>
+      </div>
+      <p className="font-['Inter:Regular'] font-normal leading-[16px] not-italic relative shrink-0 text-[12px] text-[color:var(--text\/secondary,#555f58)] w-[238px]">
+        {body}
+      </p>
+    </div>
+  );
+}
+
 function Step({
   num,
-  bg,
   title,
   body,
+  isLast,
   children,
 }: {
   num: string;
-  bg: string;
   title: string;
   body: string;
+  isLast?: boolean;
   children?: React.ReactNode;
 }) {
   return (
-    <div className="content-stretch flex gap-[24px] items-center overflow-clip relative shrink-0">
-      <div className={`${bg} overflow-clip relative rounded-[var(--radius\\/full,999px)] shrink-0 size-[64px]`}>
-        <p className="[word-break:break-word] absolute font-['Inter:Bold'] font-bold leading-[26px] left-[18px] not-italic text-[20px] text-[color:var(--text\/inverse,white)] top-[19px] whitespace-nowrap">
-          {num}
-        </p>
+    <div className="content-stretch flex gap-[24px] items-start relative shrink-0 w-[1000px]">
+      <div className="flex flex-col items-center self-stretch shrink-0">
+        <div className="bg-[var(--brand\/primary-dark,#3a5f3a)] flex items-center justify-center overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]">
+          <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[16px] not-italic text-[12px] text-[color:var(--text\/inverse,white)] whitespace-nowrap">
+            {num}
+          </p>
+        </div>
+        {!isLast && (
+          <div className="border-l-2 border-dashed border-[var(--brand\/primary-light,#a6c8a5)] flex-1 min-h-[32px] mt-[6px] mb-0" />
+        )}
       </div>
-      <div className="[word-break:break-word] bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[12px] items-start not-italic overflow-clip px-[28px] py-[24px] relative rounded-[var(--radius\/xl,24px)] shadow-[0px_2px_8px_0px_rgba(0,0,0,0.04)] shrink-0 w-[912px]">
-        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[26px] relative shrink-0 text-[19px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
+      <div className="content-stretch flex flex-col gap-[8px] items-start pb-[40px] pt-[4px] relative shrink-0 flex-1">
+        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[26px] relative shrink-0 text-[19px] text-[color:var(--text\/primary,#1a201c)]">
           {title}
         </p>
-        <p className="font-['Inter:Regular'] font-normal h-[44px] leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[856px]">
+        <p className="font-['Inter:Regular'] font-normal leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)]">
           {body}
         </p>
         {children}
@@ -46,48 +82,23 @@ export default function HowItWorks() {
           <p className="leading-[26px]">every phase of the clinical experience.</p>
         </div>
       </div>
-      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0 w-[1000px]">
-        <Step num="01" bg="bg-[var(--accent\/blue,#4682dc)]" title="Patient Registration" body="Secure registration using mobile numbers and OTP. Supports linking multiple family profiles to a single mobile account." />
-        <Step num="02" bg="bg-[var(--accent\/orange,#f5a050)]" title="Clinic & Doctor Selection" body="Patients easily search or select their clinic, view live doctor availability, and book appointments." />
-        <Step
-          num="03"
-          bg="bg-[var(--brand\/primary,#5b8c5a)]"
-          title="AI Pre Screening"
-          body="A sophisticated triage engine collects essential data through condition-specific questioning across multiple parameters."
-        >
-          <div className="content-stretch flex gap-[8px] items-start overflow-clip relative shrink-0">
-            <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[var(--radius\/full,999px)] shrink-0">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--accent\/red,#dc5a5a)] whitespace-nowrap">
-                Fever
-              </p>
-            </div>
-            <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[var(--radius\/full,999px)] shrink-0">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--accent\/orange,#f5a050)] whitespace-nowrap">
-                Diabetes
-              </p>
-            </div>
-            <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[var(--radius\/full,999px)] shrink-0">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--accent\/blue,#4682dc)] whitespace-nowrap">
-                Blood Pressure
-              </p>
-            </div>
-            <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[var(--radius\/full,999px)] shrink-0">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--accent\/yellow,#f5c850)] whitespace-nowrap">
-                Knee Pain
-              </p>
-            </div>
-            <div className="bg-[var(--brand\/sage,#d4e6d0)] content-stretch flex items-start overflow-clip px-[14px] py-[6px] relative rounded-[var(--radius\/full,999px)] shrink-0">
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[12px] text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap">
-                Stomach Pain
-              </p>
-            </div>
+      <div className="content-stretch flex flex-col items-start relative shrink-0 w-[1000px]">
+        <Step num="01" title="Patient Registration" body="Secure registration using mobile numbers and OTP. Supports linking multiple family profiles to a single mobile account." />
+        <Step num="02" title="Clinic & Doctor Selection" body="Patients easily search or select their clinic, view live doctor availability, and book appointments." />
+        <Step num="03" title="AI Pre-Screening" body="A sophisticated triage engine collects essential data through condition-specific questioning:">
+          <div className="flex flex-wrap gap-[12px] mt-[4px]">
+            <ConditionPill icon="🌡" label="Fever" color="#dc5a5a" body="duration, temperature pattern, chills, cough, throat pain." />
+            <ConditionPill icon="💊" label="Diabetes" color="#f5a050" body="sugar readings, medication adherence, fatigue, dietary habits." />
+            <ConditionPill icon="💗" label="Blood Pressure" color="#4682dc" body="recent BP readings, dizziness, headache, chest discomfort." />
+            <ConditionPill icon="🦵" label="Knee Pain" color="#f5c850" body="precise location, swelling, past injury history, mobility limits." />
+            <ConditionPill icon="🫃" label="Stomach Pain" color="#5b8c5a" body="location, food relationship, vomiting, acidity, bowel changes." />
           </div>
         </Step>
-        <Step num="04" bg="bg-[var(--accent\/yellow,#f5c850)]" title="Doctor Review" body="The physician accesses the dashboard to view the structured pre-screening notes, vitals, and chronological medical history." />
-        <Step num="05" bg="bg-[var(--accent\/red,#dc5a5a)]" title="Consultation & Voice Summary" body="The clinical visit takes place, concluded by a rapid 30-second doctor voice summary." />
-        <Step num="06" bg="bg-[var(--brand\/primary,#5b8c5a)]" title="AI-Generated Care Plan" body="LLM engines convert raw voice audio into structured prescriptions, lifestyle precautions, test advice, and follow-up milestones." />
-        <Step num="07" bg="bg-[var(--accent\/blue,#4682dc)]" title="Post-Care Monitoring" body="Automated patient check-ins are deployed over WhatsApp, SMS, or app notifications, functioning as a digital safety tether." />
-        <Step num="08" bg="bg-[var(--accent\/orange,#f5a050)]" title="Clinical Intelligence Layer" body="Past clinical decisions are aggregated, allowing doctors to search their historical treatment patterns and find similar past cases." />
+        <Step num="04" title="Doctor Review" body="The physician accesses the dashboard to view the structured pre-screening notes, vitals, and chronological medical history." />
+        <Step num="05" title="Consultation & Voice Summary" body="The clinical visit takes place, concluded by a rapid 30-second doctor voice summary." />
+        <Step num="06" title="AI-Generated Care Plan" body="LLM engines convert raw voice audio into structured prescriptions, lifestyle precautions, test advice, and follow-up milestones." />
+        <Step num="07" title="Post-Care Monitoring" body="Automated patient check-ins are deployed over WhatsApp, SMS, or app notifications, functioning as a digital safety tether." />
+        <Step num="08" title="Clinical Intelligence Layer" body="Past clinical decisions are aggregated, allowing doctors to search their historical treatment patterns and find similar past cases." isLast />
       </div>
     </div>
   );

@@ -259,20 +259,32 @@ function FourLayers() {
   );
 }
 
-function Step({ num, color, title, body, children }: { num: string; color: string; title: string; body: string; children?: React.ReactNode }) {
+function Step({ num, title, body, isLast, children }: { num: string; title: string; body: string; isLast?: boolean; children?: React.ReactNode }) {
   return (
-    <div className="flex gap-3 items-center">
-      <div
-        className="size-11 rounded-full flex items-center justify-center text-white font-bold text-base shrink-0"
-        style={{ backgroundColor: color }}
-      >
-        {num}
+    <div className="flex gap-3 items-start">
+      <div className="flex flex-col items-center self-stretch shrink-0">
+        <div className="size-8 rounded-full bg-[#3a5f3a] flex items-center justify-center text-white font-bold text-[11px] shrink-0">
+          {num}
+        </div>
+        {!isLast && <div className="border-l-2 border-dashed border-[#a6c8a5] flex-1 min-h-[28px] mt-1" />}
       </div>
-      <div className="bg-white rounded-2xl p-4 flex flex-col gap-2 flex-1 shadow-sm">
+      <div className="flex flex-col gap-1.5 pb-6 pt-0.5 flex-1">
         <p className="font-semibold text-[16px] leading-[22px]">{title}</p>
         <p className="text-[13px] leading-[20px] text-[#555f58]">{body}</p>
         {children}
       </div>
+    </div>
+  );
+}
+
+function MobileConditionPill({ icon, label, color, body }: { icon: string; label: string; color: string; body: string }) {
+  return (
+    <div className="bg-[#d4e6d0] rounded-xl px-3 py-2.5 flex-1 min-w-[140px]">
+      <div className="flex items-center gap-1.5 mb-1">
+        <span className="text-[13px]">{icon}</span>
+        <p className="font-semibold text-[12px]" style={{ color }}>{label}</p>
+      </div>
+      <p className="text-[11px] leading-[14px] text-[#555f58]">{body}</p>
     </div>
   );
 }
@@ -289,29 +301,23 @@ function HowItWorks() {
           From initial patient registration to long-term recovery monitoring, Weisscoat structures every phase of the clinical experience.
         </p>
       </div>
-      <div className="flex flex-col gap-4">
-        <Step num="01" color={COLORS.blue} title="Patient Registration" body="Secure registration using mobile numbers and OTP. Supports linking multiple family profiles to a single mobile account." />
-        <Step num="02" color={COLORS.orange} title="Clinic & Doctor Selection" body="Patients easily search or select their clinic, view live doctor availability, and book appointments." />
-        <Step num="03" color={COLORS.primary} title="AI Pre Screening" body="A sophisticated triage engine collects essential data through condition-specific questioning across multiple parameters.">
+      <div className="flex flex-col">
+        <Step num="01" title="Patient Registration" body="Secure registration using mobile numbers and OTP. Supports linking multiple family profiles to a single mobile account." />
+        <Step num="02" title="Clinic & Doctor Selection" body="Patients easily search or select their clinic, view live doctor availability, and book appointments." />
+        <Step num="03" title="AI Pre-Screening" body="A sophisticated triage engine collects essential data through condition-specific questioning:">
           <div className="flex flex-wrap gap-2 mt-1">
-            {[
-              { label: "Fever", color: COLORS.red },
-              { label: "Diabetes", color: COLORS.orange },
-              { label: "Blood Pressure", color: COLORS.blue },
-              { label: "Knee Pain", color: COLORS.yellow },
-              { label: "Stomach Pain", color: COLORS.primary },
-            ].map((t) => (
-              <div key={t.label} className="bg-[#d4e6d0] rounded-full px-3 py-1">
-                <p className="font-semibold text-[11px]" style={{ color: t.color }}>{t.label}</p>
-              </div>
-            ))}
+            <MobileConditionPill icon="🌡" label="Fever" color={COLORS.red} body="duration, temperature pattern, chills, cough, throat pain." />
+            <MobileConditionPill icon="💊" label="Diabetes" color={COLORS.orange} body="sugar readings, medication adherence, fatigue, dietary habits." />
+            <MobileConditionPill icon="💗" label="Blood Pressure" color={COLORS.blue} body="recent BP readings, dizziness, headache, chest discomfort." />
+            <MobileConditionPill icon="🦵" label="Knee Pain" color={COLORS.yellow} body="precise location, swelling, past injury history, mobility limits." />
+            <MobileConditionPill icon="🫃" label="Stomach Pain" color={COLORS.primary} body="location, food relationship, vomiting, acidity, bowel changes." />
           </div>
         </Step>
-        <Step num="04" color={COLORS.yellow} title="Doctor Review" body="The physician accesses the dashboard to view the structured pre-screening notes, vitals, and chronological medical history." />
-        <Step num="05" color={COLORS.red} title="Consultation & Voice Summary" body="The clinical visit takes place, concluded by a rapid 30-second doctor voice summary." />
-        <Step num="06" color={COLORS.primary} title="AI-Generated Care Plan" body="LLM engines convert raw voice audio into structured prescriptions, lifestyle precautions, test advice, and follow-up milestones." />
-        <Step num="07" color={COLORS.blue} title="Post-Care Monitoring" body="Automated patient check-ins are deployed over WhatsApp, SMS, or app notifications, functioning as a digital safety tether." />
-        <Step num="08" color={COLORS.orange} title="Clinical Intelligence Layer" body="Past clinical decisions are aggregated, allowing doctors to search their historical treatment patterns and find similar past cases." />
+        <Step num="04" title="Doctor Review" body="The physician accesses the dashboard to view the structured pre-screening notes, vitals, and chronological medical history." />
+        <Step num="05" title="Consultation & Voice Summary" body="The clinical visit takes place, concluded by a rapid 30-second doctor voice summary." />
+        <Step num="06" title="AI-Generated Care Plan" body="LLM engines convert raw voice audio into structured prescriptions, lifestyle precautions, test advice, and follow-up milestones." />
+        <Step num="07" title="Post-Care Monitoring" body="Automated patient check-ins are deployed over WhatsApp, SMS, or app notifications, functioning as a digital safety tether." />
+        <Step num="08" title="Clinical Intelligence Layer" body="Past clinical decisions are aggregated, allowing doctors to search their historical treatment patterns and find similar past cases." isLast />
       </div>
     </section>
   );
