@@ -33,10 +33,7 @@ function Nav() {
   return (
     <div className="bg-white border-b border-[#f0f2eb] sticky top-0 z-50">
       <div className="flex items-center justify-between px-5 py-3">
-        <div className="flex items-center gap-2">
-          <div className="size-9 rounded-md bg-[#5b8c5a] flex items-center justify-center text-white font-bold text-lg">W</div>
-          <p className="font-bold text-xl text-[#1a201c]">Weisscoat</p>
-        </div>
+        <img alt="Weisscoat" src="/figma/icons/weisscoat-logo.png" className="h-9 w-auto object-contain" />
         <button
           type="button"
           onClick={() => setOpen(!open)}
@@ -94,15 +91,18 @@ function Hero() {
         >
           Book a Demo <span className="font-bold">→</span>
         </button>
-        <div className="relative mt-2 h-56 rounded-2xl bg-gradient-to-b from-[rgba(92,140,89,0.4)] to-[rgba(166,199,166,0.9)] flex items-center justify-center">
-          <span className="text-7xl">👨‍⚕️</span>
+        <div className="relative mt-2 h-72 rounded-2xl overflow-hidden">
+          <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-cover object-top" />
           <div className="absolute top-3 left-3 bg-white rounded-full pl-2 pr-3 py-1.5 flex items-center gap-2 shadow-md">
-            <div className="size-7 bg-[#f5a050] rounded-full flex items-center justify-center text-white text-sm">⏱</div>
+            <div className="size-7 bg-[#d4e6d0] rounded-full flex items-center justify-center text-[#5b8c5a] text-sm font-bold">🛡</div>
             <p className="text-xs font-semibold leading-[14px]">Regular<br />Checkup</p>
           </div>
-          <div className="absolute bottom-3 right-3 bg-white rounded-xl px-3 py-2 flex flex-col items-center shadow-md">
-            <p className="text-lg font-bold leading-tight">84k+</p>
-            <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>
+          <div className="absolute bottom-3 right-3 bg-white rounded-xl px-3 py-2 flex items-center gap-2 shadow-md">
+            <span className="text-xl">🙂</span>
+            <div className="flex flex-col">
+              <p className="text-lg font-bold leading-tight">84k+</p>
+              <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>
+            </div>
           </div>
         </div>
       </div>
@@ -110,12 +110,10 @@ function Hero() {
   );
 }
 
-function ProblemCard({ color, emoji, title, body }: { color: string; emoji: string; title: string; body: string }) {
+function ProblemCard({ src, title, body }: { src: string; title: string; body: string }) {
   return (
-    <div className="bg-[#f5f7f3] border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3">
-      <div className="size-11 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: color }}>
-        {emoji}
-      </div>
+    <div className="bg-white border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3">
+      <img alt="" src={src} className="size-20 object-contain" />
       <p className="font-semibold text-[17px] leading-[22px] text-[#1a201c]">{title}</p>
       <p className="text-[13px] leading-[20px] text-[#555f58]">{body}</p>
     </div>
@@ -134,10 +132,10 @@ function Problems() {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <ProblemCard color={COLORS.orange} emoji="💬" title="Repetitive Patient Intake" body="Patients repeatedly share the same history, symptoms, and previous reports, wasting valuable consultation time." />
-        <ProblemCard color={COLORS.blue} emoji="📝" title="Documentation Burden" body="Doctors spend too much time typing clinical notes instead of actively engaging with patients." />
-        <ProblemCard color={COLORS.red} emoji="⚠️" title="Weak Post-Care" body="Patients often miss medications, ignore warning signs, or delay follow-up visits after leaving the clinic." />
-        <ProblemCard color={COLORS.yellow} emoji="💡" title="Lost Clinical Wisdom" body="Years of clinical reasoning and successful treatment patterns remain buried in unstructured records." />
+        <ProblemCard src="/figma/icons/problem-intake.png" title="Repetitive Patient Intake" body="Patients repeatedly share the same history, symptoms, and previous reports, wasting valuable consultation time." />
+        <ProblemCard src="/figma/icons/problem-docs.png" title="Documentation Burden" body="Doctors spend too much time typing clinical notes instead of actively engaging with patients." />
+        <ProblemCard src="/figma/icons/problem-postcare.png" title="Weak Post-Care" body="Patients often miss medications, ignore warning signs, or delay follow-up visits after leaving the clinic." />
+        <ProblemCard src="/figma/icons/problem-wisdom.png" title="Lost Clinical Wisdom" body="Years of clinical reasoning and successful treatment patterns remain buried in unstructured records." />
       </div>
     </section>
   );
@@ -153,12 +151,8 @@ function Persona() {
           Weisscoat creates a digital assistant modeled around each doctor&apos;s specific clinical persona. It doesn&apos;t just record; it understands how you practice medicine.
         </p>
       </div>
-      <div
-        className="h-64 rounded-3xl relative overflow-hidden flex items-center justify-center"
-        style={{ background: "linear-gradient(139deg, #5c8c59 0%, #8cba8a 71%)" }}
-      >
-        <span className="text-[100px]">🤖</span>
-        <p className="absolute bottom-5 font-semibold text-white text-sm">AI ⇄ Doctor</p>
+      <div className="h-72 rounded-3xl relative overflow-hidden">
+        <img alt="" src="/figma/icons/persona-robot.png" className="absolute inset-0 h-full w-full object-cover" />
       </div>
       <div className="flex flex-col gap-3">
         <h3 className="font-bold text-[22px] leading-[28px] tracking-[-0.4px]">
@@ -170,12 +164,12 @@ function Persona() {
       </div>
       <div className="flex flex-col gap-5">
         <div className="flex flex-col gap-2">
-          <div className="size-10 rounded-xl bg-[#d4e6d0] flex items-center justify-center text-lg">🎯</div>
+          <img alt="" src="/figma/icons/persona-clinic.png" className="size-14 object-contain" />
           <p className="font-semibold text-[16px]">Persona Matching</p>
           <p className="text-[13px] leading-[20px] text-[#555f58]">Learns your specific diagnostic vocabulary and note-taking style.</p>
         </div>
         <div className="flex flex-col gap-2">
-          <div className="size-10 rounded-xl bg-[#d4e6d0] flex items-center justify-center text-lg">🧠</div>
+          <img alt="" src="/figma/icons/persona-stethoscope.png" className="size-14 object-contain" />
           <p className="font-semibold text-[16px]">Contextual Intelligence</p>
           <p className="text-[13px] leading-[20px] text-[#555f58]">Understands medical nuances beyond simple speech-to-text conversion.</p>
         </div>
@@ -184,11 +178,11 @@ function Persona() {
   );
 }
 
-function JourneyCard({ num, color, emoji, title, body }: { num: string; color: string; emoji: string; title: string; body: string }) {
+function JourneyCard({ num, src, title, body }: { num: string; src: string; title: string; body: string }) {
   return (
     <div className="bg-white border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3 shadow-sm">
-      <div className="flex items-center justify-between">
-        <div className="size-12 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: color }}>{emoji}</div>
+      <div className="flex items-start justify-between">
+        <img alt="" src={src} className="h-20 w-32 object-contain" />
         <p className="font-bold text-2xl text-[#a6c8a5]">{num}</p>
       </div>
       <p className="font-semibold text-[17px] leading-[22px]">{title}</p>
@@ -206,9 +200,9 @@ function Journey() {
         <p className="text-[15px] leading-[24px] text-[#555f58]">Weisscoat: Scaling Medical Expertise via Individualized AI Agents</p>
       </div>
       <div className="flex flex-col gap-4">
-        <JourneyCard num="01" color={COLORS.blue} emoji="👥" title="Pre Screening & Data Gathering" body="AI agents use the doctor's unique questioning style to generate structured patient summaries." />
-        <JourneyCard num="02" color={COLORS.orange} emoji="🎤" title="Voice-Captured Consultation" body="Doctors record voice summaries to operationalize their diagnostic rationale and treatment philosophy." />
-        <JourneyCard num="03" color={COLORS.yellow} emoji="📊" title="Automated Post-Care Tether" body="The system monitors patient tracking data and triggers emergency alerts if thresholds are breached." />
+        <JourneyCard num="01" src="/figma/icons/journey-prescreen.png" title="Pre Screening & Data Gathering" body="AI agents use the doctor's unique questioning style to generate structured patient summaries." />
+        <JourneyCard num="02" src="/figma/icons/journey-voice.png" title="Voice-Captured Consultation" body="Doctors record voice summaries to operationalize their diagnostic rationale and treatment philosophy." />
+        <JourneyCard num="03" src="/figma/icons/journey-postcare.png" title="Automated Post-Care Tether" body="The system monitors patient tracking data and triggers emergency alerts if thresholds are breached." />
       </div>
       <div className="bg-[#d4e6d0] rounded-2xl p-5 flex gap-4 items-center">
         <div className="size-14 rounded-xl bg-white flex items-center justify-center text-2xl shrink-0">📈</div>
@@ -228,10 +222,10 @@ function Journey() {
   );
 }
 
-function LayerCard({ color, emoji, title, body, tag }: { color: string; emoji: string; title: string; body: string; tag: string }) {
+function LayerCard({ src, title, body, tag }: { src: string; title: string; body: string; tag: string }) {
   return (
     <div className="bg-[#f5f7f3] border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3">
-      <div className="size-12 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: color }}>{emoji}</div>
+      <img alt="" src={src} className="size-14 object-contain" />
       <p className="font-semibold text-[19px] leading-[24px]">{title}</p>
       <p className="text-[14px] leading-[22px] text-[#555f58]">{body}</p>
       <p className="font-semibold text-[13px] text-[#5b8c5a] leading-[20px]">{tag}</p>
@@ -250,10 +244,10 @@ function FourLayers() {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <LayerCard color={COLORS.blue} emoji="🔍" title="AI Pre-Screening" body="Before the appointment, the patient interacts with an AI assistant that collects condition specific symptoms, history, vitals, and previous lab information." tag="The doctor receives a clear summary before the consultation." />
-        <LayerCard color={COLORS.orange} emoji="🎓" title="Flexible Online Learning" body="During the consultation, the doctor reviews the AI-prepared summary, validates data, conducts the physical exam, and focuses entirely on diagnosis." tag="More focused consultation, zero repetitive questioning." />
-        <LayerCard color={COLORS.primary} emoji="💼" title="Practical & Career-Focused" body="After the visit, the doctor records a quick voice summary clearly explaining the diagnosis, treatment rationale, prescription instructions, and care advice." tag="Weisscoat turns spoken reasoning into structured clinical notes and workflows." />
-        <LayerCard color={COLORS.yellow} emoji="✅" title="Trusted Medical Content" body="The platform coordinates automated medication reminders, care instructions, follow-up nudges, and risk alerts through standard patient messaging apps." tag="Patients stay connected after visits, while doctors build a searchable case repository." />
+        <LayerCard src="/figma/icons/layer-prescreen.png" title="AI Pre-Screening" body="Before the appointment, the patient interacts with an AI assistant that collects condition specific symptoms, history, vitals, and previous lab information." tag="The doctor receives a clear summary before the consultation." />
+        <LayerCard src="/figma/icons/layer-learning.png" title="Flexible Online Learning" body="During the consultation, the doctor reviews the AI-prepared summary, validates data, conducts the physical exam, and focuses entirely on diagnosis." tag="More focused consultation, zero repetitive questioning." />
+        <LayerCard src="/figma/icons/layer-career.png" title="Practical & Career-Focused" body="After the visit, the doctor records a quick voice summary clearly explaining the diagnosis, treatment rationale, prescription instructions, and care advice." tag="Weisscoat turns spoken reasoning into structured clinical notes and workflows." />
+        <LayerCard src="/figma/icons/layer-trusted.png" title="Trusted Medical Content" body="The platform coordinates automated medication reminders, care instructions, follow-up nudges, and risk alerts through standard patient messaging apps." tag="Patients stay connected after visits, while doctors build a searchable case repository." />
       </div>
     </section>
   );
@@ -416,12 +410,7 @@ function Platform() {
 function Story() {
   return (
     <section className="bg-white px-5 py-12 flex flex-col gap-6">
-      <div
-        className="h-56 rounded-3xl flex items-center justify-center"
-        style={{ background: "linear-gradient(to right, #2e472e, #5c8c59)" }}
-      >
-        <span className="text-[80px]">👨‍⚕️</span>
-      </div>
+      <img alt="" src="/figma/icons/story-doctor.png" className="h-72 w-full object-cover rounded-3xl" />
       <p className="text-[11px] uppercase tracking-[1.5px] font-semibold text-[#5b8c5a]">OUR STORY</p>
       <h2 className="font-bold text-[26px] leading-[32px] tracking-[-0.5px]">
         Transforming Healthcare Through Intelligent Clinical Infrastructure
@@ -505,12 +494,7 @@ function SecurityItem({ n, bold, body }: { n: number; bold: string; body: string
 function Security() {
   return (
     <section className="bg-white px-5 py-12 flex flex-col gap-6">
-      <div
-        className="h-56 rounded-3xl flex items-center justify-center"
-        style={{ backgroundImage: "radial-gradient(circle at 50% 50%, rgba(115,166,115,1) 0%, rgba(80,121,80,1) 50%, rgba(63,99,63,1) 75%, rgba(46,77,46,1) 100%)" }}
-      >
-        <span className="text-[100px]">🛡️</span>
-      </div>
+      <img alt="" src="/figma/icons/security-shield.png" className="h-72 w-full object-cover rounded-3xl" />
       <p className="text-[11px] uppercase tracking-[1.5px] font-semibold text-[#5b8c5a]">SECURITY, PRIVACY &amp; COMPLIANCE</p>
       <h2 className="font-bold text-[26px] leading-[32px] tracking-[-0.5px]">
         Designed for responsible healthcare AI.
@@ -541,7 +525,7 @@ function Testimonial() {
       </p>
       <div className="bg-white rounded-2xl p-5 flex flex-col gap-4 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="size-16 rounded-full bg-[#d4e6d0] flex items-center justify-center text-3xl shrink-0">👩‍⚕️</div>
+          <img alt="" src="/figma/icons/testimonial-rao.png" className="h-20 w-24 rounded-xl object-cover shrink-0" />
           <div className="flex flex-col">
             <p className="font-semibold text-[16px]">Dr. Ananya Rao</p>
             <p className="text-[13px] text-[#555f58]">General Physician</p>
@@ -672,9 +656,8 @@ function Footer() {
         </button>
       </div>
       <div className="border-t border-white/10 pt-5 flex flex-col gap-4">
-        <div className="flex items-center gap-2.5">
-          <div className="size-8 rounded-md bg-white flex items-center justify-center font-bold text-[#5b8c5a]">W</div>
-          <p className="font-bold text-[18px]">Weisscoat</p>
+        <div className="bg-white rounded-lg p-2 inline-flex self-start">
+          <img alt="Weisscoat" src="/figma/icons/weisscoat-logo.png" className="h-7 w-auto object-contain" />
         </div>
         <div className="flex flex-wrap gap-x-5 gap-y-2 text-[13px] font-medium text-white/85">
           {["Home", "Platform", "How It Works", "For Clinics", "About", "Testimonials", "FAQ's"].map((l) => (

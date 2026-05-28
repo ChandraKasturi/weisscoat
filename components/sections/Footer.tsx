@@ -69,15 +69,8 @@ export default function Footer() {
       <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip py-[32px] relative shrink-0" data-node-id="16:50">
         <div className="bg-[rgba(255,255,255,0.1)] h-px relative shrink-0 w-[1280px]" />
         <div className="content-stretch flex h-[50px] items-center justify-between overflow-clip relative shrink-0 w-[1280px]">
-          <div className="content-stretch flex gap-[10px] items-center overflow-clip relative shrink-0">
-            <div className="bg-[var(--neutral\/white,white)] overflow-clip relative rounded-[var(--radius\/sm,6px)] shrink-0 size-[32px]">
-              <p className="[word-break:break-word] absolute font-['Inter:Bold'] font-bold leading-[22px] left-[10px] not-italic text-[18px] text-[color:var(--brand\/primary,#5b8c5a)] top-[5px] whitespace-nowrap">
-                W
-              </p>
-            </div>
-            <p className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[26px] not-italic relative shrink-0 text-[20px] text-[color:var(--text\/inverse,white)] whitespace-nowrap">
-              Weisscoat
-            </p>
+          <div className="bg-[var(--neutral\/white,white)] flex items-center justify-center overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 h-[44px] px-[12px]">
+            <img alt="Weisscoat" src="/figma/icons/weisscoat-logo.png" className="h-[32px] w-auto object-contain" />
           </div>
           <div className="[word-break:break-word] content-stretch flex font-['Inter:Medium'] font-medium gap-[28px] items-start leading-[20px] not-italic overflow-clip relative shrink-0 text-[14px] text-[color:var(--text\/inverse,white)] whitespace-nowrap">
             <p className="opacity-85 relative shrink-0">Home</p>
