@@ -110,12 +110,10 @@ function Hero() {
   );
 }
 
-function ProblemCard({ color, emoji, title, body }: { color: string; emoji: string; title: string; body: string }) {
+function ProblemCard({ src, title, body }: { src: string; title: string; body: string }) {
   return (
-    <div className="bg-[#f5f7f3] border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3">
-      <div className="size-11 rounded-xl flex items-center justify-center text-xl" style={{ backgroundColor: color }}>
-        {emoji}
-      </div>
+    <div className="bg-white border border-[#f0f2eb] rounded-2xl p-5 flex flex-col gap-3 items-center text-center">
+      <img alt="" src={src} className="size-24 object-contain" />
       <p className="font-semibold text-[17px] leading-[22px] text-[#1a201c]">{title}</p>
       <p className="text-[13px] leading-[20px] text-[#555f58]">{body}</p>
     </div>
@@ -134,10 +132,10 @@ function Problems() {
         </p>
       </div>
       <div className="flex flex-col gap-4">
-        <ProblemCard color={COLORS.orange} emoji="💬" title="Repetitive Patient Intake" body="Patients repeatedly share the same history, symptoms, and previous reports, wasting valuable consultation time." />
-        <ProblemCard color={COLORS.blue} emoji="📝" title="Documentation Burden" body="Doctors spend too much time typing clinical notes instead of actively engaging with patients." />
-        <ProblemCard color={COLORS.red} emoji="⚠️" title="Weak Post-Care" body="Patients often miss medications, ignore warning signs, or delay follow-up visits after leaving the clinic." />
-        <ProblemCard color={COLORS.yellow} emoji="💡" title="Lost Clinical Wisdom" body="Years of clinical reasoning and successful treatment patterns remain buried in unstructured records." />
+        <ProblemCard src="/figma/icons/problem-intake.png" title="Repetitive Patient Intake" body="Patients repeatedly share the same history, symptoms, and previous reports, wasting valuable consultation time." />
+        <ProblemCard src="/figma/icons/problem-docs.png" title="Documentation Burden" body="Doctors spend too much time typing clinical notes instead of actively engaging with patients." />
+        <ProblemCard src="/figma/icons/problem-postcare.png" title="Weak Post-Care" body="Patients often miss medications, ignore warning signs, or delay follow-up visits after leaving the clinic." />
+        <ProblemCard src="/figma/icons/problem-wisdom.png" title="Lost Clinical Wisdom" body="Years of clinical reasoning and successful treatment patterns remain buried in unstructured records." />
       </div>
     </section>
   );
