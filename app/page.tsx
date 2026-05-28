@@ -1,4 +1,4 @@
-import ScaledFrame from "@/components/ScaledFrame";
+import MobileHome from "@/components/MobileHome";
 import TopBar from "@/components/sections/TopBar";
 import NavigationBar from "@/components/sections/NavigationBar";
 import Hero from "@/components/sections/Hero";
@@ -19,24 +19,31 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <ScaledFrame>
-      <TopBar />
-      <NavigationBar />
-      <Hero />
-      <ProblemGrid />
-      <DigitalPersona />
-      <PatientCareJourney />
-      <FourLayers />
-      <HowItWorks />
-      <StakeholderMatrix />
-      <UnifiedPlatform />
-      <OurStory />
-      <WhyDifferent />
-      <Security />
-      <Testimonials />
-      <FAQ />
-      <CTA />
-      <Footer />
-    </ScaledFrame>
+    <>
+      <div className="xl:hidden">
+        <MobileHome />
+      </div>
+      <div className="hidden xl:block w-full overflow-x-auto bg-white">
+        <div className="mx-auto w-[1440px]">
+          <TopBar />
+          <NavigationBar />
+          <Hero />
+          <ProblemGrid />
+          <DigitalPersona />
+          <PatientCareJourney />
+          <FourLayers />
+          <HowItWorks />
+          <StakeholderMatrix />
+          <UnifiedPlatform />
+          <OurStory />
+          <WhyDifferent />
+          <Security />
+          <Testimonials />
+          <FAQ />
+          <CTA />
+          <Footer />
+        </div>
+      </div>
+    </>
   );
 }
