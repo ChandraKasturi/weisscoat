@@ -1,5 +1,4 @@
 const imgEllipse = "https://www.figma.com/api/mcp/asset/416d56db-20df-4c03-9959-5e3de64037ff";
-const imgEllipse1 = "https://www.figma.com/api/mcp/asset/409f57d1-28e2-49b7-9abc-bd170654e987";
 const imgFrame = "https://www.figma.com/api/mcp/asset/95bb8367-c6cd-4eb0-b93f-a8e5686f8cc8";
 
 export default function Hero() {
@@ -33,9 +32,12 @@ export default function Hero() {
         </div>
         <div className="flex flex-row items-end self-stretch">
           <div className="h-full overflow-clip relative shrink-0 w-[560px]" data-node-id="5:13" data-name="Hero Right">
-            <div className="absolute left-[80px] size-[440px] top-[40px]" data-node-id="5:14" data-name="Ellipse">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
-            </div>
+            <img
+              alt=""
+              src="/figma/icons/hero-ring.png"
+              className="absolute block left-[80px] size-[440px] top-[40px] object-contain"
+              data-node-id="5:14"
+            />
             <img
               alt=""
               src="/figma/icons/hero-doctor.png"
