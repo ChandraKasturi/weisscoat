@@ -94,8 +94,8 @@ function Hero() {
         >
           Book a Demo <span className="font-bold">→</span>
         </button>
-        <div className="relative mt-2 h-56 rounded-2xl bg-gradient-to-b from-[rgba(92,140,89,0.4)] to-[rgba(166,199,166,0.9)] flex items-center justify-center">
-          <span className="text-7xl">👨‍⚕️</span>
+        <div className="relative mt-2 h-80 rounded-2xl overflow-hidden">
+          <img alt="" src="/figma/icons/hero-doctor.png" className="absolute inset-0 h-full w-full object-contain object-bottom" />
           <div className="absolute top-3 left-3 bg-white rounded-full pl-2 pr-3 py-1.5 flex items-center gap-2 shadow-md">
             <div className="size-7 bg-[#f5a050] rounded-full flex items-center justify-center text-white text-sm">⏱</div>
             <p className="text-xs font-semibold leading-[14px]">Regular<br />Checkup</p>

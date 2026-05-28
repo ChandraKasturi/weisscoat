@@ -36,11 +36,12 @@ export default function Hero() {
             <div className="absolute left-[80px] size-[440px] top-[40px]" data-node-id="5:14" data-name="Ellipse">
               <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
             </div>
-            <div className="absolute bg-gradient-to-b from-[rgba(92,140,89,0.4)] h-[440px] left-[110px] overflow-clip to-[rgba(166,199,166,0.9)] top-[40px] w-[380px]" data-node-id="5:15" data-name="Doctor Image">
-              <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[240px] left-[90px] not-italic text-[200px] text-black top-[100px] whitespace-nowrap" data-node-id="5:16">
-                👨‍⚕️
-              </p>
-            </div>
+            <img
+              alt=""
+              src="/figma/icons/hero-doctor.png"
+              className="absolute h-[460px] left-[100px] object-contain object-bottom top-[20px] w-[400px]"
+              data-node-id="5:15"
+            />
             <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[20px] overflow-clip pl-[16px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[100px]" data-node-id="5:17" data-name="Badge - Regular Checkup">
               <div className="bg-[var(--accent\/orange,#f5a050)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]" data-node-id="5:18" data-name="Frame">
                 <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[22px] left-[9px] not-italic text-[18px] text-[color:var(--text\/inverse,white)] top-[7px] whitespace-nowrap" data-node-id="5:19">
