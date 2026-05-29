@@ -81,8 +81,11 @@ function Hero() {
         className="rounded-3xl p-7 flex flex-col gap-5"
         style={{ background: "linear-gradient(135deg, #eaf5ec 0%, #f5fbf6 55%, #ffffff 100%)" }}
       >
-        <div className="bg-white rounded-full px-4 py-1.5 self-start flex items-center gap-2">
-          <span className="block size-2 rounded-full bg-[#5b8c5a]" />
+        <div className="bg-[#c8e0c5] rounded-full pl-2 pr-4 py-1.5 self-start flex items-center gap-1.5">
+          <svg viewBox="0 0 24 24" fill="none" className="size-4 shrink-0">
+            <circle cx="12" cy="12" r="9.5" fill="#5b8c5a" />
+            <path d="M8 12L11 15L16 9" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
           <p className="text-xs font-semibold text-[#5b8c5a]">Clinical Intelligence, Personalized.</p>
         </div>
         <h1 className="font-normal text-[32px] leading-[40px] tracking-[-1px] text-[#1a201c]">

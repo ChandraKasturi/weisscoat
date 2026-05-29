@@ -1,5 +1,3 @@
-const imgEllipse = "https://www.figma.com/api/mcp/asset/416d56db-20df-4c03-9959-5e3de64037ff";
-
 export default function Hero() {
   return (
     <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col items-start pb-[80px] pt-[32px] px-[80px] relative size-full" data-node-id="5:2" data-name="Hero Section">
@@ -10,10 +8,11 @@ export default function Hero() {
         data-name="Hero Card"
       >
         <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip pb-[64px] relative shrink-0" data-node-id="5:4" data-name="Hero Left Content">
-          <div className="bg-[var(--neutral\/white,white)] content-stretch flex gap-[8px] items-center overflow-clip px-[16px] py-[8px] relative rounded-[var(--radius\/full,999px)] shrink-0" data-node-id="5:5" data-name="Frame">
-            <div className="relative shrink-0 size-[8px]" data-node-id="5:6" data-name="Ellipse">
-              <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
-            </div>
+          <div className="bg-[#c8e0c5] content-stretch flex gap-[8px] items-center overflow-clip pl-[10px] pr-[16px] py-[8px] relative rounded-[var(--radius\/full,999px)] shrink-0" data-node-id="5:5" data-name="Frame">
+            <svg viewBox="0 0 24 24" fill="none" className="size-[18px] shrink-0" data-node-id="5:6">
+              <circle cx="12" cy="12" r="9.5" fill="#5b8c5a" />
+              <path d="M8 12L11 15L16 9" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
             <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[18px] not-italic relative shrink-0 text-[13px] text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap" data-node-id="5:7">
               Clinical Intelligence, Personalized.
             </p>
