@@ -110,7 +110,7 @@ function Hero() {
             src="/figma/icons/hero-doctor.png"
             className="absolute inset-0 h-full w-full object-contain object-bottom z-10"
           />
-          <div className="absolute bottom-4 -left-2 bg-white rounded-[20px] pl-3 pr-5 py-3 flex items-center gap-3 shadow-md z-20">
+          <div className="absolute bottom-20 -left-2 bg-white rounded-[20px] pl-3 pr-5 py-3 flex items-center gap-3 shadow-md z-20">
             <div className="size-9 bg-[#e7f1e6] rounded-full flex items-center justify-center shrink-0">
               <svg viewBox="0 0 24 24" fill="none" className="size-5">
                 <path d="M12 2.25L20.25 5.5V12.5C20.25 17 16.75 21.05 12 22.5C7.25 21.05 3.75 17 3.75 12.5V5.5L12 2.25Z" fill="#5b6a5a" />
@@ -120,7 +120,7 @@ function Hero() {
             <p className="text-[13px] font-semibold leading-[16px]">Regular<br />Checkup</p>
           </div>
           <div className="absolute bottom-4 -right-4 bg-white rounded-xl px-4 py-3 flex items-center gap-2.5 shadow-md z-20">
-            <img alt="" src="/figma/icons/smile.png" className="size-7 shrink-0" />
+            <span className="text-xl leading-none">🙂</span>
             <div className="flex flex-col">
               <p className="text-base font-bold leading-tight">84k+</p>
               <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>

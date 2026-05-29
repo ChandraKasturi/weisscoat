@@ -49,7 +49,7 @@ export default function Hero() {
               className="absolute h-[460px] left-[80px] object-contain object-bottom top-[20px] w-[400px] z-10"
               data-node-id="5:15"
             />
-            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[16px] items-center left-[-20px] overflow-clip pl-[16px] pr-[28px] py-[18px] rounded-[24px] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[400px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[16px] items-center left-[-20px] overflow-clip pl-[16px] pr-[28px] py-[18px] rounded-[24px] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[300px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
               <div className="bg-[#e7f1e6] flex items-center justify-center relative rounded-[var(--radius\/full,999px)] shrink-0 size-[40px]" data-node-id="5:18" data-name="Frame">
                 <svg viewBox="0 0 24 24" fill="none" className="size-[22px]" data-node-id="5:19">
                   <path d="M12 2.25L20.25 5.5V12.5C20.25 17 16.75 21.05 12 22.5C7.25 21.05 3.75 17 3.75 12.5V5.5L12 2.25Z" fill="#5b6a5a" />
@@ -66,7 +66,7 @@ export default function Hero() {
               </div>
             </div>
             <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[14px] items-center left-[420px] overflow-clip px-[24px] py-[18px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[440px] z-20" data-node-id="5:23" data-name="Badge - 84k Patients">
-              <img alt="" src="/figma/icons/smile.png" className="relative shrink-0 size-[36px]" />
+              <p className="relative shrink-0 text-[32px] leading-none">🙂</p>
               <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0">
                 <p className="font-['Inter:Bold'] font-bold leading-[28px] relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:29">
                   84k+
