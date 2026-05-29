@@ -85,8 +85,8 @@ function Hero() {
           <span className="block size-2 rounded-full bg-[#5b8c5a]" />
           <p className="text-xs font-semibold text-[#5b8c5a]">Clinical Intelligence, Personalized.</p>
         </div>
-        <h1 className="font-bold text-[32px] leading-[40px] tracking-[-1px] text-[#1a201c]">
-          Personalized AI Agents for Smarter Clinical Care
+        <h1 className="font-normal text-[32px] leading-[40px] tracking-[-1px] text-[#1a201c]">
+          Personalized <span className="font-bold">AI Agents</span> for Smarter Clinical Care
         </h1>
         <p className="text-[15px] leading-[24px] text-[#555f58]">
           Weisscoat helps doctors build AI-powered clinical assistants trained around their unique consultation style, transforming every consultation into a structured clinical intelligence system.

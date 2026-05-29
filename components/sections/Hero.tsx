@@ -18,8 +18,10 @@ export default function Hero() {
               Clinical Intelligence, Personalized.
             </p>
           </div>
-          <div className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[0] not-italic relative shrink-0 text-[56px] text-[color:var(--text\/primary,#1a201c)] tracking-[-1.5px] w-[560px]" data-node-id="5:8">
-            <p className="leading-[64px] mb-0">Personalized AI Agents</p>
+          <div className="[word-break:break-word] font-['Inter:Regular'] font-normal leading-[0] not-italic relative shrink-0 text-[56px] text-[color:var(--text\/primary,#1a201c)] tracking-[-1.5px] w-[560px]" data-node-id="5:8">
+            <p className="leading-[64px] mb-0">
+              Personalized <span className="font-['Inter:Bold'] font-bold">AI Agents</span>
+            </p>
             <p className="leading-[64px]">for Smarter Clinical Care</p>
           </div>
           <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[84px] leading-[28px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] w-[540px]" data-node-id="5:9">
