@@ -49,11 +49,12 @@ export default function Hero() {
               className="absolute h-[460px] left-[80px] object-contain object-bottom top-[20px] w-[400px] z-10"
               data-node-id="5:15"
             />
-            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[-20px] overflow-clip pl-[12px] pr-[20px] py-[12px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[400px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
-              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/full,999px)] shrink-0 size-[36px]" data-node-id="5:18" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[22px] left-[9px] not-italic text-[18px] text-[color:var(--brand\/primary,#5b8c5a)] top-[7px] whitespace-nowrap" data-node-id="5:19">
-                  ⏱
-                </p>
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[14px] items-center left-[-20px] overflow-clip pl-[14px] pr-[24px] py-[16px] rounded-[var(--radius\/full,999px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[400px] z-20" data-node-id="5:17" data-name="Badge - Regular Checkup">
+              <div className="bg-[#e7f1e6] flex items-center justify-center relative rounded-[var(--radius\/full,999px)] shrink-0 size-[40px]" data-node-id="5:18" data-name="Frame">
+                <svg viewBox="0 0 24 24" fill="none" className="size-[22px]" data-node-id="5:19">
+                  <path d="M12 2.25L20.25 5.5V12.5C20.25 17 16.75 21.05 12 22.5C7.25 21.05 3.75 17 3.75 12.5V5.5L12 2.25Z" fill="#5b6a5a" />
+                  <path d="M8 12.5L10.75 15.25L16 10" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
               </div>
               <div className="[word-break:break-word] content-stretch flex flex-col font-['Inter:Semi_Bold'] font-semibold items-start leading-[18px] not-italic overflow-clip relative shrink-0 text-[14px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:20" data-name="Frame">
                 <p className="relative shrink-0" data-node-id="5:21">
@@ -64,8 +65,8 @@ export default function Hero() {
                 </p>
               </div>
             </div>
-            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[12px] items-center left-[420px] overflow-clip px-[20px] py-[14px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[440px] z-20" data-node-id="5:23" data-name="Badge - 84k Patients">
-              <p className="relative shrink-0 text-[32px] leading-none">🙂</p>
+            <div className="absolute bg-[var(--neutral\/white,white)] content-stretch flex gap-[14px] items-center left-[420px] overflow-clip px-[24px] py-[18px] rounded-[var(--radius\/lg,16px)] shadow-[0px_8px_24px_0px_rgba(0,0,0,0.08)] top-[440px] z-20" data-node-id="5:23" data-name="Badge - 84k Patients">
+              <img alt="" src="/figma/icons/smile.png" className="relative shrink-0 size-[36px]" />
               <div className="[word-break:break-word] content-stretch flex flex-col items-start not-italic overflow-clip relative shrink-0">
                 <p className="font-['Inter:Bold'] font-bold leading-[28px] relative shrink-0 text-[24px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="5:29">
                   84k+

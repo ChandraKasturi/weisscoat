@@ -110,12 +110,17 @@ function Hero() {
             src="/figma/icons/hero-doctor.png"
             className="absolute inset-0 h-full w-full object-contain object-bottom z-10"
           />
-          <div className="absolute bottom-4 -left-2 bg-white rounded-full pl-2 pr-4 py-2 flex items-center gap-2 shadow-md z-20">
-            <div className="size-7 bg-[#d4e6d0] rounded-full flex items-center justify-center text-[#5b8c5a] text-sm">⏱</div>
+          <div className="absolute bottom-4 -left-2 bg-white rounded-full pl-3 pr-5 py-2.5 flex items-center gap-2.5 shadow-md z-20">
+            <div className="size-8 bg-[#e7f1e6] rounded-full flex items-center justify-center">
+              <svg viewBox="0 0 24 24" fill="none" className="size-[18px]">
+                <path d="M12 2.25L20.25 5.5V12.5C20.25 17 16.75 21.05 12 22.5C7.25 21.05 3.75 17 3.75 12.5V5.5L12 2.25Z" fill="#5b6a5a" />
+                <path d="M8 12.5L10.75 15.25L16 10" stroke="#ffffff" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
             <p className="text-xs font-semibold leading-[14px]">Regular<br />Checkup</p>
           </div>
-          <div className="absolute bottom-4 -right-4 bg-white rounded-xl px-3 py-2 flex items-center gap-2 shadow-md z-20">
-            <span className="text-xl leading-none">🙂</span>
+          <div className="absolute bottom-4 -right-4 bg-white rounded-xl px-4 py-3 flex items-center gap-2.5 shadow-md z-20">
+            <img alt="" src="/figma/icons/smile.png" className="size-7 shrink-0" />
             <div className="flex flex-col">
               <p className="text-base font-bold leading-tight">84k+</p>
               <p className="text-[10px] font-medium text-[#555f58]">Happy Patients</p>
