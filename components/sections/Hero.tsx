@@ -27,12 +27,9 @@ export default function Hero() {
           <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[84px] leading-[28px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] w-[540px]" data-node-id="5:9">
             Weisscoat helps doctors build AI-powered clinical assistants trained around their unique consultation style, transforming every consultation into a structured clinical intelligence system.
           </p>
-          <div className="[word-break:break-word] bg-[var(--brand\/primary,#5b8c5a)] content-stretch flex gap-[12px] items-center leading-[20px] not-italic overflow-clip px-[32px] py-[18px] relative rounded-[var(--radius\/full,999px)] shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="5:10" data-name="Frame">
+          <div className="[word-break:break-word] bg-[#5b6a5a] content-stretch flex items-center justify-center leading-[20px] not-italic overflow-clip px-[32px] py-[16px] relative rounded-[10px] shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="5:10" data-name="Frame">
             <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0" data-node-id="5:11">
               Book a Demo
-            </p>
-            <p className="font-['Inter:Bold'] font-bold relative shrink-0" data-node-id="5:12">
-              →
             </p>
           </div>
         </div>

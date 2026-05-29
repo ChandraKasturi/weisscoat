@@ -93,9 +93,9 @@ function Hero() {
         </p>
         <button
           type="button"
-          className="self-start bg-[#5b8c5a] text-white font-semibold text-[15px] rounded-full px-7 py-3.5 flex items-center gap-2"
+          className="self-start bg-[#5b6a5a] text-white font-semibold text-[15px] rounded-[10px] px-7 py-3.5"
         >
-          Book a Demo <span className="font-bold">→</span>
+          Book a Demo
         </button>
         <div className="relative mt-2 h-80 overflow-visible">
           <div className="absolute left-2 top-20 size-24 rounded-full border-[1.5px] border-[#a6c8a5]/25" />
