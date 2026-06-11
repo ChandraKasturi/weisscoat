@@ -53,16 +53,16 @@ export default function Hero() {
               aria-hidden
               width={539}
               height={539}
-              className="absolute right-[-14%] md:right-[-16%] top-[4%] h-[88%] aspect-square w-auto select-none pointer-events-none"
+              className="absolute right-[0%] md:right-[-4%] top-[4%] h-[88%] aspect-square w-auto select-none pointer-events-none"
             />
             <img
               src="/figma/hero-doctor-figma.png"
               alt="Doctor in white coat"
-              className="absolute right-[4%] md:right-[2%] top-0 h-full w-auto object-cover object-top pointer-events-none select-none"
+              className="absolute right-[18%] md:right-[14%] top-0 h-full w-auto object-cover object-top pointer-events-none select-none"
             />
 
-            {/* Regular Checkup badge — overlapping image left, higher */}
-            <div className="absolute left-0 sm:left-[4%] bottom-[34%] sm:bottom-[38%] flex items-center gap-[10px] sm:gap-[12px] h-[60px] sm:h-[72px] md:h-[78px] px-[12px] sm:px-[16px] rounded-[18px] sm:rounded-[24px] bg-[rgba(246,249,255,0.92)] shadow-[0px_0px_29px_0px_rgba(42,167,255,0.16)] backdrop-blur-[12px] z-10">
+            {/* Regular Checkup badge — overlapping image left at chest height */}
+            <div className="absolute left-0 sm:left-[2%] bottom-[34%] sm:bottom-[36%] flex items-center gap-[10px] sm:gap-[12px] h-[60px] sm:h-[72px] md:h-[78px] px-[12px] sm:px-[16px] rounded-[18px] sm:rounded-[24px] bg-[rgba(246,249,255,0.92)] shadow-[0px_0px_29px_0px_rgba(42,167,255,0.16)] backdrop-blur-[12px] z-10">
               <img
                 src="/figma/hero-checkup-shield.svg"
                 alt=""
@@ -77,8 +77,8 @@ export default function Hero() {
               </p>
             </div>
 
-            {/* 84k+ Happy Patients badge — bottom-right */}
-            <div className="absolute right-0 sm:right-[2%] bottom-[10%] sm:bottom-[14%] flex items-center gap-[8px] sm:gap-[10px] h-[54px] sm:h-[64px] md:h-[70px] px-[12px] sm:px-[14px] rounded-[18px] sm:rounded-[24px] bg-[rgba(246,249,255,0.92)] shadow-[0px_0px_29px_0px_rgba(42,167,255,0.16)] backdrop-blur-[12px] z-10">
+            {/* 84k+ Happy Patients badge — right at chest height */}
+            <div className="absolute right-0 sm:right-[0%] bottom-[28%] sm:bottom-[30%] flex items-center gap-[8px] sm:gap-[10px] h-[54px] sm:h-[64px] md:h-[70px] px-[12px] sm:px-[14px] rounded-[18px] sm:rounded-[24px] bg-[rgba(246,249,255,0.92)] shadow-[0px_0px_29px_0px_rgba(42,167,255,0.16)] backdrop-blur-[12px] z-10">
               <img
                 src="/figma/hero-smile.svg"
                 alt=""
