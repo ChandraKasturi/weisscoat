@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { AnimatedText } from "@/components/motion/AnimatedText";
 import { useRichMotion } from "@/components/motion/useRichMotion";
 
@@ -70,10 +70,19 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
   // keeps the cheap one-shot entrance below and a plain static connector.
   const rich = useRichMotion();
   const rowRef = useRef<HTMLDivElement>(null);
+  // Drive the entrance from a real in-view boolean (not whileInView) so the
+  // badge + content reliably reach their visible state — whileInView could
+  // leave them stuck at opacity:0 when combined with the scroll motion value
+  // and the rich re-render.
+  const inView = useInView(rowRef, { once: true, margin: "-90px" });
   const { scrollYProgress } = useScroll({
     target: rowRef,
     offset: ["start end", "end start"],
   });
+  const badgeHidden = { opacity: 0, scale: 0.4 };
+  const badgeShown = { opacity: 1, scale: 1 };
+  const contentHidden = { opacity: 0, y: 44, ...(rich ? { filter: "blur(8px)" } : {}) };
+  const contentShown = { opacity: 1, y: 0, ...(rich ? { filter: "blur(0px)" } : {}) };
   // Badge drifts up against the scroll (+26px → -26px) so the numbers float
   // up the page as you read down. Transform-only — the badge is a shrink-0
   // flex item, so layout (and the dashed connector) never move.
@@ -100,25 +109,23 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
           />
         </div>
       )}
-      {/* Badge: springs in (opacity/scale). Parallax `y` runs on desktop only;
-          on mobile the badge just sits at rest after its entrance. */}
+      {/* Badge: springs in (opacity/scale), driven by the in-view boolean so
+          it always reaches full opacity. Parallax `y` runs on desktop only. */}
       <motion.div
         style={rich ? { y: badgeY } : undefined}
-        initial={reduce ? undefined : { opacity: 0, scale: 0.4 }}
-        whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
-        viewport={{ once: true, margin: "-90px" }}
+        initial={reduce ? false : badgeHidden}
+        animate={reduce ? undefined : inView ? badgeShown : badgeHidden}
         transition={reduce ? undefined : { type: "spring", stiffness: 260, damping: 14 }}
         className="relative z-10 flex h-[40px] sm:h-[48px] lg:h-[56px] w-[40px] sm:w-[48px] lg:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#5B6A5A] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.10),0px_4px_6px_-4px_rgba(0,0,0,0.10)]">
         <p className="font-inter font-bold text-[13px] sm:text-[14px] lg:text-[16px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white text-center">
           {step.num}
         </p>
       </motion.div>
-      {/* Step content floats in one row at a time as each enters view. Blur is
-          desktop-only — animating a blur filter is a major mobile jank source. */}
+      {/* Step content floats in just after its badge. Blur is desktop-only —
+          animating a blur filter is a major mobile jank source. */}
       <motion.div
-        initial={reduce ? undefined : { opacity: 0, y: 44, ...(rich ? { filter: "blur(8px)" } : {}) }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0, ...(rich ? { filter: "blur(0px)" } : {}) }}
-        viewport={{ once: true, margin: "-90px" }}
+        initial={reduce ? false : contentHidden}
+        animate={reduce ? undefined : inView ? contentShown : contentHidden}
         transition={reduce ? undefined : { duration: 0.8, ease: EASE, delay: 0.12 }}
         className="flex flex-1 flex-col gap-2 sm:gap-3 lg:gap-[12px] pt-1 sm:pt-[4px] min-w-0">
         <p className="font-satoshi font-medium text-[18px] sm:text-[22px] lg:text-[26px] leading-[1.3] lg:leading-[36px] text-[#1A1C1E]">
