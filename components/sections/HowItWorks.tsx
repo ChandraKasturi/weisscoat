@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { AnimatedText } from "@/components/motion/AnimatedText";
+import { useRichMotion } from "@/components/motion/useRichMotion";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -63,21 +64,22 @@ function ConditionCard({ icon, name, details, index }: Condition & { index: numb
 
 function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
   const reduce = useReducedMotion();
-  // Scroll-linked parallax: as the row travels up the viewport, its number
-  // badge drifts upward against the scroll (+26px → -26px), so the numbers
-  // float up the page as you read down. Transform-only — the badge is a
-  // shrink-0 flex item, so layout (and the dashed connector) never move.
+  // Scroll-linked effects (badge parallax + progressive line fill) recompute
+  // every scroll frame, which stutters touch scrolling and can make the
+  // numbers glitch on phones — so they run on capable desktops only. Mobile
+  // keeps the cheap one-shot entrance below and a plain static connector.
+  const rich = useRichMotion();
   const rowRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: rowRef,
     offset: ["start end", "end start"],
   });
+  // Badge drifts up against the scroll (+26px → -26px) so the numbers float
+  // up the page as you read down. Transform-only — the badge is a shrink-0
+  // flex item, so layout (and the dashed connector) never move.
   const badgeY = useTransform(scrollYProgress, [0, 1], [26, -26]);
-  // Progressive line fill: the dashed connector "draws" downward as the row
-  // crosses the lower half of the viewport. The outer div keeps its exact
-  // geometry but becomes an overflow-hidden mask; the dashed background moves
-  // to an inner layer that slides down from -101% → 0% with scroll, settling
-  // at identity (pixel-identical to the original static line).
+  // Dashed connector "draws" downward (-101% → 0%) as the row crosses the
+  // viewport, settling at identity (pixel-identical to the static line).
   const lineFill = useTransform(scrollYProgress, [0.08, 0.5], ["-101%", "0%"]);
   return (
     <div ref={rowRef} className="relative flex gap-4 sm:gap-6 lg:gap-[32px] items-start pb-12 sm:pb-16 lg:pb-[64px]">
@@ -93,15 +95,15 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
               backgroundImage: DASHED_CONNECTOR,
               backgroundSize: "100% 12px",
               backgroundRepeat: "repeat-y",
-              y: reduce ? 0 : lineFill,
+              y: rich ? lineFill : 0,
             }}
           />
         </div>
       )}
-      {/* Badge: springs in (opacity/scale — `y` stays owned by the parallax
-          motion value, so the two never conflict). */}
+      {/* Badge: springs in (opacity/scale). Parallax `y` runs on desktop only;
+          on mobile the badge just sits at rest after its entrance. */}
       <motion.div
-        style={reduce ? undefined : { y: badgeY }}
+        style={rich ? { y: badgeY } : undefined}
         initial={reduce ? undefined : { opacity: 0, scale: 0.4 }}
         whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-90px" }}
@@ -111,11 +113,11 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
           {step.num}
         </p>
       </motion.div>
-      {/* Step content floats in just after its badge, one row at a time as
-          each enters the viewport. */}
+      {/* Step content floats in one row at a time as each enters view. Blur is
+          desktop-only — animating a blur filter is a major mobile jank source. */}
       <motion.div
-        initial={reduce ? undefined : { opacity: 0, y: 44, filter: "blur(8px)" }}
-        whileInView={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
+        initial={reduce ? undefined : { opacity: 0, y: 44, ...(rich ? { filter: "blur(8px)" } : {}) }}
+        whileInView={reduce ? undefined : { opacity: 1, y: 0, ...(rich ? { filter: "blur(0px)" } : {}) }}
         viewport={{ once: true, margin: "-90px" }}
         transition={reduce ? undefined : { duration: 0.8, ease: EASE, delay: 0.12 }}
         className="flex flex-1 flex-col gap-2 sm:gap-3 lg:gap-[12px] pt-1 sm:pt-[4px] min-w-0">

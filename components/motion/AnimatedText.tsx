@@ -3,6 +3,7 @@
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { ElementType } from "react";
+import { useRichMotion } from "@/components/motion/useRichMotion";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 const VIEWPORT = { once: true, margin: "-60px" } as const;
@@ -44,9 +45,31 @@ export function AnimatedText({
   children,
 }: AnimatedTextProps) {
   const reduce = useReducedMotion();
+  const rich = useRichMotion();
 
   if (reduce) {
     return <Tag className={className}>{children}</Tag>;
+  }
+
+  if (!rich) {
+    // Mobile / touch / first paint: ONE clean whole-text rise. No per-letter
+    // splitting (which loses kerning and clips glyph edges on Chromium) and
+    // no perpetual wave (which stutters touch scrolling). The text stays a
+    // single, normally-shaped run, so it never overflows or gets cut off.
+    // Settles to identity — pixel-identical at rest.
+    return (
+      <Tag className={className}>
+        <motion.span
+          style={{ display: "block" }}
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={VIEWPORT}
+          transition={{ duration: 0.6, ease: EASE, delay }}
+        >
+          {children}
+        </motion.span>
+      </Tag>
+    );
   }
 
   if (variant === "rise" || variant === "slide") {

@@ -3,8 +3,17 @@
 import { motion, useReducedMotion } from "framer-motion";
 import type { Transition } from "framer-motion";
 import type { ReactNode } from "react";
+import { useRichMotion } from "@/components/motion/useRichMotion";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+// Lightweight mobile fallback: a plain opacity + translate reveal with NO
+// blur filter and NO 3D perspective (both are expensive to animate on phones
+// and are the main cause of stuttery touch scrolling). Still a clean one-shot
+// entrance; settles to identity.
+const LITE_HIDDEN: TargetState = { opacity: 0, y: 24 };
+const LITE_SHOWN: TargetState = { opacity: 1, y: 0 };
+const LITE_TRANSITION = (delay: number): Transition => ({ duration: 0.5, ease: EASE, delay });
 
 export type RevealVariant = "up" | "left" | "right" | "scale" | "flip" | "blur";
 
@@ -124,6 +133,7 @@ export function Reveal({
   from = "up",
 }: RevealProps) {
   const reduce = useReducedMotion();
+  const rich = useRichMotion();
 
   if (reduce) {
     return <div className={className}>{children}</div>;
@@ -132,10 +142,10 @@ export function Reveal({
   return (
     <motion.div
       className={className}
-      initial={hiddenFor(from, y)}
-      whileInView={shownFor(from)}
+      initial={rich ? hiddenFor(from, y) : LITE_HIDDEN}
+      whileInView={rich ? shownFor(from) : LITE_SHOWN}
       viewport={{ once, margin: "-80px" }}
-      transition={transitionFor(from, delay)}
+      transition={rich ? transitionFor(from, delay) : LITE_TRANSITION(delay)}
     >
       {children}
     </motion.div>
@@ -201,6 +211,7 @@ export function RevealChild({
   from = "up",
 }: RevealChildProps) {
   const reduce = useReducedMotion();
+  const rich = useRichMotion();
 
   if (reduce) {
     return <div className={className}>{children}</div>;
@@ -210,8 +221,10 @@ export function RevealChild({
     <motion.div
       className={className}
       variants={{
-        hidden: hiddenFor(from, y),
-        show: { ...shownFor(from), transition: transitionFor(from, 0) },
+        hidden: rich ? hiddenFor(from, y) : LITE_HIDDEN,
+        show: rich
+          ? { ...shownFor(from), transition: transitionFor(from, 0) }
+          : { ...LITE_SHOWN, transition: LITE_TRANSITION(0) },
       }}
     >
       {children}
