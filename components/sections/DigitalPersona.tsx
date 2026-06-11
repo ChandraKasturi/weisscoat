@@ -1,12 +1,48 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export default function DigitalPersona() {
+  const reduce = useReducedMotion();
+  // Continuous gentle float for the two feature icons, out of phase.
+  // Translate/rotate only — no layout impact; inert under reduced motion.
+  const iconFloat = (phase: number) =>
+    reduce
+      ? {}
+      : {
+          animate: { y: [0, -4, 0, 3, 0], rotate: [0, 4, 0, -4, 0] },
+          transition: {
+            duration: 4.4 + phase * 0.5,
+            ease: "easeInOut" as const,
+            repeat: Infinity,
+            delay: phase * 0.8,
+          },
+        };
+  // Ken-burns reveal for the dashboard image — the parent wrapper is
+  // overflow-hidden, so the oversized start state is clipped, never spills.
+  const kenBurns = reduce
+    ? {}
+    : {
+        initial: { scale: 1.14, opacity: 0, filter: "blur(10px)" },
+        whileInView: { scale: 1, opacity: 1, filter: "blur(0px)" },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 1.2, ease: EASE },
+      };
   return (
     <section className="bg-[#F9FFEF] py-12 sm:py-16 lg:py-[80px] px-4 sm:px-6 lg:px-12 xl:px-[48px]" data-name="Digital Persona">
       <div className="mx-auto max-w-[1440px]">
         {/* Section heading */}
         <div className="flex flex-col items-center gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-[60px]">
-          <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.5] text-[#414141] text-center whitespace-nowrap">
+          <AnimatedText
+            as="p"
+            variant="letters-float"
+            className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.5] text-[#414141] text-center whitespace-nowrap"
+          >
             The Digital Persona.
-          </p>
+          </AnimatedText>
           <p className="max-w-[887px] font-satoshi font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.5] text-[#444] text-center">
             Weisscoat creates a digital assistant modeled around each
             doctor&rsquo;s specific clinical persona. It doesn&rsquo;t just
@@ -18,7 +54,8 @@ export default function DigitalPersona() {
         <div className="flex flex-col xl:flex-row items-stretch gap-8 xl:gap-10">
           {/* Image (left on xl, top on smaller) */}
           <div className="xl:flex-shrink-0 w-full xl:w-[640px] overflow-hidden rounded-[8px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
-            <img
+            <motion.img
+              {...kenBurns}
               src="/figma/clinical-ai-dashboard-figma.png"
               alt="Clinical AI dashboard with humanoid robot and doctor reviewing health metrics on phone"
               className="block w-full h-auto object-cover object-center pointer-events-none select-none"
@@ -50,7 +87,7 @@ export default function DigitalPersona() {
             {/* Feature row — icon on top, title below, description below — left aligned */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 mt-2 lg:mt-4">
               <div className="flex flex-col items-start gap-2">
-                <img src="/figma/dp-icon-persona.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
+                <motion.img {...iconFloat(0)} src="/figma/dp-icon-persona.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
                 <p className="mt-2 font-satoshi font-semibold text-[17px] sm:text-[19px] lg:text-[20px] leading-[1.25] text-[#031E2D]">
                   Persona Matching
                 </p>
@@ -59,7 +96,7 @@ export default function DigitalPersona() {
                 </p>
               </div>
               <div className="flex flex-col items-start gap-2 sm:border-l sm:border-[#5B6A5A]/20 sm:pl-6 lg:pl-8">
-                <img src="/figma/dp-icon-context.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
+                <motion.img {...iconFloat(1)} src="/figma/dp-icon-context.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
                 <p className="mt-2 font-satoshi font-semibold text-[17px] sm:text-[19px] lg:text-[20px] leading-[1.25] text-[#031E2D]">
                   Contextual Intelligence
                 </p>

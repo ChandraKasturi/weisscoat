@@ -1,3 +1,8 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
 type Condition = {
   icon: string;
   name: string;
@@ -28,11 +33,24 @@ const STEPS: Step[] = [
   { num: "08", title: "Clinical Intelligence Layer", body: "Past clinical decisions are aggregated, allowing doctors to search their historical treatment patterns and find similar past cases." },
 ];
 
-function ConditionCard({ icon, name, details }: Condition) {
+function ConditionCard({ icon, name, details, index }: Condition & { index: number }) {
+  const reduce = useReducedMotion();
   return (
     <div className="flex flex-col gap-[8px] rounded-[16px] border border-[#F9FFEF] bg-[#F5FFE4] p-[16px] sm:p-[21px]">
       <div className="flex items-center gap-[8px]">
-        <img src={icon} alt="" aria-hidden className="h-[16px] w-[16px]" />
+        {/* Tiny perpetual wiggle, phase-offset per chip. Inert under reduced motion. */}
+        <motion.img
+          src={icon}
+          alt=""
+          aria-hidden
+          className="h-[16px] w-[16px]"
+          animate={reduce ? undefined : { rotate: [0, 8, 0, -8, 0], y: [0, -1.5, 0, 1.5, 0] }}
+          transition={
+            reduce
+              ? undefined
+              : { duration: 3.6, ease: "easeInOut", repeat: Infinity, delay: index * 0.45 }
+          }
+        />
         <p className="font-inter font-semibold text-[14px] sm:text-[16px] leading-[24px] text-[#5B6A5A]">{name}</p>
       </div>
       <p className="font-inter font-normal text-[12px] sm:text-[14px] leading-[18px] sm:leading-[20px] text-[#414942]">{details}</p>
@@ -64,8 +82,8 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
         </p>
         {step.extra === "conditions" && (
           <div className="mt-2 sm:mt-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-[16px]">
-            {CONDITIONS.map((c) => (
-              <ConditionCard key={c.name} {...c} />
+            {CONDITIONS.map((c, i) => (
+              <ConditionCard key={c.name} {...c} index={i} />
             ))}
           </div>
         )}
@@ -79,9 +97,13 @@ export default function HowItWorks() {
     <section className="bg-white py-12 sm:py-16 lg:py-[82px] px-4 sm:px-6 lg:px-8" data-name="How It Works">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col items-center gap-3 sm:gap-4 lg:gap-[36px]">
-          <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+          <AnimatedText
+            as="p"
+            variant="letters-float"
+            className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+          >
             How It Works: The Complete Care Journey
-          </p>
+          </AnimatedText>
           <p className="font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.5] text-[#1D1D1D] text-center max-w-[850px]">
             From initial patient registration to long-term recovery monitoring,
             Weisscoat structures every phase of the clinical experience.

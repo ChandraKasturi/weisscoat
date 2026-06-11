@@ -16,6 +16,7 @@ import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
+import { Reveal } from "@/components/motion/Reveal";
 
 export default function Home() {
   return (
@@ -23,30 +24,68 @@ export default function Home() {
       <TopBar />
       <NavigationBar />
       <Hero />
-      <ProblemGrid />
+      <Reveal from="scale">
+        <ProblemGrid />
+      </Reveal>
       <div id="digital-persona">
-        <DigitalPersona />
+        <Reveal from="blur">
+          <DigitalPersona />
+        </Reveal>
       </div>
       <div className="h-[40px] sm:h-[80px] xl:h-[120px] bg-white" aria-hidden />
-      <PatientCareJourney />
-      <FourLayers />
-      <HowItWorks />
-      <StakeholderMatrix />
+      <Reveal from="left">
+        <PatientCareJourney />
+      </Reveal>
+      <Reveal from="flip">
+        <FourLayers />
+      </Reveal>
+      <div id="how-it-works">
+        <Reveal from="right">
+          <HowItWorks />
+        </Reveal>
+      </div>
+      <div id="stakeholder-matrix">
+        <Reveal from="blur">
+          <StakeholderMatrix />
+        </Reveal>
+      </div>
       <div id="platform">
-        <UnifiedPlatform />
+        <Reveal from="left">
+          <UnifiedPlatform />
+        </Reveal>
       </div>
       <div id="our-story">
-        <OurStory />
+        <Reveal from="right">
+          <OurStory />
+        </Reveal>
       </div>
       <div id="why-different">
-        <WhyDifferent />
+        <Reveal from="scale">
+          <WhyDifferent />
+        </Reveal>
       </div>
-      <Security />
-      <Testimonials />
-      <FAQ />
-      <CTA />
-      <Contact />
-      <Footer />
+      <Reveal from="flip">
+        <Security />
+      </Reveal>
+      <div id="testimonials">
+        <Reveal from="left">
+          <Testimonials />
+        </Reveal>
+      </div>
+      <div id="faq">
+        <Reveal from="blur">
+          <FAQ />
+        </Reveal>
+      </div>
+      <Reveal from="scale">
+        <CTA />
+      </Reveal>
+      <Reveal>
+        <Contact />
+      </Reveal>
+      <Reveal y={32}>
+        <Footer />
+      </Reveal>
     </div>
   );
 }

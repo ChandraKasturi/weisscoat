@@ -6,8 +6,18 @@ const SOCIALS = [
   { src: "/figma/footer-social-yt.svg", label: "YouTube", w: 33, h: 23 },
 ];
 
-const NAV_COL_1 = ["Home", "Platform", "How It Works", "For Clinics"];
-const NAV_COL_2 = ["About", "Testimonials", "FAQ’s", "For Clinics"];
+const NAV_COL_1 = [
+  { label: "Home", href: "#top" },
+  { label: "Platform", href: "#platform" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "For Clinics", href: "#stakeholder-matrix" },
+];
+const NAV_COL_2 = [
+  { label: "About", href: "#our-story" },
+  { label: "Testimonials", href: "#testimonials" },
+  { label: "FAQ’s", href: "#faq" },
+  { label: "For Clinics", href: "#stakeholder-matrix" },
+];
 
 export default function Footer() {
   return (
@@ -41,13 +51,13 @@ export default function Footer() {
 
           <div className="flex gap-12 sm:gap-20 lg:gap-[200px] lg:pt-[16px]">
             <ul className="flex flex-col gap-3 lg:gap-[18px] font-satoshi font-medium text-[15px] lg:text-[18px] leading-[20px] text-[#281A40]">
-              {NAV_COL_1.map((label) => (
-                <li key={label}><a href="#" className="hover:text-[#5B6A5A] transition-colors">{label}</a></li>
+              {NAV_COL_1.map(({ label, href }) => (
+                <li key={label}><a href={href} className="hover:text-[#5B6A5A] transition-colors">{label}</a></li>
               ))}
             </ul>
             <ul className="flex flex-col gap-3 lg:gap-[18px] font-satoshi font-medium text-[15px] lg:text-[18px] leading-[20px] text-[#281A40]">
-              {NAV_COL_2.map((label) => (
-                <li key={label}><a href="#" className="hover:text-[#5B6A5A] transition-colors">{label}</a></li>
+              {NAV_COL_2.map(({ label, href }) => (
+                <li key={label}><a href={href} className="hover:text-[#5B6A5A] transition-colors">{label}</a></li>
               ))}
             </ul>
           </div>

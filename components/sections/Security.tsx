@@ -1,3 +1,10 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 type Bullet = { bold: string; tail: string };
 
 const BULLETS: Bullet[] = [
@@ -9,25 +16,55 @@ const BULLETS: Bullet[] = [
 ];
 
 function NumberBadge({ n }: { n: number }) {
+  const reduce = useReducedMotion();
   return (
     <div className="relative h-[36px] sm:h-[43px] w-[36px] sm:w-[43px] shrink-0">
-      <img src="/figma/security-badge-bg.svg" alt="" aria-hidden className="absolute inset-0 h-full w-full" />
+      {/* Badge seal slowly sways, out of phase per row — the number stays
+          still so it remains perfectly legible. Inert under reduced motion. */}
+      <motion.img
+        src="/figma/security-badge-bg.svg"
+        alt=""
+        aria-hidden
+        className="absolute inset-0 h-full w-full"
+        animate={reduce ? undefined : { rotate: [0, 7, 0, -7, 0] }}
+        transition={
+          reduce
+            ? undefined
+            : { duration: 5.2, ease: "easeInOut", repeat: Infinity, delay: n * 0.7 }
+        }
+      />
       <span className="absolute inset-0 flex items-center justify-center font-sans text-[14px] sm:text-[17px] leading-[32px] font-normal text-[#84B238] tracking-[-0.094px]">{n}</span>
     </div>
   );
 }
 
 export default function Security() {
+  const reduce = useReducedMotion();
+  // Ken-burns reveal — the wrapper is overflow-hidden, so the oversized
+  // start state is clipped, never spills into the layout.
+  const kenBurns = reduce
+    ? {}
+    : {
+        initial: { scale: 1.12, opacity: 0, filter: "blur(10px)" },
+        whileInView: { scale: 1, opacity: 1, filter: "blur(0px)" },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 1.2, ease: EASE },
+      };
   return (
     <section className="bg-[#F9FFEF] py-12 sm:py-16 lg:pt-[50px] lg:pb-[80px] px-4 sm:px-6 lg:px-8" data-name="Security, Privacy & Compliance">
       <div className="mx-auto max-w-[1440px]">
-        <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+        <AnimatedText
+          as="p"
+          variant="letters-float"
+          className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+        >
           Security, Privacy &amp; Compliance
-        </p>
+        </AnimatedText>
 
         <div className="mt-8 sm:mt-12 lg:mt-[60px] flex flex-col xl:flex-row items-start gap-8 xl:gap-[40px]">
           <div className="w-full xl:w-[583px] xl:flex-shrink-0 overflow-hidden rounded-[8px] shadow-[0px_31px_34px_-20px_rgba(0,0,0,0.09)]">
-            <img
+            <motion.img
+              {...kenBurns}
               src="/figma/security-image-figma.png"
               alt="Hand holding a glowing network of healthcare icons centered around a padlock"
               className="block w-full h-auto object-cover object-center select-none"

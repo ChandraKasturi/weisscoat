@@ -1,3 +1,8 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
 type PlatformCard = {
   icon: string;
   iconSize: number;
@@ -14,14 +19,37 @@ const CARDS: PlatformCard[] = [
   { icon: "/figma/ucop-icon-5-onboarding.svg", iconSize: 35, iconBg: "#FFD4D4", title: "Doctor & Clinic Onboarding", body: "Profiles, clinic geo-tagging, medical licensing verification, voice calibration, and clinical persona training data." },
 ];
 
-function CardView({ icon, iconSize, iconBg, title, body }: PlatformCard) {
+function CardView({ icon, iconSize, iconBg, title, body, index }: PlatformCard & { index: number }) {
+  const reduce = useReducedMotion();
   return (
     <div className="relative h-[201px] w-[260px] sm:w-[290px] lg:w-[308px] shrink-0 rounded-[10px] bg-white shadow-[0px_0px_9px_2px_rgba(0,0,0,0.05)]">
       <div
         className="absolute left-[20px] sm:left-[24px] top-[18px] flex h-[48px] w-[52px] items-center justify-center rounded-[10px]"
         style={{ backgroundColor: iconBg }}
       >
-        <img src={icon} alt="" aria-hidden style={{ width: iconSize, height: iconSize }} />
+        {/* Ambient wiggle: rotate-only (no layout impact), out of phase per
+            card index. Inert under prefers-reduced-motion. */}
+        <motion.img
+          src={icon}
+          alt=""
+          aria-hidden
+          style={{ width: iconSize, height: iconSize }}
+          animate={reduce ? undefined : { rotate: [0, 5.5, 0, -5.5, 0] }}
+          whileHover={reduce ? undefined : { scale: 1.16, rotate: 0 }}
+          transition={
+            reduce
+              ? undefined
+              : {
+                  rotate: {
+                    duration: 4.0,
+                    ease: "easeInOut",
+                    repeat: Infinity,
+                    delay: 0.7 + index * 0.5,
+                  },
+                  scale: { type: "spring", stiffness: 300, damping: 15 },
+                }
+          }
+        />
       </div>
       <p className="absolute left-[20px] sm:left-[24px] right-[20px] sm:right-[24px] top-[80px] font-satoshi font-bold text-[16px] sm:text-[18px] leading-[1.373] text-[#331B3B]">
         {title}
@@ -45,9 +73,13 @@ export default function UnifiedPlatform() {
       />
 
       <div className="relative z-10 mx-auto max-w-[1440px] flex flex-col items-center gap-3 sm:gap-4 lg:gap-[36px]">
-        <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+        <AnimatedText
+          as="p"
+          variant="letters-float"
+          className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+        >
           Unified Clinical Operations Platform
-        </p>
+        </AnimatedText>
         <p className="font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.5] text-[#1D1D1D] text-center max-w-[900px] px-2">
           An AI-powered healthcare ecosystem that streamlines patient visits,
           doctor consultations, lab workflows, post-care engagement, clinic
@@ -58,8 +90,8 @@ export default function UnifiedPlatform() {
 
       <div className="relative z-10 mt-8 sm:mt-12 lg:mt-[60px] overflow-x-auto px-4 sm:px-6 lg:px-[40px]">
         <div className="flex w-max gap-4 lg:gap-[20px] pb-3">
-          {CARDS.map((c) => (
-            <CardView key={c.title} {...c} />
+          {CARDS.map((c, i) => (
+            <CardView key={c.title} {...c} index={i} />
           ))}
         </div>
       </div>

@@ -1,21 +1,35 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
 import { Phone, Mail, CalendarClock, ChevronDown } from "lucide-react";
+import { AnimatedText } from "@/components/motion/AnimatedText";
 
 export default function Contact() {
+  const reduce = useReducedMotion();
   return (
     <section className="relative w-full overflow-hidden" data-name="Let's Keep in Touch">
-      <img
+      {/* Slow perpetual ken-burns drift on the background photo — scale stays
+          ≥1 on an object-cover absolute fill inside overflow-hidden, so edges
+          never show and layout never moves. Inert under reduced motion. */}
+      <motion.img
         src="/figma/contact-bg-doctor.png"
         alt=""
         aria-hidden
         className="absolute inset-0 h-full w-full object-cover object-center pointer-events-none select-none"
+        animate={reduce ? undefined : { scale: [1, 1.06, 1] }}
+        transition={reduce ? undefined : { duration: 24, ease: "easeInOut", repeat: Infinity }}
       />
       <div aria-hidden className="absolute inset-0 bg-[#5B6A5A] opacity-70 pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-[60px] flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-8 lg:gap-[40px]">
         <div className="w-full lg:w-[600px] flex flex-col gap-4 sm:gap-5 lg:gap-[24px]">
-          <h2 className="font-satoshi font-medium text-[28px] sm:text-[38px] lg:text-[50px] leading-[1.1] text-white">
+          <AnimatedText
+            as="h2"
+            variant="letters-float"
+            className="font-satoshi font-medium text-[28px] sm:text-[38px] lg:text-[50px] leading-[1.1] text-white"
+          >
             Let&rsquo;s Keep in Touch
-          </h2>
+          </AnimatedText>
           <p className="font-satoshi font-normal text-[15px] sm:text-[18px] lg:text-[23px] leading-[1.5] lg:leading-[36px] tracking-[0.23px] text-[#F9F9F9] max-w-[520px]">
             Weisscoat &mdash; Personalized Clinical Intelligence for the Future of Healthcare.
           </p>

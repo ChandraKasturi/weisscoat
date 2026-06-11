@@ -1,3 +1,10 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 const BULLETS = [
   "AI-powered doctor consultation and voice-enabled workflows",
   "Smart patient registration, booking, and waiting management",
@@ -8,15 +15,31 @@ const BULLETS = [
 ];
 
 export default function OurStory() {
+  const reduce = useReducedMotion();
+  // Doctor photo: 3D settle — slides in from the left while a slight rotateY
+  // flattens out, de-blurring into focus. Settles to exact identity.
+  const photoEntrance = reduce
+    ? {}
+    : {
+        initial: { opacity: 0, x: -64, rotateY: 14, filter: "blur(10px)", transformPerspective: 1000 },
+        whileInView: { opacity: 1, x: 0, rotateY: 0, filter: "blur(0px)", transformPerspective: 1000 },
+        viewport: { once: true, margin: "-80px" },
+        transition: { duration: 1.1, ease: EASE },
+      };
   return (
     <section className="bg-white py-12 sm:py-16 lg:py-[82px] px-4 sm:px-6 lg:px-8" data-name="Our Story">
       <div className="mx-auto max-w-[1440px]">
-        <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+        <AnimatedText
+          as="p"
+          variant="letters-float"
+          className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+        >
           Our story
-        </p>
+        </AnimatedText>
 
         <div className="mt-8 sm:mt-12 lg:mt-[60px] flex flex-col xl:flex-row gap-8 xl:gap-[60px]">
-          <img
+          <motion.img
+            {...photoEntrance}
             src="/figma/our-story-doctor-figma.png"
             alt="Doctor interacting with floating AI-powered clinical interfaces"
             className="w-full h-[300px] sm:h-[380px] md:h-[440px] lg:h-[500px] xl:h-[669px] xl:w-[620px] xl:flex-shrink-0 object-cover object-center rounded-[10px] select-none"

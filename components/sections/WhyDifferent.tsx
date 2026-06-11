@@ -1,3 +1,11 @@
+"use client";
+
+import { motion, useReducedMotion } from "framer-motion";
+import { AnimatedText } from "@/components/motion/AnimatedText";
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const ROW_VIEWPORT = { once: true, margin: "-60px" } as const;
+
 type CardData = { icon: string; title: string; body: string };
 type Row = { left: CardData; right: CardData };
 
@@ -16,29 +24,45 @@ const ROWS: Row[] = [
   },
 ];
 
-function LeftCard({ icon, title, body }: CardData) {
+function LeftCard({ icon, title, body, delay }: CardData & { delay: number }) {
+  const reduce = useReducedMotion();
   return (
-    <div className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tl-[100px] lg:rounded-bl-[100px] lg:rounded-tr-none lg:rounded-br-none border border-[rgba(193,201,191,0.3)] bg-[#F5F6F2] opacity-80 p-5 sm:p-6 lg:py-[32px] lg:pl-[52px] lg:pr-[32px]">
+    // Converging halves: the "Standard Approach" card slides in from the
+    // left, its counterpart from the right. Settles to identity (x: 0).
+    // NOTE: the card's resting opacity is 0.8 by design (opacity-80 class),
+    // so the entrance must settle back to exactly 0.8, not 1.
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, x: -64, filter: "blur(6px)" }}
+      whileInView={reduce ? undefined : { opacity: 0.8, x: 0, filter: "blur(0px)" }}
+      viewport={ROW_VIEWPORT}
+      transition={{ duration: 0.85, ease: EASE, delay }}
+      className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tl-[100px] lg:rounded-bl-[100px] lg:rounded-tr-none lg:rounded-br-none border border-[rgba(193,201,191,0.3)] bg-[#F5F6F2] opacity-80 p-5 sm:p-6 lg:py-[32px] lg:pl-[52px] lg:pr-[32px]">
       <img src={icon} alt="" aria-hidden className="h-[56px] sm:h-[72px] lg:h-[84px] w-[56px] sm:w-[72px] lg:w-[84px] flex-shrink-0" />
       <div className="flex-1 min-w-0">
         <p className="font-satoshi font-bold text-[13px] sm:text-[15px] lg:text-[18px] leading-[20px] tracking-[1.4px] text-[#171717]">Standard Approach</p>
         <p className="mt-2 font-satoshi font-bold text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.3] lg:leading-[36px] text-[#414942]">{title}</p>
         <p className="mt-2 font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.45] lg:leading-[24px] text-[#414942]">{body}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
-function RightCard({ icon, title, body }: CardData) {
+function RightCard({ icon, title, body, delay }: CardData & { delay: number }) {
+  const reduce = useReducedMotion();
   return (
-    <div className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tr-[100px] lg:rounded-br-[100px] lg:rounded-tl-none lg:rounded-bl-none border-2 border-[rgba(193,201,191,0.3)] bg-[#F9FFEF] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:py-[32px] lg:pl-[40px] lg:pr-[100px]">
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, x: 64, filter: "blur(6px)" }}
+      whileInView={reduce ? undefined : { opacity: 1, x: 0, filter: "blur(0px)" }}
+      viewport={ROW_VIEWPORT}
+      transition={{ duration: 0.85, ease: EASE, delay }}
+      className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tr-[100px] lg:rounded-br-[100px] lg:rounded-tl-none lg:rounded-bl-none border-2 border-[rgba(193,201,191,0.3)] bg-[#F9FFEF] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:py-[32px] lg:pl-[40px] lg:pr-[100px]">
       <img src={icon} alt="" aria-hidden className="h-[56px] sm:h-[72px] lg:h-[84px] w-[56px] sm:w-[72px] lg:w-[84px] flex-shrink-0" />
       <div className="flex-1 min-w-0">
         <p className="font-satoshi font-bold text-[13px] sm:text-[15px] lg:text-[18px] leading-[20px] tracking-[1.4px] text-[#316342]">WEISSCOAT INTELLIGENCE</p>
         <p className="mt-2 font-satoshi font-bold text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.3] lg:leading-[36px] text-[#1A1C1E]">{title}</p>
         <p className="mt-2 font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.45] lg:leading-[24px] text-[#1A1C1E]">{body}</p>
       </div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -47,9 +71,13 @@ export default function WhyDifferent() {
     <section className="bg-white py-12 sm:py-16 lg:pt-[82px] lg:pb-[100px] px-4 sm:px-6 lg:px-8" data-name="Why Weisscoat is Radically Different">
       <div className="mx-auto max-w-[1440px]">
         <div className="flex flex-col items-center gap-3 lg:gap-[16px]">
-          <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+          <AnimatedText
+            as="p"
+            variant="letters-float"
+            className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+          >
             Why Weisscoat is Radically Different
-          </p>
+          </AnimatedText>
           <p className="font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.5] text-[#1D1D1D] text-center max-w-[900px]">
             Beyond simple automation, we&rsquo;ve built a clinical intelligence
             layer that adapts to you, not the other way around.
@@ -59,8 +87,8 @@ export default function WhyDifferent() {
         <div className="mt-8 sm:mt-12 lg:mt-[60px] mx-auto max-w-[1330px] flex flex-col gap-6 lg:gap-[32px]">
           {ROWS.map((row, i) => (
             <div key={i} className="flex flex-col lg:flex-row gap-4 lg:gap-[22px]">
-              <LeftCard {...row.left} />
-              <RightCard {...row.right} />
+              <LeftCard {...row.left} delay={i * 0.16} />
+              <RightCard {...row.right} delay={i * 0.16} />
             </div>
           ))}
         </div>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ChevronUp } from "lucide-react";
+import { AnimatedText } from "@/components/motion/AnimatedText";
 
 type FaqItem = { iconSrc: string; question: string; answer: string };
 
@@ -18,7 +19,13 @@ export default function FAQ() {
 
   return (
     <section className="bg-white py-10 sm:py-14 lg:py-[60px] px-4 sm:px-6 lg:px-8" data-name="FAQ's">
-      <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">FAQ&rsquo;s</p>
+      <AnimatedText
+        as="p"
+        variant="letters-float"
+        className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center"
+      >
+        FAQ&rsquo;s
+      </AnimatedText>
 
       <div className="mt-6 sm:mt-8 lg:mt-[40px] mx-auto max-w-[937px] flex flex-col gap-3 sm:gap-4 lg:gap-[16px]">
         {ITEMS.map(({ iconSrc, question, answer }, i) => {
