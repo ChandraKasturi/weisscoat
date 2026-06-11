@@ -32,7 +32,7 @@ const satoshi = localFont({
 export const metadata: Metadata = {
   title: "Weisscoat — Personalized AI Agents for Smarter Clinical Care",
   description:
-    "Weisscoat helps doctors build AI-powered clinical assistants trained around their unique consultation style, transforming every consultation into a structured clinical intelligence system.",
+    "Weisscoat helps doctors use AI-powered clinical assistants trained around their unique consultation style, transforming every consultation into a structured clinical intelligence system.",
 };
 
 export default function RootLayout({
