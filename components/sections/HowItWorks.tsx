@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { AnimatedText } from "@/components/motion/AnimatedText";
 
 type Condition = {
@@ -59,8 +60,19 @@ function ConditionCard({ icon, name, details, index }: Condition & { index: numb
 }
 
 function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
+  const reduce = useReducedMotion();
+  // Scroll-linked parallax: as the row travels up the viewport, its number
+  // badge drifts upward against the scroll (+26px → -26px), so the numbers
+  // float up the page as you read down. Transform-only — the badge is a
+  // shrink-0 flex item, so layout (and the dashed connector) never move.
+  const rowRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: rowRef,
+    offset: ["start end", "end start"],
+  });
+  const badgeY = useTransform(scrollYProgress, [0, 1], [26, -26]);
   return (
-    <div className="relative flex gap-4 sm:gap-6 lg:gap-[32px] items-start pb-12 sm:pb-16 lg:pb-[64px]">
+    <div ref={rowRef} className="relative flex gap-4 sm:gap-6 lg:gap-[32px] items-start pb-12 sm:pb-16 lg:pb-[64px]">
       {!isLast && (
         <div
           aria-hidden
@@ -68,11 +80,13 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
           style={{ backgroundImage: DASHED_CONNECTOR, backgroundSize: "100% 12px", backgroundRepeat: "repeat-y" }}
         />
       )}
-      <div className="relative z-10 flex h-[40px] sm:h-[48px] lg:h-[56px] w-[40px] sm:w-[48px] lg:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#5B6A5A] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.10),0px_4px_6px_-4px_rgba(0,0,0,0.10)]">
+      <motion.div
+        style={reduce ? undefined : { y: badgeY }}
+        className="relative z-10 flex h-[40px] sm:h-[48px] lg:h-[56px] w-[40px] sm:w-[48px] lg:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#5B6A5A] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.10),0px_4px_6px_-4px_rgba(0,0,0,0.10)]">
         <p className="font-inter font-bold text-[13px] sm:text-[14px] lg:text-[16px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white text-center">
           {step.num}
         </p>
-      </div>
+      </motion.div>
       <div className="flex flex-1 flex-col gap-2 sm:gap-3 lg:gap-[12px] pt-1 sm:pt-[4px] min-w-0">
         <p className="font-satoshi font-medium text-[18px] sm:text-[22px] lg:text-[26px] leading-[1.3] lg:leading-[36px] text-[#1A1C1E]">
           {step.title}
