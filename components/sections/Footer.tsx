@@ -9,7 +9,7 @@ const SOCIALS = [
 const NAV_COL_1 = [
   { label: "Home", href: "#top" },
   { label: "Platform", href: "#platform" },
-  { label: "How It Works", href: "#how-it-works" },
+  // "How It Works" removed while that section is hidden — restore when revisited.
   { label: "For Clinics", href: "#stakeholder-matrix" },
 ];
 const NAV_COL_2 = [

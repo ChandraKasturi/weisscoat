@@ -5,7 +5,7 @@ import ProblemGrid from "@/components/sections/ProblemGrid";
 import DigitalPersona from "@/components/sections/DigitalPersona";
 import PatientCareJourney from "@/components/sections/PatientCareJourney";
 import FourLayers from "@/components/sections/FourLayers";
-import HowItWorks from "@/components/sections/HowItWorks";
+// import HowItWorks from "@/components/sections/HowItWorks"; // hidden per request — revisit later
 import StakeholderMatrix from "@/components/sections/StakeholderMatrix";
 import UnifiedPlatform from "@/components/sections/UnifiedPlatform";
 import OurStory from "@/components/sections/OurStory";
@@ -39,11 +39,14 @@ export default function Home() {
       <Reveal from="flip">
         <FourLayers />
       </Reveal>
+      {/* "How It Works" section hidden per request — revisit later.
+          Component + anchor kept intact; just not rendered.
       <div id="how-it-works">
         <Reveal from="right">
           <HowItWorks />
         </Reveal>
       </div>
+      */}
       <div id="stakeholder-matrix">
         <Reveal from="blur">
           <StakeholderMatrix />
