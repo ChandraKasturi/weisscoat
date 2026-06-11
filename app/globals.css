@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   :root {
     /* === Design tokens from Figma 2FjL4qc7Z0lO1fm1fay56u === */
@@ -31,9 +35,15 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Figma-generated `font-['Inter:Regular']`, `font-['Inter:Bold']`, etc.
-     fall back to the real Inter family via this attribute selector. */
+  /* Figma-generated `font-['Inter:Regular']`, `font-['Satoshi:Light']`, etc.
+     resolve to the matching loaded family. */
   [class*="Inter:"] {
     font-family: var(--font-inter), "Inter", system-ui, sans-serif;
+  }
+  [class*="Satoshi:"] {
+    font-family: var(--font-satoshi), "Satoshi", var(--font-inter), "Inter", system-ui, sans-serif;
+  }
+  [class*="Poppins:"] {
+    font-family: var(--font-poppins), "Poppins", var(--font-inter), "Inter", system-ui, sans-serif;
   }
 }

@@ -70,10 +70,11 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["Satoshi", "var(--font-poppins)", "ui-sans-serif", "system-ui", "sans-serif"],
-        display: ["Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
-        poppins: ["var(--font-poppins)", "ui-sans-serif", "system-ui", "sans-serif"],
-        inter: ["var(--font-inter)", "ui-sans-serif", "system-ui", "sans-serif"],
+        sans: ["var(--font-satoshi)", "Satoshi", "var(--font-inter)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-satoshi)", "Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
+        satoshi: ["var(--font-satoshi)", "Satoshi", "ui-sans-serif", "system-ui", "sans-serif"],
+        poppins: ["var(--font-poppins)", "Poppins", "ui-sans-serif", "system-ui", "sans-serif"],
+        inter: ["var(--font-inter)", "Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
       borderRadius: {
         xl: "1rem",

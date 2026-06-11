@@ -1,72 +1,76 @@
-const imgEllipse = "https://www.figma.com/api/mcp/asset/d29ef6f9-5878-4aaf-96ee-bf2653f5fa2e";
-const imgEllipse1 = "https://www.figma.com/api/mcp/asset/93e70fc3-0684-4db1-b092-eedae5793607";
-
 export default function DigitalPersona() {
   return (
-    <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col gap-[48px] items-center p-[80px] relative size-full" data-node-id="7:2" data-name="Digital Persona Section">
-      <div className="[word-break:break-word] content-stretch flex flex-col gap-[16px] items-center not-italic overflow-clip relative shrink-0 text-center" data-node-id="7:3" data-name="Frame">
-        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[16px] relative shrink-0 text-[12px] text-[color:var(--brand\/primary,#5b8c5a)] tracking-[1.5px] whitespace-nowrap" data-node-id="7:4">
-          THE DIGITAL PERSONA
-        </p>
-        <p className="font-['Inter:Bold'] font-bold leading-[48px] relative shrink-0 text-[40px] text-[color:var(--text\/primary,#1a201c)] tracking-[-0.8px] whitespace-nowrap" data-node-id="7:5">
-          The Digital Persona.
-        </p>
-        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] w-[780px]" data-node-id="7:6">
-          <p className="leading-[28px] mb-0">{`Weisscoat creates a digital assistant modeled around each doctor's specific clinical persona.`}</p>
-          <p className="leading-[28px]">{`It doesn't just record; it understands how you practice medicine.`}</p>
-        </div>
-      </div>
-      <div className="content-stretch flex gap-[48px] items-center overflow-clip relative shrink-0" data-node-id="7:7" data-name="Frame">
-        <div className="h-[480px] overflow-clip relative rounded-[var(--radius\/2xl,32px)] shrink-0 w-[560px]" data-node-id="7:8" style={{ backgroundImage: "linear-gradient(139.39870535499554deg, rgb(92, 140, 89) 0%, rgb(140, 186, 138) 71.429%)" }} data-name="Digital Clone Visual">
-          <div className="absolute left-[360px] size-[280px] top-[-60px]" data-node-id="7:9" data-name="Ellipse">
-            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse} />
-          </div>
-          <div className="absolute left-[-40px] size-[180px] top-[340px]" data-node-id="7:10" data-name="Ellipse">
-            <img alt="" className="absolute block inset-0 max-w-none size-full" src={imgEllipse1} />
-          </div>
-          <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[160px] left-[210px] not-italic text-[140px] text-black top-[160px] whitespace-nowrap" data-node-id="7:11">
-            🤖
+    <section className="bg-[#F9FFEF] py-12 sm:py-16 lg:py-[80px] px-4 sm:px-6 lg:px-12 xl:px-[48px]" data-name="Digital Persona">
+      <div className="mx-auto max-w-[1440px]">
+        {/* Section heading */}
+        <div className="flex flex-col items-center gap-4 lg:gap-6 mb-8 sm:mb-12 lg:mb-[60px]">
+          <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.5] text-[#414141] text-center whitespace-nowrap">
+            The Digital Persona.
           </p>
-          <p className="[word-break:break-word] absolute font-['Inter:Semi_Bold'] font-semibold leading-[22px] left-[220px] not-italic text-[16px] text-[color:var(--text\/inverse,white)] top-[380px] whitespace-nowrap" data-node-id="7:12">
-            AI ⇄ Doctor
+          <p className="max-w-[887px] font-satoshi font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.5] text-[#444] text-center">
+            Weisscoat creates a digital assistant modeled around each
+            doctor&rsquo;s specific clinical persona. It doesn&rsquo;t just
+            record; it understands how you practice medicine.
           </p>
         </div>
-        <div className="content-stretch flex flex-col gap-[32px] items-start overflow-clip relative shrink-0 w-[540px]" data-node-id="7:13" data-name="Frame">
-          <div className="[word-break:break-word] font-['Inter:Bold'] font-bold leading-[0] not-italic relative shrink-0 text-[32px] text-[color:var(--text\/primary,#1a201c)] tracking-[-0.5px] w-[540px]" data-node-id="7:14">
-            <p className="leading-[40px] mb-0">Weisscoat creates a digital</p>
-            <p className="leading-[40px]">clone for every doctor.</p>
+
+        {/* Two-column — stacks until xl so iPad gets the stacked layout (no cutoff) */}
+        <div className="flex flex-col xl:flex-row items-stretch gap-8 xl:gap-10">
+          {/* Image (left on xl, top on smaller) */}
+          <div className="xl:flex-shrink-0 w-full xl:w-[640px] overflow-hidden rounded-[8px] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)]">
+            <img
+              src="/figma/clinical-ai-dashboard-figma.png"
+              alt="Clinical AI dashboard with humanoid robot and doctor reviewing health metrics on phone"
+              className="block w-full h-auto object-cover object-center pointer-events-none select-none"
+            />
           </div>
-          <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[144px] leading-[24px] not-italic relative shrink-0 text-[15px] text-[color:var(--text\/secondary,#555f58)] w-[540px]" data-node-id="7:15">{`Instead of relying on a generic, one-size-fits-all medical AI model, Weisscoat architectically builds personalized AI agents modeled around each individual doctor's unique clinical persona. The platform learns how a specific doctor asks questions, reviews symptoms, interprets patient context, records reasoning, and guides post-care.`}</p>
-          <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0" data-node-id="7:16" data-name="Frame">
-            <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip relative shrink-0 w-[258px]" data-node-id="7:17" data-name="Frame">
-              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[40px]" data-node-id="7:18" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[24px] left-[10px] not-italic text-[20px] text-black top-[8px] whitespace-nowrap" data-node-id="7:19">
-                  🎯
+
+          {/* Right content */}
+          <div className="flex-1 flex flex-col gap-4 sm:gap-6 lg:gap-8">
+            <h2 className="font-satoshi font-light text-[28px] sm:text-[36px] lg:text-[44px] xl:text-[50px] leading-[1.1] tracking-[-1px] xl:tracking-[-2px] text-[#5B6A5A]">
+              Weisscoat creates a{" "}
+              <span className="italic font-satoshi font-bold">
+                digital clone
+              </span>{" "}
+              for every doctor.
+            </h2>
+
+            <p className="font-satoshi font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[28px] xl:leading-[30px] text-[#454D59]">
+              Instead of relying on a generic, one-size-fits-all medical AI
+              model, Weisscoat architectically builds personalized AI agents
+              modeled around each individual doctor&rsquo;s unique clinical
+              persona. The platform learns how a specific doctor asks
+              questions, reviews symptoms, interprets patient context, records
+              reasoning, and guides post-care. This allows clinics to deliver
+              more structured, continuous, and personalized care&mdash;while
+              keeping the human physician at the absolute center of every
+              medical decision.
+            </p>
+
+            {/* Feature row — icon on top, title below, description below — left aligned */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-10 mt-2 lg:mt-4">
+              <div className="flex flex-col items-start gap-2">
+                <img src="/figma/dp-icon-persona.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
+                <p className="mt-2 font-satoshi font-semibold text-[17px] sm:text-[19px] lg:text-[20px] leading-[1.25] text-[#031E2D]">
+                  Persona Matching
+                </p>
+                <p className="font-satoshi font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] lg:leading-[24px] tracking-[0.16px] text-[#131313] opacity-80">
+                  Learns your specific diagnostic vocabulary and note-taking style.
                 </p>
               </div>
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="7:20">
-                Persona Matching
-              </p>
-              <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[60px] leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[258px]" data-node-id="7:21">
-                Learns your specific diagnostic vocabulary and note-taking style.
-              </p>
-            </div>
-            <div className="content-stretch flex flex-col gap-[12px] items-start overflow-clip relative shrink-0 w-[258px]" data-node-id="7:22" data-name="Frame">
-              <div className="bg-[var(--brand\/sage,#d4e6d0)] overflow-clip relative rounded-[var(--radius\/md,12px)] shrink-0 size-[40px]" data-node-id="7:23" data-name="Frame">
-                <p className="[word-break:break-word] absolute font-['Inter:Regular'] font-normal leading-[24px] left-[10px] not-italic text-[20px] text-black top-[8px] whitespace-nowrap" data-node-id="7:24">
-                  🧠
+              <div className="flex flex-col items-start gap-2 sm:border-l sm:border-[#5B6A5A]/20 sm:pl-6 lg:pl-8">
+                <img src="/figma/dp-icon-context.png" alt="" aria-hidden className="h-[44px] w-[44px] block" />
+                <p className="mt-2 font-satoshi font-semibold text-[17px] sm:text-[19px] lg:text-[20px] leading-[1.25] text-[#031E2D]">
+                  Contextual Intelligence
+                </p>
+                <p className="font-satoshi font-normal text-[14px] sm:text-[15px] lg:text-[16px] leading-[1.5] lg:leading-[24px] tracking-[0.16px] text-[#131313] opacity-80">
+                  Understands medical nuances beyond simple speech-to-text conversion.
                 </p>
               </div>
-              <p className="[word-break:break-word] font-['Inter:Semi_Bold'] font-semibold leading-[24px] not-italic relative shrink-0 text-[17px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap" data-node-id="7:25">
-                Contextual Intelligence
-              </p>
-              <p className="[word-break:break-word] font-['Inter:Regular'] font-normal h-[60px] leading-[20px] not-italic relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[258px]" data-node-id="7:26">
-                Understands medical nuances beyond simple speech-to-text conversion.
-              </p>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

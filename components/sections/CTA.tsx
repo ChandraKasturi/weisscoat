@@ -1,23 +1,25 @@
 export default function CTA() {
   return (
-    <div className="bg-[var(--neutral\/white,white)] content-stretch flex flex-col items-center px-[80px] py-[64px] relative size-full" data-node-id="16:2" data-name="CTA Section">
-      <div className="[word-break:break-word] bg-gradient-to-r content-stretch flex flex-col from-[#d9e5d4] gap-[24px] items-center not-italic overflow-clip p-[64px] relative rounded-[var(--radius\/2xl,32px)] shrink-0 to-[#e8f0e5] w-[1280px]" data-node-id="16:3" data-name="CTA Card">
-        <p className="font-['Inter:Bold'] font-bold leading-[48px] relative shrink-0 text-[40px] text-[color:var(--text\/primary,#1a201c)] text-center tracking-[-0.8px] whitespace-nowrap" data-node-id="16:4">
-          Ready to build an intelligent clinic?
-        </p>
-        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[17px] text-[color:var(--text\/secondary,#555f58)] text-center w-[680px]" data-node-id="16:5">
-          <p className="leading-[28px] mb-0">Talk to the Weisscoat team and discover how personalized AI agents can</p>
-          <p className="leading-[28px]">transform your clinic workflow.</p>
-        </div>
-        <div className="bg-[var(--brand\/primary,#5b8c5a)] content-stretch flex gap-[12px] items-center leading-[20px] overflow-clip px-[32px] py-[18px] relative rounded-[var(--radius\/full,999px)] shrink-0 text-[16px] text-[color:var(--text\/inverse,white)] whitespace-nowrap" data-node-id="16:6">
-          <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0" data-node-id="16:7">
+    <section className="bg-white py-8 sm:py-12 lg:py-[40px] px-4 sm:px-6 lg:px-8" data-name="CTA">
+      <div className="mx-auto max-w-[1280px]">
+        <div className="flex flex-col items-center rounded-[16px] lg:rounded-[20px] bg-[#5B6A5A] px-6 sm:px-10 lg:px-[128px] py-12 sm:py-16 lg:py-[96px]">
+          <h2 className="font-satoshi font-bold text-[24px] sm:text-[30px] lg:text-[36px] leading-[1.25] lg:leading-[46.8px] text-white text-center max-w-[854px]">
+            Ready to build an intelligent clinic?
+          </h2>
+
+          <p className="mt-6 sm:mt-8 lg:mt-[39.4px] font-satoshi font-normal text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.6] lg:leading-[28.8px] text-[#F3FFFE] text-center opacity-90 max-w-[672px]">
+            Talk to the Weisscoat team and discover how personalized AI agents
+            can transform your clinic workflow.
+          </p>
+
+          <button
+            type="button"
+            className="mt-8 sm:mt-10 lg:mt-[56px] inline-flex h-[48px] sm:h-[56px] lg:h-[64px] items-center justify-center rounded-full bg-[#FBF9F4] px-6 sm:px-10 lg:px-[48px] font-satoshi font-bold text-[14px] sm:text-[16px] lg:text-[18px] leading-[1.6] text-[#5B6A5A] hover:bg-white transition-colors"
+          >
             Take My Health Assessment
-          </p>
-          <p className="font-['Inter:Bold'] font-bold relative shrink-0" data-node-id="16:8">
-            →
-          </p>
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -1,40 +1,42 @@
-function Row({
-  leftTitle,
-  leftBody,
-  rightTitle,
-  rightBody,
-}: {
-  leftTitle: string;
-  leftBody: string;
-  rightTitle: string;
-  rightBody: string;
-}) {
+type CardData = { icon: string; title: string; body: string };
+type Row = { left: CardData; right: CardData };
+
+const ROWS: Row[] = [
+  {
+    left: { icon: "/figma/wd-icon-1-left.svg", title: "Generalized Models", body: "Provide broad, generalized answers from public medical data sets that lack clinical nuance." },
+    right: { icon: "/figma/wd-icon-1-right.svg", title: "Personalized Persona", body: "Learns your specific style, prescription logic, and clinical vocabulary for notes that sound like you." },
+  },
+  {
+    left: { icon: "/figma/wd-icon-2-left.svg", title: "Manual Workflows", body: "One-size-fits-all workflows that disrupt clinic operations and require heavy manual prompt engineering." },
+    right: { icon: "/figma/wd-icon-2-right.png", title: "Ambient Integration", body: "Aligns seamlessly to your established routine via voice capture; simply speak naturally to input data." },
+  },
+  {
+    left: { icon: "/figma/wd-icon-3-left.svg", title: "Isolated Consults", body: "Intelligence disconnects the moment the patient leaves the clinic door, leading to documentation gaps." },
+    right: { icon: "/figma/wd-icon-3-right.svg", title: "Continuous Care Tether", body: "Acts as a continuous safety tether monitoring post-care outcomes and generating patient-friendly summaries." },
+  },
+];
+
+function LeftCard({ icon, title, body }: CardData) {
   return (
-    <div className="content-stretch flex gap-[24px] items-start overflow-clip relative shrink-0">
-      <div className="bg-[var(--neutral\/white,white)] border border-[var(--neutral\/border-light,#f0f2eb)] border-solid content-stretch flex flex-col gap-[12px] items-start overflow-clip px-[32px] py-[28px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]">
-        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[16px] relative shrink-0 text-[11px] text-[color:var(--text\/secondary,#555f58)] tracking-[1.5px] whitespace-nowrap">
-          STANDARD APPROACH
-        </p>
-        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[28px] relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
-          {leftTitle}
-        </p>
-        <p className="font-['Inter:Regular'] font-normal h-[66px] leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[556px]">
-          {leftBody}
-        </p>
+    <div className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tl-[100px] lg:rounded-bl-[100px] lg:rounded-tr-none lg:rounded-br-none border border-[rgba(193,201,191,0.3)] bg-[#F5F6F2] opacity-80 p-5 sm:p-6 lg:py-[32px] lg:pl-[52px] lg:pr-[32px]">
+      <img src={icon} alt="" aria-hidden className="h-[56px] sm:h-[72px] lg:h-[84px] w-[56px] sm:w-[72px] lg:w-[84px] flex-shrink-0" />
+      <div className="flex-1 min-w-0">
+        <p className="font-satoshi font-bold text-[13px] sm:text-[15px] lg:text-[18px] leading-[20px] tracking-[1.4px] text-[#171717]">Standard Approach</p>
+        <p className="mt-2 font-satoshi font-bold text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.3] lg:leading-[36px] text-[#414942]">{title}</p>
+        <p className="mt-2 font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.45] lg:leading-[24px] text-[#414942]">{body}</p>
       </div>
-      <div className="bg-[var(--brand\/sage,#d4e6d0)] border-2 border-[var(--brand\/primary,#5b8c5a)] border-solid content-stretch flex flex-col gap-[12px] items-start overflow-clip px-[32px] py-[28px] relative rounded-[var(--radius\/xl,24px)] shrink-0 w-[620px]">
-        <div className="content-stretch flex gap-[8px] items-center leading-[16px] overflow-clip relative shrink-0 text-[color:var(--brand\/primary,#5b8c5a)] whitespace-nowrap">
-          <p className="font-['Inter:Bold'] font-bold relative shrink-0 text-[12px]">✓</p>
-          <p className="font-['Inter:Semi_Bold'] font-semibold relative shrink-0 text-[11px] tracking-[1.5px]">
-            WEISSCOAT INTELLIGENCE
-          </p>
-        </div>
-        <p className="font-['Inter:Semi_Bold'] font-semibold leading-[28px] relative shrink-0 text-[22px] text-[color:var(--text\/primary,#1a201c)] whitespace-nowrap">
-          {rightTitle}
-        </p>
-        <p className="font-['Inter:Regular'] font-normal h-[66px] leading-[22px] relative shrink-0 text-[14px] text-[color:var(--text\/secondary,#555f58)] w-[556px]">
-          {rightBody}
-        </p>
+    </div>
+  );
+}
+
+function RightCard({ icon, title, body }: CardData) {
+  return (
+    <div className="relative flex flex-1 items-start gap-4 sm:gap-6 rounded-[20px] lg:rounded-tr-[100px] lg:rounded-br-[100px] lg:rounded-tl-none lg:rounded-bl-none border-2 border-[rgba(193,201,191,0.3)] bg-[#F9FFEF] shadow-[0px_1px_2px_0px_rgba(0,0,0,0.05)] p-5 sm:p-6 lg:py-[32px] lg:pl-[40px] lg:pr-[100px]">
+      <img src={icon} alt="" aria-hidden className="h-[56px] sm:h-[72px] lg:h-[84px] w-[56px] sm:w-[72px] lg:w-[84px] flex-shrink-0" />
+      <div className="flex-1 min-w-0">
+        <p className="font-satoshi font-bold text-[13px] sm:text-[15px] lg:text-[18px] leading-[20px] tracking-[1.4px] text-[#316342]">WEISSCOAT INTELLIGENCE</p>
+        <p className="mt-2 font-satoshi font-bold text-[18px] sm:text-[20px] lg:text-[24px] leading-[1.3] lg:leading-[36px] text-[#1A1C1E]">{title}</p>
+        <p className="mt-2 font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.45] lg:leading-[24px] text-[#1A1C1E]">{body}</p>
       </div>
     </div>
   );
@@ -42,36 +44,27 @@ function Row({
 
 export default function WhyDifferent() {
   return (
-    <div className="[word-break:break-word] bg-[var(--neutral\/bg-light,#f5f7f3)] content-stretch flex flex-col gap-[48px] items-center not-italic p-[80px] relative size-full" data-node-id="13:47" data-name="Why Weisscoat Different">
-      <div className="content-stretch flex flex-col gap-[16px] items-center overflow-clip relative shrink-0 text-center">
-        <p className="font-['Inter:Bold'] font-bold leading-[44px] relative shrink-0 text-[36px] text-[color:var(--text\/primary,#1a201c)] tracking-[-0.8px] whitespace-nowrap">
-          Why Weisscoat is Radically Different
-        </p>
-        <div className="font-['Inter:Regular'] font-normal leading-[0] relative shrink-0 text-[16px] text-[color:var(--text\/secondary,#555f58)] w-[720px]">
-          <p className="leading-[26px] mb-0">{`Beyond simple automation, we've built a clinical intelligence layer that adapts`}</p>
-          <p className="leading-[26px]">to you, not the other way around.</p>
+    <section className="bg-white py-12 sm:py-16 lg:pt-[82px] lg:pb-[100px] px-4 sm:px-6 lg:px-8" data-name="Why Weisscoat is Radically Different">
+      <div className="mx-auto max-w-[1440px]">
+        <div className="flex flex-col items-center gap-3 lg:gap-[16px]">
+          <p className="font-satoshi font-medium text-[22px] sm:text-[26px] lg:text-[30px] leading-[1.25] text-black text-center">
+            Why Weisscoat is Radically Different
+          </p>
+          <p className="font-satoshi font-normal text-[13px] sm:text-[14px] lg:text-[16px] leading-[1.5] text-[#1D1D1D] text-center max-w-[900px]">
+            Beyond simple automation, we&rsquo;ve built a clinical intelligence
+            layer that adapts to you, not the other way around.
+          </p>
+        </div>
+
+        <div className="mt-8 sm:mt-12 lg:mt-[60px] mx-auto max-w-[1330px] flex flex-col gap-6 lg:gap-[32px]">
+          {ROWS.map((row, i) => (
+            <div key={i} className="flex flex-col lg:flex-row gap-4 lg:gap-[22px]">
+              <LeftCard {...row.left} />
+              <RightCard {...row.right} />
+            </div>
+          ))}
         </div>
       </div>
-      <div className="content-stretch flex flex-col gap-[24px] items-start overflow-clip relative shrink-0">
-        <Row
-          leftTitle="Generalized Models"
-          leftBody="Provide broad, generalized answers from public medical data sets that lack clinical nuance."
-          rightTitle="Personalized Persona"
-          rightBody="Learns your specific style, prescription logic, and clinical vocabulary for notes that sound like you."
-        />
-        <Row
-          leftTitle="Manual Workflows"
-          leftBody="One-size-fits-all workflows that disrupt clinic operations and require heavy manual prompt engineering."
-          rightTitle="Ambient Integration"
-          rightBody="Aligns seamlessly to your established routine via voice capture; simply speak naturally to input data."
-        />
-        <Row
-          leftTitle="Isolated Consults"
-          leftBody="Intelligence disconnects the moment the patient leaves the clinic door, leading to documentation gaps."
-          rightTitle="Continuous Care Tether"
-          rightBody="Acts as a continuous safety tether monitoring post-care outcomes and generating patient-friendly summaries."
-        />
-      </div>
-    </div>
+    </section>
   );
 }
