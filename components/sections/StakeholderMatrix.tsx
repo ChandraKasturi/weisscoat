@@ -62,7 +62,17 @@ const COLUMNS: StakeholderColumn[] = [
 function ColumnView({ col, isMiddle, index }: { col: StakeholderColumn; isMiddle: boolean; index: number }) {
   const reduce = useReducedMotion();
   return (
-    <div
+    // Each column flows in with the section heading — staggered rise + fade,
+    // sliding up into the overflow-hidden frame. Settles to identity.
+    <motion.div
+      initial={reduce ? undefined : { opacity: 0, y: 56 }}
+      whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={
+        reduce
+          ? undefined
+          : { duration: 0.85, ease: [0.22, 1, 0.36, 1], delay: 0.15 + index * 0.16 }
+      }
       className={
         "relative flex flex-col bg-white" +
         (isMiddle ? " md:z-10 md:shadow-[0px_5px_32.8px_11px_rgba(66,66,66,0.10)]" : "")
@@ -131,7 +141,7 @@ function ColumnView({ col, isMiddle, index }: { col: StakeholderColumn; isMiddle
           </motion.div>
         );
       })}
-    </div>
+    </motion.div>
   );
 }
 

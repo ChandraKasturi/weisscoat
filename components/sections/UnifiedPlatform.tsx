@@ -1,6 +1,7 @@
 "use client";
 
-import { motion, useReducedMotion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useAnimationFrame, useMotionValue, useReducedMotion } from "framer-motion";
 import { AnimatedText } from "@/components/motion/AnimatedText";
 
 type PlatformCard = {
@@ -62,15 +63,38 @@ function CardView({ icon, iconSize, iconBg, title, body, index }: PlatformCard &
 }
 
 export default function UnifiedPlatform() {
+  const reduce = useReducedMotion();
+  // Infinite carousel: the track drifts left at a constant speed and wraps
+  // seamlessly (the card set is rendered twice; when one full set has passed,
+  // x snaps forward by exactly one set width — invisible because the second
+  // set is identical). Pauses while hovered so cards stay readable/clickable.
+  // Under reduced motion we fall back to the static scrollable row instead,
+  // so all cards remain reachable.
+  const x = useMotionValue(0);
+  const setRef = useRef<HTMLDivElement>(null);
+  const pausedRef = useRef(false);
+  const SPEED = 55; // px per second
+  useAnimationFrame((_, delta) => {
+    if (reduce || pausedRef.current) return;
+    const setWidth = setRef.current?.offsetWidth;
+    if (!setWidth) return;
+    let next = x.get() - (delta / 1000) * SPEED;
+    if (next <= -setWidth) next += setWidth;
+    x.set(next);
+  });
   return (
     <section className="relative overflow-x-clip py-12 sm:py-16 lg:pt-[82px] lg:pb-[120px] px-4 sm:px-6 lg:px-0" data-name="Unified Clinical Operations Platform">
-      <div aria-hidden className="absolute left-[-7px] top-0 h-[400px] sm:h-[480px] lg:h-[543px] w-[1293px] max-w-[120%] bg-[#F9FFEF] rounded-tr-[160px] sm:rounded-tr-[240px] lg:rounded-tr-[400px] pointer-events-none" />
+      {/* Dotted circle sits BEFORE the green rect in the DOM so it paints
+          behind it (peeking out right/below); top raised so its bottom arc
+          stays inside the section instead of being cut by the next
+          section's white background. */}
       <img
         src="/figma/ucop-ellipse13.png"
         alt=""
         aria-hidden
-        className="hidden md:block absolute right-[-200px] lg:right-auto lg:left-[915px] top-[80px] lg:top-[119px] h-[380px] lg:h-[498px] w-[400px] lg:w-[532px] select-none pointer-events-none"
+        className="hidden md:block absolute right-[-200px] lg:right-auto lg:left-[915px] top-[80px] h-[380px] lg:h-[498px] w-[400px] lg:w-[532px] select-none pointer-events-none"
       />
+      <div aria-hidden className="absolute left-[-7px] top-0 h-[400px] sm:h-[480px] lg:h-[543px] w-[1293px] max-w-[120%] bg-[#F9FFEF] rounded-tr-[160px] sm:rounded-tr-[240px] lg:rounded-tr-[400px] pointer-events-none" />
 
       <div className="relative z-10 mx-auto max-w-[1440px] flex flex-col items-center gap-3 sm:gap-4 lg:gap-[36px]">
         <AnimatedText
@@ -88,13 +112,36 @@ export default function UnifiedPlatform() {
         </p>
       </div>
 
-      <div className="relative z-10 mt-8 sm:mt-12 lg:mt-[60px] overflow-x-auto px-4 sm:px-6 lg:px-[40px]">
-        <div className="flex w-max gap-4 lg:gap-[20px] pb-3">
-          {CARDS.map((c, i) => (
-            <CardView key={c.title} {...c} index={i} />
-          ))}
+      {reduce ? (
+        <div className="relative z-10 mt-8 sm:mt-12 lg:mt-[60px] overflow-x-auto px-4 sm:px-6 lg:px-[40px]">
+          <div className="flex w-max gap-4 lg:gap-[20px] pb-3">
+            {CARDS.map((c, i) => (
+              <CardView key={c.title} {...c} index={i} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : (
+        <div
+          className="relative z-10 mt-8 sm:mt-12 lg:mt-[60px] overflow-hidden px-4 sm:px-6 lg:px-[40px]"
+          onMouseEnter={() => (pausedRef.current = true)}
+          onMouseLeave={() => (pausedRef.current = false)}
+        >
+          <motion.div style={{ x }} className="flex w-max pb-3">
+            {/* Trailing padding equals the inter-card gap so the wrap point
+                is exactly one set width — the loop is seamless. */}
+            <div ref={setRef} className="flex gap-4 lg:gap-[20px] pr-4 lg:pr-[20px]">
+              {CARDS.map((c, i) => (
+                <CardView key={c.title} {...c} index={i} />
+              ))}
+            </div>
+            <div aria-hidden className="flex gap-4 lg:gap-[20px] pr-4 lg:pr-[20px]">
+              {CARDS.map((c, i) => (
+                <CardView key={`${c.title}-dup`} {...c} index={i} />
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      )}
     </section>
   );
 }

@@ -4,6 +4,8 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { AnimatedText } from "@/components/motion/AnimatedText";
 
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 type Condition = {
   icon: string;
   name: string;
@@ -71,23 +73,52 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
     offset: ["start end", "end start"],
   });
   const badgeY = useTransform(scrollYProgress, [0, 1], [26, -26]);
+  // Progressive line fill: the dashed connector "draws" downward as the row
+  // crosses the lower half of the viewport. The outer div keeps its exact
+  // geometry but becomes an overflow-hidden mask; the dashed background moves
+  // to an inner layer that slides down from -101% → 0% with scroll, settling
+  // at identity (pixel-identical to the original static line).
+  const lineFill = useTransform(scrollYProgress, [0.08, 0.5], ["-101%", "0%"]);
   return (
     <div ref={rowRef} className="relative flex gap-4 sm:gap-6 lg:gap-[32px] items-start pb-12 sm:pb-16 lg:pb-[64px]">
       {!isLast && (
         <div
           aria-hidden
           className="absolute left-[19px] sm:left-[23px] lg:left-[27px] top-[48px] sm:top-[56px] lg:top-[60px] bottom-[-4px] w-[2px]"
-          style={{ backgroundImage: DASHED_CONNECTOR, backgroundSize: "100% 12px", backgroundRepeat: "repeat-y" }}
-        />
+          style={{ overflow: "hidden" }}
+        >
+          <motion.div
+            className="h-full w-full"
+            style={{
+              backgroundImage: DASHED_CONNECTOR,
+              backgroundSize: "100% 12px",
+              backgroundRepeat: "repeat-y",
+              y: reduce ? 0 : lineFill,
+            }}
+          />
+        </div>
       )}
+      {/* Badge: springs in (opacity/scale — `y` stays owned by the parallax
+          motion value, so the two never conflict). */}
       <motion.div
         style={reduce ? undefined : { y: badgeY }}
+        initial={reduce ? undefined : { opacity: 0, scale: 0.4 }}
+        whileInView={reduce ? undefined : { opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-90px" }}
+        transition={reduce ? undefined : { type: "spring", stiffness: 260, damping: 14 }}
         className="relative z-10 flex h-[40px] sm:h-[48px] lg:h-[56px] w-[40px] sm:w-[48px] lg:w-[56px] shrink-0 items-center justify-center rounded-full bg-[#5B6A5A] shadow-[0px_10px_15px_-3px_rgba(0,0,0,0.10),0px_4px_6px_-4px_rgba(0,0,0,0.10)]">
         <p className="font-inter font-bold text-[13px] sm:text-[14px] lg:text-[16px] leading-[20px] sm:leading-[22px] lg:leading-[24px] text-white text-center">
           {step.num}
         </p>
       </motion.div>
-      <div className="flex flex-1 flex-col gap-2 sm:gap-3 lg:gap-[12px] pt-1 sm:pt-[4px] min-w-0">
+      {/* Step content floats in just after its badge, one row at a time as
+          each enters the viewport. */}
+      <motion.div
+        initial={reduce ? undefined : { opacity: 0, y: 44, filter: "blur(8px)" }}
+        whileInView={reduce ? undefined : { opacity: 1, y: 0, filter: "blur(0px)" }}
+        viewport={{ once: true, margin: "-90px" }}
+        transition={reduce ? undefined : { duration: 0.8, ease: EASE, delay: 0.12 }}
+        className="flex flex-1 flex-col gap-2 sm:gap-3 lg:gap-[12px] pt-1 sm:pt-[4px] min-w-0">
         <p className="font-satoshi font-medium text-[18px] sm:text-[22px] lg:text-[26px] leading-[1.3] lg:leading-[36px] text-[#1A1C1E]">
           {step.title}
         </p>
@@ -101,7 +132,7 @@ function StepRow({ step, isLast }: { step: Step; isLast: boolean }) {
             ))}
           </div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }
