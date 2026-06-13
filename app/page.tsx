@@ -20,7 +20,7 @@ import { Reveal } from "@/components/motion/Reveal";
 
 export default function Home() {
   return (
-    <div id="top" className="w-full bg-white overflow-x-hidden">
+    <div id="top" className="w-full bg-white">
       <TopBar />
       <NavigationBar />
       <Hero />

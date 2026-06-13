@@ -4,6 +4,16 @@
 
 html {
   scroll-behavior: smooth;
+  /* Single document scroller. Horizontal clip lives on html so off-screen
+     entrance transforms (Reveal's x:±80) can't extend page width. */
+  overflow-x: clip;
+}
+
+/* Body defaults: overflow visible, no overflow-y override.
+   That prevents body from becoming its own scrolling context — only
+   the html element holds the single, real scrollbar. */
+body {
+  overflow: visible;
 }
 
 @layer base {
