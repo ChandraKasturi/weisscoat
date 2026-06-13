@@ -99,7 +99,7 @@ export default function Contact() {
             </li>
             <li className="flex items-center gap-3 lg:gap-[16px]">
               <CalendarClock size={20} className="shrink-0" /> Mon - Sat, 9:00
-              AM &ndash; 6:00 PM
+              AM &ndash; 6:00 PM IST
             </li>
           </ul>
         </div>

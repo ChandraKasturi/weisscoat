@@ -676,7 +676,7 @@ function Footer() {
         <div className="flex flex-col gap-2.5 text-[14px]">
           <p>📞 +91 8106657691</p>
           <p>✉️ guna@weisscoat.com</p>
-          <p>🕐 Mon - Sat, 9:00 AM - 6:00 PM</p>
+          <p>🕐 Mon - Sat, 9:00 AM - 6:00 PM IST</p>
         </div>
       </div>
       <div className="bg-white rounded-3xl p-6 flex flex-col gap-4 text-[#1a201c]">
