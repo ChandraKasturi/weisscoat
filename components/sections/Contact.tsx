@@ -92,10 +92,10 @@ export default function Contact() {
           </p>
           <ul className="mt-4 lg:mt-[20px] flex flex-col gap-3 lg:gap-[18px] font-satoshi font-normal text-[15px] sm:text-[18px] lg:text-[23px] leading-[1.5] lg:leading-[29px] text-[#F9F9F9]">
             <li className="flex items-center gap-3 lg:gap-[16px]">
-              <Phone size={20} className="shrink-0" /> +1 555 505 5050
+              <Phone size={20} className="shrink-0" /> +91 8106657691
             </li>
             <li className="flex items-center gap-3 lg:gap-[16px]">
-              <Mail size={20} className="shrink-0" /> hello@weisscoat.ai
+              <Mail size={20} className="shrink-0" /> guna@weisscoat.com
             </li>
             <li className="flex items-center gap-3 lg:gap-[16px]">
               <CalendarClock size={20} className="shrink-0" /> Mon - Sat, 9:00
