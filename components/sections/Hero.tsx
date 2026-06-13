@@ -211,7 +211,7 @@ export default function Hero() {
               {...fadeUp(0.28, 32)}
               className="font-satoshi font-normal not-italic text-[13px] sm:text-[15px] md:text-[16px] leading-[1.6] text-[rgba(7,0,59,0.75)] max-w-[560px]"
             >
-              Weisscoat helps doctors build AI-powered clinical assistants
+              Weisscoat helps doctors use AI-powered clinical assistants
               trained around their unique consultation style, transforming every
               consultation into a structured clinical intelligence system.
             </motion.p>
@@ -352,7 +352,7 @@ export default function Hero() {
             {...fadeUp(0.28, 32)}
             className="absolute left-[40px] top-[355px] w-[623px] font-satoshi font-normal not-italic text-[18px] leading-[1.7] text-[rgba(7,0,59,0.75)]"
           >
-            Weisscoat helps doctors build AI-powered clinical assistants trained
+            Weisscoat helps doctors use AI-powered clinical assistants trained
             around their unique consultation style, transforming every
             consultation into a structured clinical intelligence system.
           </motion.p>

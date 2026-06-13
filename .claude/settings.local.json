@@ -113,7 +113,11 @@
       "Bash(git add *)",
       "Bash(curl -s -o /tmp/p2.html -w 'HTTP %{http_code}\\\\n' http://localhost:3000/)",
       "Bash(pkill -f \"next dev\")",
-      "Bash(pkill -f \"next-server\")"
+      "Bash(pkill -f \"next-server\")",
+      "Bash(lsof -nP -iTCP:3000 -sTCP:LISTEN)",
+      "Bash(awk 'NR>1{print $2}')",
+      "Bash(xargs -I{} kill {})",
+      "Bash(curl *)"
     ]
   }
 }

@@ -3,9 +3,9 @@ export default function TopBar() {
     <div className="bg-[#EAF6C9] w-full" data-name="Top Bar">
       <div className="mx-auto max-w-[1440px] flex items-center justify-between gap-2 px-2 sm:px-6 lg:px-12 xl:px-[80px] h-[28px] sm:h-[40px]">
         <div className="flex items-center gap-1.5 sm:gap-3 lg:gap-[18px] min-w-0 whitespace-nowrap font-satoshi font-bold text-[9px] sm:text-[12px] md:text-[14px] lg:text-[16px] leading-none text-[#444446]">
-          <p className="truncate">Contact Us: +91 9955446890</p>
+          <p className="truncate">Contact Us: +91 8106657691</p>
           <span aria-hidden className="h-[10px] sm:h-[16px] lg:h-[18px] w-px bg-[#444446]/40 shrink-0" />
-          <p className="truncate">Email: weisscoat@gmail.com</p>
+          <p className="truncate">Email: guna@weisscoat.com</p>
         </div>
         <div className="flex items-center gap-1 sm:gap-2 whitespace-nowrap font-satoshi font-normal text-[9px] sm:text-[12px] md:text-[14px] lg:text-[16px] leading-none text-black shrink-0">
           <svg

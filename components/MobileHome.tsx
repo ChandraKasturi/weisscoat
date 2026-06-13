@@ -21,8 +21,8 @@ const COLORS = {
 function TopBar() {
   return (
     <div className="bg-[#f5f7f3] px-5 py-2 flex flex-col gap-1 text-[11px] text-[#555f58]">
-      <p>Contact: +91 9955446890</p>
-      <p>Email: weisscoat@gmail.com · 📍 Hyderabad</p>
+      <p>Contact: +91 8106657691</p>
+      <p>Email: guna@weisscoat.com · 📍 Hyderabad</p>
     </div>
   );
 }
@@ -674,8 +674,8 @@ function Footer() {
           Weisscoat Personalized Clinical Intelligence for the Future of Healthcare.
         </p>
         <div className="flex flex-col gap-2.5 text-[14px]">
-          <p>📞 +1 555 505 5050</p>
-          <p>✉️ hello@weisscoat.ai</p>
+          <p>📞 +91 8106657691</p>
+          <p>✉️ guna@weisscoat.com</p>
           <p>🕐 Mon - Sat, 9:00 AM - 6:00 PM</p>
         </div>
       </div>
